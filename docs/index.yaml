@@ -1,4 +1,4 @@
-title: unitsml
+title: UnitsML - Units Markup Language
 redirectFrom: []
 media: []
 summary:
@@ -9,8 +9,8 @@ summary:
         content:
           - type: text
             text: >-
-              UnitsML aims to make it easier to author documentation sites—like
-              this one.
+              UnitsML is the authoritative mechanism for encoding scientific
+              units of measure.
 contents:
   doc:
     type: doc
@@ -23,13 +23,12 @@ contents:
             content:
               - type: text
                 text: >-
-                  UnitsML is in the initial stages and is under active
-                  development. Its APIs and the Paneron extension may change
-                  frequently, and documentation is being written.
+                  UnitsML is under active development and its documentation may
+                  change frequently.
       - type: paragraph
         content:
           - type: text
-            text: 'UnitsML consists of three main parts:'
+            text: 'UnitsML consists of two main parts:'
       - type: bullet_list
         content:
           - type: list_item
@@ -38,65 +37,15 @@ contents:
                 content:
                   - type: text
                     text: >-
-                      Components providing layout and styling of documentation
-                      pages: see 
-                  - type: link
-                    attrs:
-                      schemaID: web
-                      reference: 'https://unitsml.org/unitsml-doc-pages'
-                      hRef: 'https://unitsml.org/unitsml-doc-pages'
-                      title: ''
-                    content:
-                      - type: text
-                        text: unitsml-doc-pages docs
-                  - type: text
-                    text: .
+                      UnitsML XML, a way to encode scientific units of measure,
+                      such as SI units, their derivatives and non-SI units;
           - type: list_item
             content:
               - type: paragraph
                 content:
                   - type: text
                     text: >-
-                      react-static plugin for building a static site using
-                      UnitsML documentation page components and documentation
-                      data you provide in YAML: see 
-                  - type: link
-                    attrs:
-                      schemaID: web
-                      reference: 'https://unitsml.org/react-static-plugin/'
-                      hRef: 'https://unitsml.org/react-static-plugin/'
-                      title: ''
-                    content:
-                      - type: text
-                        text: plugin docs
-                  - type: text
-                    text: .
-          - type: list_item
-            content:
+                      UnitsDB, a database of scientific units of measure
+                      utilized in UnitsML XML, including most common units of
+                      measure used today.
               - type: paragraph
-                content:
-                  - type: text
-                    text: >-
-                      Paneron extension for authoring documentation data and
-                      streamlined automated static site build setup: see 
-                  - type: link
-                    attrs:
-                      schemaID: web
-                      reference: 'https://unitsml.org/paneron-extension/'
-                      hRef: 'https://unitsml.org/paneron-extension/'
-                      title: ''
-                    content:
-                      - type: text
-                        text: Paneron extension docs
-                  - type: text
-                    text: .
-              - type: admonition
-                attrs:
-                  type: tip
-                content:
-                  - type: paragraph
-                    content:
-                      - type: text
-                        text: >-
-                          If you are a documentation writer, this is where you
-                          would want to start.
