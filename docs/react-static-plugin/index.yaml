@@ -1,4 +1,4 @@
-title: UnitsML Frequently Asked Questions
+title: Frequently Asked Questions
 media: []
 redirectFrom: []
 contents:
@@ -241,3 +241,11 @@ contents:
                       UnitsDB is UnitsML, but the UnitsML schema is designed for
                       marking up units of measure within other markup languages
                       independent from UnitsDB.
+summary:
+  doc:
+    type: doc
+    content:
+      - type: paragraph
+        content:
+          - type: text
+            text: Common questions on UnitsML.
