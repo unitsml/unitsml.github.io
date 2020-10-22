@@ -49,10 +49,50 @@ contents:
           - type: text
             text: >-
               We anticipate that UnitsML will be used by the developers of other
-              markup languages to ad- dress the needs of specific communities
+              markup languages to address the needs of specific communities
               (e.g. mathematics, chemistry, materials science, etc.). The
               UnitsML schema is not intended to be a standalone schema, but
               rather to be used in combination with other specific schemas
               through the appropriate use of namespaces.
+      - type: section
+        attrs:
+          id: example-unitsml-animl
+        content:
+          - type: section_header
+            content:
+              - type: text
+                text: 'Example: UnitsML within AniML'
+          - type: paragraph
+            content:
+              - type: text
+                text: >-
+                  UnitsML used within another ML (AnIML - the Analytical
+                  Information Markup Language) through the proper use of
+                  namespaces
+      - type: paragraph
+      - type: code_block
+        content:
+          - type: text
+            text: |-
+              <?xml version=”1.0”?>
+              <AnIML xmlns:animlcore=”http://animl.sourceforge.net/CORE”
+               xmlns:unitsml=”http://unitsml.nist.gov/2005”
+               xmlns:xsi=”http://www.w3.org/2001/XMLSchema-instance”
+               xsi:schemaLocation=”http://animl.sourceforge.net/CORE 
+                http://animl.sourceforge.net/schema/animl-core.xsd”
+               version=”1.0”>
+              ...
+                <animlcore:Parameter name=”SampleAmount”>
+                  <float32>12.2</float32>
+                  <unitsml:unitsml>
+                    <unitsml:units>
+                      <unitsml:unit numericID=”NISTu27” symbolicID=”g”>
+                        <unitsml:system name=”SI” type=”SI_multiples_and_sub”/>
+                        <unitsml:name lang=”en-US”>gram</unitsml:name>
+                      </unitsml:unit>
+                    </unitsml:units>
+                  </unitsml:unitsml>
+              ...
+              </AnIML>
 media:
   - Screenshot 2020-10-15 at 2.32.18 PM.png
