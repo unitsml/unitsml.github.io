@@ -1,0 +1,40 @@
+title: React components
+media: []
+redirectFrom: []
+summary:
+  doc:
+    type: doc
+    content:
+      - type: paragraph
+contents:
+  doc:
+    type: doc
+    content:
+      - type: paragraph
+        content:
+          - type: text
+            text: >-
+              UnitsML documentation page styling and layout is provided by React
+              components distributed via 
+          - type: link
+            attrs:
+              schemaID: web
+              reference: 'https://www.npmjs.com/package/@riboseinc/unitsml-doc-pages'
+              hRef: 'https://www.npmjs.com/package/@riboseinc/unitsml-doc-pages'
+              title: ''
+            content:
+              - type: text
+                text: '@riboseinc/unitsml-doc-pages'
+          - type: text
+            text: ' NPM package. See '
+          - type: link
+            attrs:
+              schemaID: web
+              reference: 'https://github.com/unitsml-docs/unitsml-doc-pages'
+              hRef: 'https://github.com/unitsml-docs/unitsml-doc-pages'
+              title: ''
+            content:
+              - type: text
+                text: code on GitHub
+          - type: text
+            text: .

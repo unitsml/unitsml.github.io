@@ -1,0 +1,51 @@
+title: Plugin for react-static
+media: []
+redirectFrom: []
+contents:
+  doc:
+    type: doc
+    content:
+      - type: paragraph
+        content:
+          - type: text
+            text: >-
+              UnitsML plugin for react-static allows to quickly set up statically
+              pre-built sites that read documentation data from YAML files, and
+              render it as a set of pages created from React components provided
+              by 
+          - type: text
+            marks:
+              - type: code
+            text: unitsml-doc-pages
+          - type: text
+            text: .
+      - type: paragraph
+        content:
+          - type: text
+            text: 'The plugin is available on NPM as '
+          - type: link
+            attrs:
+              schemaID: web
+              reference: >-
+                https://www.npmjs.com/package/@riboseinc/react-static-plugin-unitsml-doc-pages
+              hRef: >-
+                https://www.npmjs.com/package/@riboseinc/react-static-plugin-unitsml-doc-pages
+              title: ''
+            content:
+              - type: text
+                text: '@riboseinc/react-static-plugin-unitsml-doc-pages'
+          - type: text
+            text: '. See '
+          - type: link
+            attrs:
+              schemaID: web
+              reference: >-
+                https://github.com/unitsml-docs/react-static-plugin-unitsml-doc-pages
+              hRef: >-
+                https://github.com/unitsml-docs/react-static-plugin-unitsml-doc-pages
+              title: ''
+            content:
+              - type: text
+                text: code on GitHub
+          - type: text
+            text: .

@@ -1,0 +1,57 @@
+title: Paneron extension
+redirectFrom: []
+contents:
+  doc:
+    type: doc
+    content:
+      - type: paragraph
+        content:
+          - type: text
+            text: >-
+              UnitsML Paneron extension allows to author documentation page
+              structure and contents with a graphical user interface, and to
+              quickly set up site deployment using GitHub actions.
+      - type: figure
+        content:
+          - type: image
+            attrs:
+              alt: Screenshot of UnitsML GUI
+              src: Screenshot 2020-10-15 at 2.32.18 PM.png
+          - type: figure_caption
+            content:
+              - type: text
+                text: >-
+                  This site, as it appears in Paneron with UnitsML site editor
+                  extension.
+      - type: section
+        attrs:
+          id: getting-started
+        content:
+          - type: section_header
+            content:
+              - type: text
+                text: Getting started
+          - type: paragraph
+            content:
+              - type: text
+                text: 'First, make sure you have '
+              - type: link
+                attrs:
+                  schemaID: web
+                  reference: 'https://github.com/paneron/paneron/releases'
+                  hRef: 'https://github.com/paneron/paneron/releases'
+                  title: ''
+                content:
+                  - type: text
+                    text: the latest version of Paneron
+              - type: text
+                text: ' installed.'
+          - type: paragraph
+            content:
+              - type: text
+                text: >-
+                  You can create an UnitsML site by starting a repository in
+                  Paneron, and selecting “UnitsML documentation site” as
+                  repository type.
+media:
+  - Screenshot 2020-10-15 at 2.32.18 PM.png
