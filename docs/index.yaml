@@ -45,9 +45,8 @@ contents:
                 content:
                   - type: text
                     text: >-
-                      UnitsDB (Units Database), a database of scientific units
-                      of measure utilized in UnitsML XML, including most common
-                      units of measure used today.
+                      UnitsDB (Units Database), a database containing extensive
+                      information on units, prefixes, quantities and dimensions.
       - type: section
         attrs:
           id: landing-vision
