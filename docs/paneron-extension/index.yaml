@@ -1,4 +1,4 @@
-title: Paneron extension
+title: UnitsML XML
 redirectFrom: []
 contents:
   doc:
@@ -8,50 +8,51 @@ contents:
         content:
           - type: text
             text: >-
-              UnitsML Paneron extension allows to author documentation page
-              structure and contents with a graphical user interface, and to
-              quickly set up site deployment using GitHub actions.
-      - type: figure
+              UnitsML allows encoding of scientific units of measure and
+              quantities into XML and will validate XML documents that use
+              UnitsML. Initial development of this schema was done at NIST, but
+              completion of the development process should include input from
+              the international scientific and engineering community. Towards
+              this end, we are initiating an OASIS Technical Committee to
+              address any needed changes in the schema and publish a final
+              recommendation.
+      - type: paragraph
         content:
-          - type: image
-            attrs:
-              alt: Screenshot of UnitsML GUI
-              src: Screenshot 2020-10-15 at 2.32.18 PM.png
-          - type: figure_caption
-            content:
-              - type: text
-                text: >-
-                  This site, as it appears in Paneron with UnitsML site editor
-                  extension.
-      - type: section
-        attrs:
-          id: getting-started
+          - type: text
+            text: 'Types of Units:'
+      - type: bullet_list
         content:
-          - type: section_header
+          - type: list_item
             content:
-              - type: text
-                text: Getting started
-          - type: paragraph
-            content:
-              - type: text
-                text: 'First, make sure you have '
-              - type: link
-                attrs:
-                  schemaID: web
-                  reference: 'https://github.com/paneron/paneron/releases'
-                  hRef: 'https://github.com/paneron/paneron/releases'
-                  title: ''
+              - type: paragraph
                 content:
                   - type: text
-                    text: the latest version of Paneron
-              - type: text
-                text: ' installed.'
-          - type: paragraph
+                    text: >-
+                      SI (International System of Units) base and special
+                      derived units (e.g., meter, second, joule, volt)
+          - type: list_item
             content:
-              - type: text
-                text: >-
-                  You can create an UnitsML site by starting a repository in
-                  Paneron, and selecting “UnitsML documentation site” as
-                  repository type.
+              - type: paragraph
+                content:
+                  - type: text
+                    text: >-
+                      SI derived units (e.g., square meter, meter per second, mm
+                      • s-2)
+          - type: list_item
+            content:
+              - type: paragraph
+                content:
+                  - type: text
+                    text: 'Non-SI units (e.g., minute, ångström, and inch)'
+      - type: paragraph
+        content:
+          - type: text
+            text: >-
+              We anticipate that UnitsML will be used by the developers of other
+              markup languages to ad- dress the needs of specific communities
+              (e.g. mathematics, chemistry, materials science, etc.). The
+              UnitsML schema is not intended to be a standalone schema, but
+              rather to be used in combination with other specific schemas
+              through the appropriate use of namespaces.
 media:
   - Screenshot 2020-10-15 at 2.32.18 PM.png
