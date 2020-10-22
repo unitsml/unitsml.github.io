@@ -20,9 +20,18 @@ contents:
               - type: paragraph
                 content:
                   - type: text
-                    text: >-
-                      1998: Frank Olken and John McCarthy of the Lawrence
-                      Berkeley National Laboratory (LBNL) led the 
+                    text: '1998: Frank Olken and John McCarthy of the '
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'https://www.lbl.gov'
+                      hRef: 'https://www.lbl.gov'
+                      title: ''
+                    content:
+                      - type: text
+                        text: Lawrence Berkeley National Laboratory
+                  - type: text
+                    text: ' (LBNL) led the '
                   - type: link
                     attrs:
                       schemaID: web
@@ -67,7 +76,7 @@ contents:
                       - type: text
                         text: “Measurement Units in XML Datatypes”
                   - type: text
-                    text: ' was published by Olken and McCarthy at LBL. Subsequently in the same year, '
+                    text: ' was published by Olken and McCarthy at LBNL. Subsequently in the same year, '
                   - type: link
                     attrs:
                       schemaID: web
@@ -78,7 +87,18 @@ contents:
                       - type: text
                         text: MatML (Materials Markup Language)
                   - type: text
-                    text: ' which referred to the measurement units work, was published by NIST.'
+                    text: ' which referred to the measurement units work, was published by '
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'https://www.nist.gov'
+                      hRef: 'https://www.nist.gov'
+                      title: ''
+                    content:
+                      - type: text
+                        text: NIST
+                  - type: text
+                    text: .
           - type: list_item
             content:
               - type: paragraph
@@ -100,10 +120,20 @@ contents:
                     text: >-
                       , with work led by Bob Dragoset of NIST. Collaborators
                       included Barry Taylor (NIST emeritus), Michael McLay (NIST
-                      EEEL), Frank Olken (LBNL) and Peter Murray-Rust (CML -
-                      Chemical Markup Language). The work was funded in part by
-                      NIST’s Systems Integration for Manufacturing Applications
-                      (SIMA) program.
+                      EEEL), Frank Olken (LBNL) and Peter Murray-Rust (
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'http://www.xml-cml.org'
+                      hRef: 'http://www.xml-cml.org'
+                      title: ''
+                    content:
+                      - type: text
+                        text: CML - Chemical Markup Language
+                  - type: text
+                    text: >-
+                      ). The work was funded in part by NIST’s Systems
+                      Integration for Manufacturing Applications (SIMA) program.
           - type: list_item
             content:
               - type: paragraph
@@ -122,15 +152,79 @@ contents:
                       - type: text
                         text: Physical Measurement Laboratory
                   - type: text
-                    text: >-
-                      ) to be standardized, and was inducted into a new OASIS TC
-                      of the same name “UnitsML” sponsored by NIST. The Convenor
-                      of the TC was Simon Frechette (NIST MEL-SIMA).
-                      Collaborators included Mark Carlisle (NIST MEL-SIMA), Bob
-                      Dragoset (NIST PL), Karen Olsen (NIST PL), Gary Kramer
-                      (NIST CSTL), Peter Lindstrom (NIST CSTL), Kent Reed (NIST
-                      BFRL), Evan Wallace (NIST MEL), Ismet Celebi, Ronny Jopp
-                      and Alexander Roth.
+                    text: ') to be standardized, and was inducted into a new '
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'https://www.oasis-open.org'
+                      hRef: 'https://www.oasis-open.org'
+                      title: ''
+                    content:
+                      - type: text
+                        text: OASIS
+                  - type: text
+                    text: ' TC of the same name “UnitsML” sponsored by NIST. The Convenor of the TC was Simon Frechette (NIST MEL-SIMA). Collaborators included Mark Carlisle (NIST MEL-SIMA), Bob Dragoset (NIST PL), Karen Olsen (NIST PL), Gary Kramer (NIST CSTL), Peter Lindstrom (NIST CSTL), Kent Reed (NIST BFRL), Evan Wallace (NIST MEL), Ismet Celebi, Ronny Jopp and Alexander Roth.'
+          - type: list_item
+            content:
+              - type: paragraph
+                content:
+                  - type: text
+                    text: '2006: The UnitsML TC at OASIS includes participants from '
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'https://www.nist.gov'
+                      hRef: 'https://www.nist.gov'
+                      title: ''
+                    content:
+                      - type: text
+                        text: NIST
+                  - type: text
+                    text: ', '
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'https://www.grantadesign.com'
+                      hRef: 'https://www.grantadesign.com'
+                      title: ''
+                    content:
+                      - type: text
+                        text: Granta Design
+                  - type: text
+                    text: ', LSC Group Ltd (now '
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'https://www.babcockinternational.com'
+                      hRef: 'https://www.babcockinternational.com'
+                      title: ''
+                    content:
+                      - type: text
+                        text: Babcock
+                  - type: text
+                    text: '), '
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'https://www.ibm.com/'
+                      hRef: 'https://www.ibm.com/'
+                      title: ''
+                    content:
+                      - type: text
+                        text: IBM
+                  - type: text
+                    text: ', NPL, '
+                  - type: link
+                    attrs:
+                      schemaID: web
+                      reference: 'https://www.unf.edu'
+                      hRef: 'https://www.unf.edu'
+                      title: ''
+                    content:
+                      - type: text
+                        text: Univ. of North Florida
+                  - type: text
+                    text: ', IEM'
           - type: list_item
             content:
               - type: paragraph
