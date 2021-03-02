@@ -104,3 +104,51 @@ contents:
                 content:
                   - type: text
                     text: unit conversion and manipulation
+      - type: section
+        attrs:
+          id: landing-schemas
+        content:
+          - type: section_header
+            content:
+              - type: text
+                text: Schemas
+          - type: paragraph
+      - type: paragraph
+        content:
+          - type: text
+            text: 'Schemas are available at the '
+          - type: link
+            attrs:
+              schemaID: web
+              reference: 'https://schema.unitsml.org/'
+              hRef: 'https://schema.unitsml.org/'
+              title: ''
+            content:
+              - type: text
+                text: UnitsML Schemas
+          - type: text
+            text: ' site.'
+      - type: section
+        attrs:
+          id: landing-unitsdb
+        content:
+          - type: section_header
+            content:
+              - type: text
+                text: UnitsDB
+          - type: paragraph
+      - type: paragraph
+        content:
+          - type: text
+            text: 'UnitsDB content is openly available from the official '
+          - type: link
+            attrs:
+              schemaID: web
+              reference: 'https://github.com/unitsml/unitsdb/'
+              hRef: 'https://github.com/unitsml/unitsdb/'
+              title: ''
+            content:
+              - type: text
+                text: UnitsDB GitHub repository
+          - type: text
+            text: .
