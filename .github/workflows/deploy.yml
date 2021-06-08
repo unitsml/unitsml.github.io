@@ -1,8 +1,7 @@
-name: deploy-master
+
+name: deploy
 
 on:
-  schedule:
-    - cron: '42 */12 * * *'
   push:
     branches: [ master ]
   repository_dispatch:
@@ -12,6 +11,13 @@ jobs:
   build:
     name: Build site
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://www.unitsml.org
+    defaults:
+      run:
+        working-directory: ./unitsml-dot-org
+
     steps:
       - name: Use Node
         uses: actions/setup-node@v1
@@ -20,10 +26,10 @@ jobs:
       - uses: actions/checkout@master
       - name: Install NPM dependencies
         run: |
-          cd unitsml-dot-org && yarn install
+          yarn install
       - name: Build site
         run: |
-          cd unitsml-dot-org && yarn build
+          yarn build
 
       - name: Deploy to AWS
         env:
@@ -38,5 +44,4 @@ jobs:
           aws s3 sync unitsml-dot-org/dist s3://$S3_BUCKET_NAME --region=$AWS_REGION --delete --no-progress --exclude "*" --include "*.jsonld" --content-type "application/ld+json; charset=utf-8"
           aws s3 sync unitsml-dot-org/dist s3://$S3_BUCKET_NAME --region=$AWS_REGION --delete --no-progress --exclude "*" --include "*.ttl" --content-type "text/turtle; charset=utf-8"
           aws s3 sync unitsml-dot-org/dist s3://$S3_BUCKET_NAME --region=$AWS_REGION --delete --no-progress --include "*" --exclude "*.html" --exclude "*.json" --exclude "*.jsonld" --exclude "*.ttl"
-          aws configure set preview.cloudfront true
           aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
