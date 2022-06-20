@@ -1,0 +1,28 @@
+---
+title: UnitsDB
+description: Database of scientific units of measure.
+repo_url: https://github.com/unitsml/unitsdb
+
+docs:
+  git_repo_url: https://github.com/unitsml/unitsdb
+  git_repo_subtree: docs
+
+external_links:
+  - url: https://github.com/unitsml/unitsdb
+
+tags: ["writtenin:YAML"]
+
+feature_with_priority: 1
+---
+
+The UnitsDB contains detailed units and dimensionality information for an extensive number of SI units and common, non-SI units. The database includes information needed to reference units in an XML document, and specifically includes:
+
+* Unique identifiers
+* Unit symbols
+* Language-specific unit names
+* Representations in terms of other units (including conversion factors)
+
+In addition to scientific units, the database will include information about common quantities (e.g., length, mass), including the dimension of quantities with respect to the 7 base quantities.
+
+UnitsDB in its entirety
+can be found in this UnitsDB Github repository.

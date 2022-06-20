@@ -1,0 +1,150 @@
+---
+---
+
+$accent-color: darken(#d7df23, 20%);
+$primary-color: darken(#83cee8, 30%);
+$primary-color-dark: darken($primary-color, 20%);
+$main-background: linear-gradient(315deg, darken($primary-color, 20%) 0%, darken($primary-color, 10%) 74%) !default;
+
+@import 'jekyll-theme-open-project';
+
+.main-section {
+  > .title {
+    font-weight: 500;
+  }
+}
+
+body > .underlay > footer {
+  .parent-hub-plug {
+    display: none !important;
+    // Temporary measure, until this site is converted to hub site or new framework.
+  }
+}
+
+body.site--project.layout--home > main > .custom-intro .summary p:first-child:first-letter {
+  font-size: unset;
+  line-height: unset;
+  color: unset;
+  margin: unset;
+  float: unset;
+  padding: unset;
+}
+
+body > .underlay > header > .hamburger-menu {
+  > nav {
+    margin-top: 1em
+  }
+
+  > nav > * {
+    margin-left: 1.5em
+  }
+}
+
+
+body > .underlay > header {
+  > .site-logo,
+  > .hamburger-menu .site-logo-container {
+
+    margin-right: 2em;
+
+    a .symbol {
+      display: inline-block;
+
+      svg {
+        height: 2rem;
+        margin-right: 0.5em;
+      }
+    }
+
+    a .title {
+      display: inline-block;
+
+      svg {
+        height: 1rem;
+        * {
+          fill: white;
+        }
+      }
+    }
+
+  }
+}
+
+body.layout--home > .underlay > .hero {
+  .illustration {
+    bottom: -100px !important;
+
+    svg {
+      height: 200px;
+    }
+  }
+
+  > .text {
+    > .title {
+      font-weight: normal;
+    }
+  }
+}
+
+body.layout--home {
+  > main .custom-intro .summary {
+    ul.supported-bibliographies {
+      li {
+        .label {
+          margin-right: 1en;
+        }
+        .source, .gem {
+          white-space: nowrap;
+        }
+        .source {
+          &:after {
+            content: ", ";
+          }
+
+          &:last-child:after {
+            content: unset;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.layout--home {
+  > main > .featured-posts {
+    .title {
+      align-self: flex-start;
+    }
+  }
+}
+
+body.overview,
+body.getting-started {
+  section.documentation {
+    margin-bottom: 100px;
+  }
+}
+
+body.overview section.documentation {
+  ul.feature-list {
+    display: flex;
+    flex-flow: column nowrap;
+
+    li.feature p {
+      padding-bottom: 1em;
+    }
+
+    @media screen and (min-width: $bigscreen-breakpoint) {
+      flex-flow: row wrap;
+      li {
+        flex-basis: 50%;
+        flex: 1 1 auto;
+      }
+    }
+  }
+  .cta .button {
+    @include cta-button(transparent, $primary-dark-color);
+    border-radius: 25px;
+    border: 1px solid $primary-color;
+  }
+}

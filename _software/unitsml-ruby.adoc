@@ -1,0 +1,19 @@
+---
+title: unitsml-ruby
+description: A wrapper gem for UnitsDB.
+repo_url: https://github.com/unitsml/unitsml-ruby
+repo_branch: master
+
+docs:
+  git_repo_url: "https://github.com/unitsml/unitsml-ruby"
+  git_repo_branch: master
+  git_repo_subtree: docs
+
+external_links:
+  - url: https://github.com/unitsml/unitsml-ruby
+
+tags: ["writtenin:Ruby", "interface:library"]
+
+feature_with_priority: 3
+---
+

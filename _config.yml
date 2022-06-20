@@ -1,0 +1,125 @@
+title: UnitsML
+description: UnitsML is the authoritative mechanism for encoding scientific units of measure.
+
+
+permalink: /blog/:year-:month-:day-:title/
+
+seo:
+  type: Organization
+
+url: https://www.unitsml.org
+
+github_repo_url: https://github.com/unitsml/unitsml.org
+github_repo_branch: master
+
+algolia_search:
+  api_key: 'test'
+  index_name: 'unitsml'
+
+landing_priority: [custom_intro, software, specs]
+
+theme: jekyll-theme-open-project
+
+author:
+  name: UnitsML
+  url: https://www.unitsml.org
+
+authors:
+  - name: UnitsML
+    email: info@unitsml.org
+
+contact_email: info@unitsml.org
+
+theme: jekyll-theme-open-project
+
+includes_dir: .
+
+extra_footer_links:
+  - { url: "/about/", title: "About UnitsML" }
+  - { url: "/faq/", title: "Frequently Asked Questions" }
+
+social:
+  links:
+    - https://github.com/unitsml
+
+legal:
+  name: UnitsML group
+  tos_link: /tos
+  privacy_policy_link: /privacy
+
+home_calls_to_action:
+  - { url: "/about/", title: "About UnitsML" }
+  - { url: "/history/", title: "History" }
+
+collections:
+  # Temporary fix
+  projects:
+    output: true
+  software:
+    output: true
+    permalink: /software/:path/
+  specs:
+    output: true
+    permalink: /specs/:path/
+  posts:
+    output: true
+    permalink: /blog/:year-:month-:day-:title/
+  pages:
+    output: true
+    permalink: /:name/
+
+
+defaults:
+  # Theme defaults.
+  # MUST be duplicated from theme’s _config.yml
+  # (does not get inherited, unlike the collections hash)
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: _posts
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: _software
+      type: software
+    values:
+      layout: product
+  - scope:
+      path: _specs
+      type: specs
+    values:
+      layout: spec
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-inline-svg
+
+tag_namespaces:
+  software:
+    writtenin: "Written in"
+    bindingsfor: "Bindings for"
+    user: "Target user"
+    interface: "Interface"
+  specs:
+    audience: "Audience"
+    completion_status: "Status"
+
+exclude:
+  - .git
+  - .lycheeignore
+  - "*/.git"
+  - _software/*/.git
+  - _specs/*/.git
+  - Gemfile*
+  - Makefile
+  - Rakefile
+  - README.adoc
+  - vendor # for deployment
+
+svg:
+  optimize: true
+

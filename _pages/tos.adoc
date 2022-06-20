@@ -1,0 +1,6 @@
+---
+layout: docs-base
+html-class: docs-page
+title: Terms of service
+---
+To be provided.

@@ -1,0 +1,63 @@
+---
+layout: docs-base
+html-class: docs-page
+title: About UnitsML
+---
+:page-liquid:
+
+UnitsML is the authoritative mechanism for encoding scientific units of measure.
+
+NOTE: UnitsML is under active development and its documentation may change frequently.
+
+UnitsML consists of two main parts:
+
+* link:/software/schemas/[UnitsML XML], a way to encode scientific units of measure,
+such as SI units, their derivatives and non-SI units;
+* link:/software/unitsdb/[UnitsDB] (Units Database), a database containing extensive
+information on units, prefixes, quantities and dimensions.
+
+== Vision
+
+* XML schema(s) available for incorporating UnitsML into XML
+documents for encoding scientific units of measure.
+
+* Extensive XML repository containing schemas and
+information on units, quantities, prefixes.
+
+* Design of schemas and repository to facilitate unit
+information processing:
+
+** validating documents for self-consistent usage of units,
+quantities, and prefixes
+
+** unit conversion and manipulation
+
+== History
+
+=== 1998
+
+* Frank Olken and John McCarthy of the https://www.lbl.gov/[Lawrence Berkeley National Laboratory] (LBNL) led the https://www.w3.org/TandS/QL/QL98/pp/xml.ql.reqs.html[initial effort of encoding units in XML]. This work is also referred by https://www.w3.org/TandS/QL/QL98/pp/xml.ql.reqs.html[“Requirements and Desiderata for an XML Query Language”].
+
+=== 1999
+
+* http://xml.coverpages.org/OlkenMeasurementUnitsSyntax.html[“Measurement Units in XML Datatypes”] was published by Olken and McCarthy at LBNL.
+
+* http://xml.coverpages.org/measurementUnits.html[MatML (Materials Markup Language)] which referred to the measurement units work, was published by NIST.
+
+=== 2003
+
+* The “Units Markup Language (UnitsML)” presentation was given at the http://xml.coverpages.org/ni2002-05-02-b.html[Open Forum 2003 on Metadata Registries], with work led by Bob Dragoset of NIST. Collaborators included Barry Taylor (NIST emeritus), Michael McLay (NIST EEEL), Frank Olken (LBNL) and Peter Murray-Rust (http://www.xml-cml.org/[CML—Chemical Markup Language]). The work was funded in part by NIST’s Systems Integration for Manufacturing Applications (SIMA) program.
+
+=== 2006
+
+* The UnitsML work was proposed by the NIST Physics Laboratory (PL, now the https://www.nist.gov/pml[Physical Measurement Laboratory]) to be standardized, and was inducted into a new OASIS TC of the same name “UnitsML” sponsored by NIST. The Convenor of the TC was Simon Frechette (NIST MEL-SIMA). Collaborators included Mark Carlisle (NIST MEL-SIMA), Bob Dragoset (NIST PL), Karen Olsen (NIST PL), Gary Kramer (NIST CSTL), Peter Lindstrom (NIST CSTL), Kent Reed (NIST BFRL), Evan Wallace (NIST MEL), Ismet Celebi, Ronny Jopp and Alexander Roth.
+
+* The UnitsML TC at OASIS includes participants from https://www.nist.gov/[NIST], https://www.grantadesign.com/[Granta Design], LSC Group Ltd (now https://www.babcockinternational.com/[Babcock]), https://www.ibm.com/[IBM], NPL, https://www.unf.edu/[Univ. of North Florida], IEM.
+
+=== 2016
+
+* The OASIS TC for UnitsML was closed due to completion of work at that stage.
+
+=== 2020—
+
+* UnitsML work continues!

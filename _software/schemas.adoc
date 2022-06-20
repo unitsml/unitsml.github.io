@@ -1,0 +1,28 @@
+---
+title: XML schemas
+description: Schemas for using UnitsML in XML.
+repo_url: https://github.com/unitsml/schemas
+
+external_links:
+  - url: https://github.com/unitsml/schemas
+
+docs:
+  git_repo_url: "https://github.com/unitsml/schemas"
+  git_repo_subtree: docs
+
+tags: ["writtenin:XSD", "writtenin:Ruby"]
+
+feature_with_priority: 1
+---
+
+UnitsML allows encoding of scientific units of measure and quantities into XML and will validate XML documents that use UnitsML.
+
+Types of units include:
+
+* SI (International System of Units) base and special derived units (e.g., meter, second, joule, volt)
+* SI derived units (e.g., square meter, meter per second, mm • s-2)
+* Non-SI units (e.g., minute, ångström, and inch)
+
+We anticipate that UnitsML will be used by the developers of other markup languages to address the needs of specific communities (e.g., mathematics, chemistry, materials science). The UnitsML schema is not intended to be a standalone schema, but rather to be used in combination with other specific schemas through the appropriate use of namespaces.
+
+Initial development of this schema was done at NIST, but completion of the development process should include input from the international scientific and engineering community. Towards this end, we are initiating an OASIS Technical Committee to address any needed changes in the schema and publish a final recommendation.

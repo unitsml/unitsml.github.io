@@ -1,0 +1,141 @@
+---
+layout: docs-base
+html-class: docs-page
+title: Frequently Asked Questions about UnitsML
+docs_title: FAQ  # Why does it have no effect
+navigation:
+  base_url: /faq
+  items:
+  - title: Questions
+    path: /
+---
+
+== Standardization effort
+
+=== What is the rationale behind this standardization effort? What is the motivation of the sponsors/authors?
+
+The rationalization of this standard effort is to create a
+schema for representing scientific units of measure that
+can be easily incorporated into other markup languages,
+thus improving interoperability between different markup
+languages. There were numerous requests that the National
+Institute of Standards and Technology address this issue
+since NIST is responsible for interpreting the
+International System of Units (SI) for use in the U.S.
+
+
+=== What is the scope of this effort? What is explicitly out-of-scope, and why?
+
+The TC will develop and publish an XML-based specification
+that will enable the unambiguous representation of units
+of measure. This effort will not include the following
+items: 1) the design of the Units database (UnitsDB) being
+developed at NIST, except in so far as the design relates
+directly to the UnitsML schema; 2) the generation of
+codes/symbols that represent units of measure; and 3)
+related properties needed for a complete representation of
+numerical values, such as uncertainty.
+
+
+=== Are there existing comparable or overlapping standards, or comparable standardization efforts currently under way? How does the work of this technical committee relate to these? What distinguishes this TC from similar work? How do the differences add value? (TODO)
+
+
+=== Is the product of this technical committee intended to be used in conjunction with other standards or complementary technologies?
+
+UnitsML is explicitly intended to be used as a component
+in the construction of other markup languages and / or
+information systems which require information on units of
+measure. This can generally be done in two ways:
+
+. Other markup languages can incorporate UnitsML to
+provide the markup needed to define and refer to
+units of measure. This will benefit developers of
+such markup languages by providing ready-made
+markup for units of measure. It will benefit users
+of such languages by providing better
+interoperability among languages that use UnitsML.
+
+. Other markup languages or information systems can
+refer to definitions of units which are marked up
+in UnitsML even if they do not use UnitsML to
+denote units of measure. For example, a system may
+use a code list to define units of measure. The
+units corresponding to these codes (and the codes
+themselves) could then be marked up in UnitsML. In
+this manner UnitsML is complimentary to efforts to
+provide standardized unit codes; it provides a
+mechanism to mark up such codes and the units they
+represent.
+
+==== What are these?
+
+UnitsML may be used with any markup language or
+system which has data that contains units of
+measure. Such data can be found in many
+applications in commerce, engineering, and
+science. Examples of such applications include
+management of laboratory data, geographical
+information systems, and commerce which is based
+on physical properties of the product being sold.
+
+==== How does this work relate to these (is the usage of these complements mandatory? optional? restricted or profiled?)
+
+Use of UnitsML is completely optional. In many
+cases, existing systems have already developed
+domain specific markup or codes for handling
+units, and it is probably not practical to convert
+such systems to use UnitsML. The advantages of
+UnitsML (ready-made markup for units, improved
+interoperability), however, should provide a
+compelling case for its use in new projects.
+
+
+=== What is an example of a concrete application that will benefit from standardizing the specifications from this TC?
+
+This standard will greatly improve the ability to reliably exchange scientific data. This would be particularly useful in areas where scientific data is exchanged between different disciplines or business sectors. Specific examples include reliably interpreting scientific data from 1) disparate sources during emergency situations, and 2) technical specifications that accompany products in the manufacturing supply chain.
+
+=== Is it anticipated that TC deliverables will be broadly used, deployed, and/or implemented? Or are the deliverables intended for a narrow audience, possibly including only the TC membership?
+
+The use of units of measure is pervasive. UnitsML could be
+used by most developers of markup languages that include
+units of measure and it is anticipated that it will be
+broadly implemented.
+
+
+=== What are the security implications, if any, of this effort?
+
+There are no known security implications for this effort.
+
+
+== UnitsML and UnitsDB
+
+=== How might UnitsML be used?
+
+UnitsML has been designed primarily to be a component for inclusion into other markup languages. There are several different ways to incorporate UnitsML into other markup languages: referencing the schema, including the schema, importing the schema, and redefining the schema elements. For more information, see http://dx.doi.org/10.6028/jres.115.003[Improving Interoperability by Incorporating UnitsML into Markup Languages].
+
+=== What is UnitsDB?
+
+UnitsDB is a database under development at NIST that will
+contain extensive information on scientific units of
+measure. The output of the database will be in UnitsML and
+HTML, with both human and Web Services interfaces.
+
+
+=== What is the relationship between UnitsML (the schema) and UnitsDB?
+
+In addition to HTML output, another output format for
+UnitsDB is UnitsML. However, the UnitsML schema (under
+development in the OASIS TC) will also be incorporated
+into other markup languages in order to handle units of
+measure. There is a possibility that the OASIS TC will
+change the UnitsML schema such that it will no longer be
+used as the XML output format for UnitsDB.
+
+
+=== Is UnitsML only to be used in conjunction with UnitsDB?
+
+No. There is information contained in the UnitsDB that may
+be useful for using UnitsML, and one output format for
+UnitsDB is UnitsML, but the UnitsML schema is designed for
+marking up units of measure within other markup languages
+independent from UnitsDB.

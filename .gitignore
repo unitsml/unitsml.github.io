@@ -1,6 +1,15 @@
 
+_software/*/.git
+_software/*/docs
+_software/_*_repo
+_specs/*/
+!_specs/*.*
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
 node_modules
 tmp
 artifacts
 dist
-      

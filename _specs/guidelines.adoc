@@ -1,0 +1,12 @@
+---
+title: UnitsML documentation source
+description: Metanorma sources of UnitsML guidelines.
+source_url: https://github.com/unitsml/docs
+
+feature_with_priority: 4
+---
+
+Deliverables are available in PDF here (note—a PDF may be slightly outdated compared to its Metanorma source):
+
+- link:/assets/ref-docs/UnitsML-Guide-v1.0-wd01.pdf[UnitsML Guide v1.0 (working draft 01)]
+- link:/assets/ref-docs/Improving_Interoperability_by_Incorporating_UnitsM.pdf[Improving Interoperability by Incorporating UnitsML into Markup Languages]
