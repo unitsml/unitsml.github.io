@@ -37,6 +37,7 @@ includes_dir: .
 extra_footer_links:
   - { url: "/about/", title: "About UnitsML" }
   - { url: "/faq/", title: "Frequently Asked Questions" }
+  - { url: "https://schema.unitsml.org/", title: "XML Schemas" }
 
 social:
   links:
