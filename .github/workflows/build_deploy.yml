@@ -3,7 +3,7 @@ name: build_deploy
 on:
   push:
     branches:
-    - master
+    - main
     - staging
   pull_request:
   repository_dispatch:
@@ -18,7 +18,7 @@ jobs:
     steps:
     - id: setenv
       run: |
-        if [ "$GITHUB_REF" = "refs/heads/master" ]
+        if [ "$GITHUB_REF" = "refs/heads/main" ]
         then
           echo "::set-output name=my_env::production"
           echo "::set-output name=my_url::https://www.unitsml.org"
