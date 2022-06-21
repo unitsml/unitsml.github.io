@@ -48,10 +48,6 @@ legal:
   tos_link: /tos
   privacy_policy_link: /privacy
 
-home_calls_to_action:
-  - { url: "/about/", title: "About UnitsML" }
-  - { url: "/history/", title: "History" }
-
 collections:
   # Temporary fix
   projects:
