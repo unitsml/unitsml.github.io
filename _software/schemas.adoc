@@ -5,6 +5,8 @@ repo_url: https://github.com/unitsml/schemas
 
 external_links:
   - url: https://github.com/unitsml/schemas
+  - url: https://schema.unitsml.org/
+    title: "Browse schemas"
 
 docs:
   git_repo_url: "https://github.com/unitsml/schemas"
