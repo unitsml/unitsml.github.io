@@ -14,8 +14,9 @@ tags: ["writtenin:XSD", "writtenin:Ruby"]
 
 feature_with_priority: 1
 ---
-
 UnitsML allows encoding of scientific units of measure and quantities into XML and will validate XML documents that use UnitsML.
+
+NOTE: The XML schemas contained in this repository can be browsed at https://schema.unitsml.org/[schema.unitsml.org].
 
 Types of units include:
 
