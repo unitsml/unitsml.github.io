@@ -6,6 +6,7 @@ title: About UnitsML
 :page-liquid:
 
 UnitsML is the authoritative mechanism for encoding scientific units of measure.
+The UnitsML suite of technologies is developed by CalConnect's TC UNITS.
 
 NOTE: UnitsML is under active development and its documentation may change frequently.
 
