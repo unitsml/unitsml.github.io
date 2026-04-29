@@ -815,6 +815,7 @@ const tickerUnits = [
 .step-code pre {
   margin: 0;
   padding: 1rem;
+  overflow-x: auto;
 }
 
 .step-code code {
@@ -880,6 +881,7 @@ const tickerUnits = [
 
   .steps-code-panel {
     position: static;
+    overflow: hidden;
   }
 }
 
