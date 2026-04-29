@@ -1,0 +1,731 @@
+{
+  "@context": "https://unitsml.org/unitsdb/context.jsonld",
+  "@graph": [
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:deci",
+      "@type": "Prefix",
+      "name": "deci",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-1"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:deci"
+        }
+      ],
+      "symbol": "d",
+      "base": 10,
+      "power": -1,
+      "value": 0.1
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:pico",
+      "@type": "Prefix",
+      "name": "pico",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-12"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:pico"
+        }
+      ],
+      "symbol": "p",
+      "base": 10,
+      "power": -12,
+      "value": 1e-12
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:femto",
+      "@type": "Prefix",
+      "name": "femto",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-15"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:femto"
+        }
+      ],
+      "symbol": "f",
+      "base": 10,
+      "power": -15,
+      "value": 1e-15
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:atto",
+      "@type": "Prefix",
+      "name": "atto",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-18"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:atto"
+        }
+      ],
+      "symbol": "a",
+      "base": 10,
+      "power": -18,
+      "value": 1e-18
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:centi",
+      "@type": "Prefix",
+      "name": "centi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-2"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:centi"
+        }
+      ],
+      "symbol": "c",
+      "base": 10,
+      "power": -2,
+      "value": 0.01
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:zepto",
+      "@type": "Prefix",
+      "name": "zepto",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-21"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:zepto"
+        }
+      ],
+      "symbol": "z",
+      "base": 10,
+      "power": -21,
+      "value": 1e-21
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:yocto",
+      "@type": "Prefix",
+      "name": "yocto",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-24"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:yocto"
+        }
+      ],
+      "symbol": "y",
+      "base": 10,
+      "power": -24,
+      "value": 1e-24
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:ronto",
+      "@type": "Prefix",
+      "name": "ronto",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-27"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:ronto"
+        }
+      ],
+      "symbol": "r",
+      "base": 10,
+      "power": -27,
+      "value": 1e-27
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:milli",
+      "@type": "Prefix",
+      "name": "milli",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-3"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:milli"
+        }
+      ],
+      "symbol": "m",
+      "base": 10,
+      "power": -3,
+      "value": 0.001
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:quecto",
+      "@type": "Prefix",
+      "name": "quecto",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-30"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:quecto"
+        }
+      ],
+      "symbol": "q",
+      "base": 10,
+      "power": -30,
+      "value": 1e-30
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:micro",
+      "@type": "Prefix",
+      "name": "micro",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-6"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:micro"
+        }
+      ],
+      "symbol": "μ",
+      "base": 10,
+      "power": -6,
+      "value": 0.000001
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:nano",
+      "@type": "Prefix",
+      "name": "nano",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_-9"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:nano"
+        }
+      ],
+      "symbol": "n",
+      "base": 10,
+      "power": -9,
+      "value": 1e-9
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:none",
+      "@type": "Prefix",
+      "name": "none",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_0"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:none"
+        }
+      ],
+      "symbol": "1",
+      "base": 10,
+      "power": 0,
+      "value": 1
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:deka",
+      "@type": "Prefix",
+      "name": "deka",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_1"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:deka"
+        }
+      ],
+      "symbol": "da",
+      "base": 10,
+      "power": 1,
+      "value": 10
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:tera",
+      "@type": "Prefix",
+      "name": "tera",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_12"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:tera"
+        }
+      ],
+      "symbol": "T",
+      "base": 10,
+      "power": 12,
+      "value": 1000000000000
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:peta",
+      "@type": "Prefix",
+      "name": "peta",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_15"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:peta"
+        }
+      ],
+      "symbol": "P",
+      "base": 10,
+      "power": 15,
+      "value": 1000000000000000
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:exa",
+      "@type": "Prefix",
+      "name": "exa",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_18"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:exa"
+        }
+      ],
+      "symbol": "E",
+      "base": 10,
+      "power": 18,
+      "value": 1000000000000000000
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:hecto",
+      "@type": "Prefix",
+      "name": "hecto",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_2"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:hecto"
+        }
+      ],
+      "symbol": "h",
+      "base": 10,
+      "power": 2,
+      "value": 100
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:zetta",
+      "@type": "Prefix",
+      "name": "zetta",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_21"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:zetta"
+        }
+      ],
+      "symbol": "Z",
+      "base": 10,
+      "power": 21,
+      "value": 1e+21
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:yotta",
+      "@type": "Prefix",
+      "name": "yotta",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_24"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:yotta"
+        }
+      ],
+      "symbol": "Y",
+      "base": 10,
+      "power": 24,
+      "value": 1e+24
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:ronna",
+      "@type": "Prefix",
+      "name": "ronna",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_27"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:ronna"
+        }
+      ],
+      "symbol": "R",
+      "base": 10,
+      "power": 27,
+      "value": 1e+27
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:kilo",
+      "@type": "Prefix",
+      "name": "kilo",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_3"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:kilo"
+        }
+      ],
+      "symbol": "k",
+      "base": 10,
+      "power": 3,
+      "value": 1000
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:quetta",
+      "@type": "Prefix",
+      "name": "quetta",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_30"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:quetta"
+        }
+      ],
+      "symbol": "Q",
+      "base": 10,
+      "power": 30,
+      "value": 1e+30
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:mega",
+      "@type": "Prefix",
+      "name": "mega",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_6"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:mega"
+        }
+      ],
+      "symbol": "M",
+      "base": 10,
+      "power": 6,
+      "value": 1000000
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:giga",
+      "@type": "Prefix",
+      "name": "giga",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp10_9"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:giga"
+        }
+      ],
+      "symbol": "G",
+      "base": 10,
+      "power": 9,
+      "value": 1000000000
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:kibi",
+      "@type": "Prefix",
+      "name": "kibi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp2_10"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:kibi"
+        }
+      ],
+      "symbol": "Ki",
+      "base": 2,
+      "power": 10,
+      "value": 1024
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:mebi",
+      "@type": "Prefix",
+      "name": "mebi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp2_20"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:mebi"
+        }
+      ],
+      "symbol": "Mi",
+      "base": 2,
+      "power": 20,
+      "value": 1048576
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:gibi",
+      "@type": "Prefix",
+      "name": "gibi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp2_30"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:gibi"
+        }
+      ],
+      "symbol": "Gi",
+      "base": 2,
+      "power": 30,
+      "value": 1073741824
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:tebi",
+      "@type": "Prefix",
+      "name": "tebi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp2_40"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:tebi"
+        }
+      ],
+      "symbol": "Ti",
+      "base": 2,
+      "power": 40,
+      "value": 1099511627776
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:pebi",
+      "@type": "Prefix",
+      "name": "pebi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp2_50"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:pebi"
+        }
+      ],
+      "symbol": "Pi",
+      "base": 2,
+      "power": 50,
+      "value": 1125899906842624
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:exbi",
+      "@type": "Prefix",
+      "name": "exbi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp2_60"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:exbi"
+        }
+      ],
+      "symbol": "Ei",
+      "base": 2,
+      "power": 60,
+      "value": 1152921504606847000
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:zebi",
+      "@type": "Prefix",
+      "name": "zebi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp2_70"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:zebi"
+        }
+      ],
+      "symbol": "Zi",
+      "base": 2,
+      "power": 70,
+      "value": 1.1805916207174113e+21
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/prefix/p:yobi",
+      "@type": "Prefix",
+      "name": "yobi",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTp2_80"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "p:yobi"
+        }
+      ],
+      "symbol": "Yi",
+      "base": 2,
+      "power": 80,
+      "value": 1.2089258196146292e+24
+    }
+  ]
+}

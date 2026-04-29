@@ -1,0 +1,135 @@
+[
+  {
+    "id": "SI_base",
+    "unitsml_id": "us:si-base",
+    "name": "SI base units",
+    "short": "si-base",
+    "acceptable": true,
+    "unit_count": 8,
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "SI_base"
+      },
+      {
+        "type": "unitsml",
+        "id": "us:si-base"
+      }
+    ],
+    "base_units": []
+  },
+  {
+    "id": "SI_compatible",
+    "unitsml_id": "us:si-compatible",
+    "name": "Units compatible with SI",
+    "short": "si-compatible",
+    "acceptable": true,
+    "unit_count": 88,
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "SI_compatible"
+      },
+      {
+        "type": "unitsml",
+        "id": "us:si-compatible"
+      }
+    ],
+    "base_units": []
+  },
+  {
+    "id": "SI_derived_non-special",
+    "unitsml_id": "us:si-derived-nonspecial",
+    "name": "SI-derived units non-special",
+    "short": "si-derived-nonspecial",
+    "acceptable": true,
+    "unit_count": 58,
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "SI_derived_non-special"
+      },
+      {
+        "type": "unitsml",
+        "id": "us:si-derived-nonspecial"
+      }
+    ],
+    "base_units": []
+  },
+  {
+    "id": "SI_derived_special",
+    "unitsml_id": "us:si-derived-special",
+    "name": "SI-derived units special",
+    "short": "si-derived-special",
+    "acceptable": true,
+    "unit_count": 22,
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "SI_derived_special"
+      },
+      {
+        "type": "unitsml",
+        "id": "us:si-derived-special"
+      }
+    ],
+    "base_units": []
+  },
+  {
+    "id": "non-SI_acceptable",
+    "unitsml_id": "us:nonsi-acceptable",
+    "name": "non-SI but acceptable",
+    "short": "nonsi-acceptable",
+    "acceptable": true,
+    "unit_count": 33,
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "non-SI_acceptable"
+      },
+      {
+        "type": "unitsml",
+        "id": "us:nonsi-acceptable"
+      }
+    ],
+    "base_units": []
+  },
+  {
+    "id": "non-SI_nist_acceptable",
+    "unitsml_id": "us:nonsi-nist-acceptable",
+    "name": "non-SI but acceptable by NIST SP 811",
+    "short": "nonsi-nist-acceptable",
+    "acceptable": true,
+    "unit_count": 5,
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "non-SI_nist_acceptable"
+      },
+      {
+        "type": "unitsml",
+        "id": "us:nonsi-nist-acceptable"
+      }
+    ],
+    "base_units": []
+  },
+  {
+    "id": "non-SI_not_acceptable",
+    "unitsml_id": "us:nonsi-unacceptable",
+    "name": "non-SI and not acceptable",
+    "short": "nonsi-unacceptable",
+    "acceptable": false,
+    "unit_count": 259,
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "non-SI_not_acceptable"
+      },
+      {
+        "type": "unitsml",
+        "id": "us:nonsi-unacceptable"
+      }
+    ],
+    "base_units": []
+  }
+]

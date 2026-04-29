@@ -1,0 +1,130 @@
+{
+  "@context": "https://unitsml.org/unitsdb/context.jsonld",
+  "@graph": [
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/scale/continuous_ratio",
+      "@type": "Scale",
+      "name": "continuous ratio scale",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "continuous_ratio"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "s:continuous_ratio"
+        }
+      ],
+      "properties": {
+        "continuous": true,
+        "ordered": true,
+        "logarithmic": false,
+        "interval": true,
+        "ratio": true
+      }
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/scale/continuous_interval",
+      "@type": "Scale",
+      "name": "continuous interval scale",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "continuous_interval"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "s:continuous_interval"
+        }
+      ],
+      "properties": {
+        "continuous": true,
+        "ordered": true,
+        "logarithmic": false,
+        "interval": true,
+        "ratio": false
+      }
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/scale/logarithmic_ratio",
+      "@type": "Scale",
+      "name": "logarithmic ratio scale",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "logarithmic_ratio"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "s:logarithmic_ratio"
+        }
+      ],
+      "properties": {
+        "continuous": true,
+        "ordered": true,
+        "logarithmic": true,
+        "interval": true,
+        "ratio": true
+      }
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/scale/logarithmic_field",
+      "@type": "Scale",
+      "name": "logarithmic field scale",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "logarithmic_field"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "s:logarithmic_field"
+        }
+      ],
+      "properties": {
+        "continuous": true,
+        "ordered": true,
+        "logarithmic": true,
+        "interval": true,
+        "ratio": false
+      }
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/scale/discrete",
+      "@type": "Scale",
+      "name": "discrete scale",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "discrete"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "s:discrete"
+        }
+      ],
+      "properties": {
+        "continuous": false,
+        "ordered": true,
+        "logarithmic": false,
+        "interval": true,
+        "ratio": true
+      }
+    }
+  ]
+}

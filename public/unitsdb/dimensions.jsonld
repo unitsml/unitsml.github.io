@@ -1,0 +1,2578 @@
+{
+  "@context": {
+    "@vocab": "https://unitsml.org/ontology/",
+    "schema": "http://schema.org/",
+    "name": "schema:name",
+    "identifier": "schema:identifier",
+    "description": "schema:description",
+    "symbol": "https://unitsml.org/ontology/symbol",
+    "rootUnit": "https://unitsml.org/ontology/rootUnit",
+    "quantityReference": "https://unitsml.org/ontology/quantityReference",
+    "dimensionReference": "https://unitsml.org/ontology/dimensionReference",
+    "scaleReference": "https://unitsml.org/ontology/scaleReference",
+    "unitSystemReference": "https://unitsml.org/ontology/unitSystemReference",
+    "prefixReference": "https://unitsml.org/ontology/prefixReference",
+    "power": "https://unitsml.org/ontology/power",
+    "base": "https://unitsml.org/ontology/base"
+  },
+  "@graph": [
+    {
+      "@id": "https://unitsml.org/dimension/d:length",
+      "@type": "Dimension",
+      "name": "length",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd1"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:length"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:volume",
+      "@type": "Dimension",
+      "name": "volume",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd10"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:volume"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 3
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:traffic_intensity",
+      "@type": "Dimension",
+      "name": "traffic intensity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd100"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:traffic_intensity"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:symbol_rate",
+      "@type": "Dimension",
+      "name": "symbol rate",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd101"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:symbol_rate"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:information_content",
+      "@type": "Dimension",
+      "name": "information content",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd102"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:information_content"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:velocity",
+      "@type": "Dimension",
+      "name": "velocity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd11"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:velocity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:force",
+      "@type": "Dimension",
+      "name": "force",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd12"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:force"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:magnetic_flux_density",
+      "@type": "Dimension",
+      "name": "magnetic flux density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd13"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:magnetic_flux_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "I",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:pressure",
+      "@type": "Dimension",
+      "name": "pressure",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd14"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:pressure"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:energy",
+      "@type": "Dimension",
+      "name": "energy",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd15"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:energy"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:power",
+      "@type": "Dimension",
+      "name": "power",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd16"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:power"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_charge",
+      "@type": "Dimension",
+      "name": "electric charge",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd17"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_charge"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "T",
+          "power": 1
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_potential_difference",
+      "@type": "Dimension",
+      "name": "electric potential difference",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd18"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_potential_difference"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        },
+        {
+          "symbol": "I",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:capacitance",
+      "@type": "Dimension",
+      "name": "capacitance",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd19"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:capacitance"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        },
+        {
+          "symbol": "M",
+          "power": -1
+        },
+        {
+          "symbol": "T",
+          "power": 4
+        },
+        {
+          "symbol": "I",
+          "power": 2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:mass",
+      "@type": "Dimension",
+      "name": "mass",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd2"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:mass"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_resistance",
+      "@type": "Dimension",
+      "name": "electric resistance",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd20"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_resistance"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        },
+        {
+          "symbol": "I",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_conductance",
+      "@type": "Dimension",
+      "name": "electric conductance",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd21"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_conductance"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        },
+        {
+          "symbol": "M",
+          "power": -1
+        },
+        {
+          "symbol": "T",
+          "power": 3
+        },
+        {
+          "symbol": "I",
+          "power": 2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:magnetic_flux",
+      "@type": "Dimension",
+      "name": "magnetic flux",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd22"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:magnetic_flux"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "I",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:inductance",
+      "@type": "Dimension",
+      "name": "inductance",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd23"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:inductance"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "I",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:frequency",
+      "@type": "Dimension",
+      "name": "frequency",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd24"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:frequency"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:absorbed_dose",
+      "@type": "Dimension",
+      "name": "absorbed dose",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd25"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:absorbed_dose"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:catalytic_activity",
+      "@type": "Dimension",
+      "name": "catalytic activity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd26"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:catalytic_activity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "T",
+          "power": -1
+        },
+        {
+          "symbol": "N",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:illuminance",
+      "@type": "Dimension",
+      "name": "illuminance",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd27"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:illuminance"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        },
+        {
+          "symbol": "J",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:acceleration",
+      "@type": "Dimension",
+      "name": "acceleration",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd28"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:acceleration"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:wavenumber",
+      "@type": "Dimension",
+      "name": "wavenumber",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd29"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:wavenumber"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:time",
+      "@type": "Dimension",
+      "name": "time",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd3"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:time"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "T",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:mass_density",
+      "@type": "Dimension",
+      "name": "mass density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd30"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:mass_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -3
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:specific_volume",
+      "@type": "Dimension",
+      "name": "specific volume",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd31"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:specific_volume"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 3
+        },
+        {
+          "symbol": "M",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:current_density",
+      "@type": "Dimension",
+      "name": "current density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd32"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:current_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:magnetic_field_strength",
+      "@type": "Dimension",
+      "name": "magnetic field strength",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd33"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:magnetic_field_strength"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -1
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:concentration",
+      "@type": "Dimension",
+      "name": "concentration",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd34"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:concentration"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -3
+        },
+        {
+          "symbol": "N",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:angular_acceleration",
+      "@type": "Dimension",
+      "name": "angular acceleration",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd35"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:angular_acceleration"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "T",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:dynamic_viscosity",
+      "@type": "Dimension",
+      "name": "dynamic viscosity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd36"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:dynamic_viscosity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:surface_tension",
+      "@type": "Dimension",
+      "name": "surface tension",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd37"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:surface_tension"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:heat_flux_density",
+      "@type": "Dimension",
+      "name": "heat flux density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd38"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:heat_flux_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:heat_capacity",
+      "@type": "Dimension",
+      "name": "heat capacity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd39"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:heat_capacity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "Theta",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_current",
+      "@type": "Dimension",
+      "name": "electric current",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd4"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_current"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:specific_heat_capacity",
+      "@type": "Dimension",
+      "name": "specific heat capacity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd40"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:specific_heat_capacity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "Theta",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:thermal_conductivity",
+      "@type": "Dimension",
+      "name": "thermal conductivity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd41"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:thermal_conductivity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        },
+        {
+          "symbol": "Theta",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_field_strength",
+      "@type": "Dimension",
+      "name": "electric field strength",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd42"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_field_strength"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        },
+        {
+          "symbol": "I",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_charge_density",
+      "@type": "Dimension",
+      "name": "electric charge density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd43"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_charge_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -3
+        },
+        {
+          "symbol": "T",
+          "power": 1
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_flux_density",
+      "@type": "Dimension",
+      "name": "electric flux density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd44"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_flux_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        },
+        {
+          "symbol": "T",
+          "power": 1
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:permittivity",
+      "@type": "Dimension",
+      "name": "permittivity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd45"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:permittivity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -3
+        },
+        {
+          "symbol": "M",
+          "power": -1
+        },
+        {
+          "symbol": "T",
+          "power": 4
+        },
+        {
+          "symbol": "I",
+          "power": 2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:permeability",
+      "@type": "Dimension",
+      "name": "permeability",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd46"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:permeability"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "I",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:molar_energy",
+      "@type": "Dimension",
+      "name": "molar energy",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd47"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:molar_energy"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "N",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:molar_entropy",
+      "@type": "Dimension",
+      "name": "molar entropy",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd48"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:molar_entropy"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "Theta",
+          "power": -1
+        },
+        {
+          "symbol": "N",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:exposure",
+      "@type": "Dimension",
+      "name": "exposure",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd49"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:exposure"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": -1
+        },
+        {
+          "symbol": "T",
+          "power": 1
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:temperature",
+      "@type": "Dimension",
+      "name": "temperature",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd5"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:temperature"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "Theta",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:absorbed_dose_rate",
+      "@type": "Dimension",
+      "name": "absorbed dose rate",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd50"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:absorbed_dose_rate"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:surface_density",
+      "@type": "Dimension",
+      "name": "surface density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd51"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:surface_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:fluidity",
+      "@type": "Dimension",
+      "name": "fluidity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd52"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:fluidity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "M",
+          "power": -1
+        },
+        {
+          "symbol": "T",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:surface_charge_density",
+      "@type": "Dimension",
+      "name": "surface charge density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd53"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:surface_charge_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": -2
+        },
+        {
+          "symbol": "T",
+          "power": 1
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:magnetizability",
+      "@type": "Dimension",
+      "name": "magnetizability",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd54"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:magnetizability"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": 2
+        },
+        {
+          "symbol": "I",
+          "power": 2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:catalytic_activity_concentration",
+      "@type": "Dimension",
+      "name": "catalytic activity concentration",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd55"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:catalytic_activity_concentration"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": -3
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        },
+        {
+          "symbol": "N",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:kinematic_viscosity",
+      "@type": "Dimension",
+      "name": "kinematic viscosity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd56"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:kinematic_viscosity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:area_moment_of_inertia",
+      "@type": "Dimension",
+      "name": "area moment of inertia",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd57"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:area_moment_of_inertia"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 4
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:linear_density",
+      "@type": "Dimension",
+      "name": "linear density",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd58"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:linear_density"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:mass_moment_of_inertia",
+      "@type": "Dimension",
+      "name": "mass moment of inertia",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd59"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:mass_moment_of_inertia"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:substance_amount",
+      "@type": "Dimension",
+      "name": "substance amount",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd6"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:substance_amount"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "N",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:action",
+      "@type": "Dimension",
+      "name": "action",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd60"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:action"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:momentum",
+      "@type": "Dimension",
+      "name": "momentum",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd61"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:momentum"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:gravitational_constant",
+      "@type": "Dimension",
+      "name": "gravitational constant",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd62"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:gravitational_constant"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 3
+        },
+        {
+          "symbol": "M",
+          "power": -1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:compressibility",
+      "@type": "Dimension",
+      "name": "compressibility",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd63"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:compressibility"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "M",
+          "power": -1
+        },
+        {
+          "symbol": "T",
+          "power": 2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:solid_angle",
+      "@type": "Dimension",
+      "name": "solid angle",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd64"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:solid_angle"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "phi",
+          "power": 1
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:mass_flow_rate",
+      "@type": "Dimension",
+      "name": "mass flow rate",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd65"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:mass_flow_rate"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:volume_flow_rate",
+      "@type": "Dimension",
+      "name": "volume flow rate",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd66"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:volume_flow_rate"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 3
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:logarithmic_ratio",
+      "@type": "Dimension",
+      "name": "logarithmic ratio",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd67"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:logarithmic_ratio"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:linear_expansion_coefficient",
+      "@type": "Dimension",
+      "name": "linear expansion coefficient",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd68"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:linear_expansion_coefficient"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "Theta",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:pressure_coefficient",
+      "@type": "Dimension",
+      "name": "pressure coefficient",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd69"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:pressure_coefficient"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -1
+        },
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -2
+        },
+        {
+          "symbol": "Theta",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:luminous_intensity",
+      "@type": "Dimension",
+      "name": "luminous intensity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd7"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:luminous_intensity"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "J",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:isothermal_compressibility",
+      "@type": "Dimension",
+      "name": "isothermal compressibility",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd70"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:isothermal_compressibility"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "M",
+          "power": -1
+        },
+        {
+          "symbol": "T",
+          "power": 2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:heat_transfer_coefficient",
+      "@type": "Dimension",
+      "name": "heat transfer coefficient",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd71"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:heat_transfer_coefficient"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        },
+        {
+          "symbol": "Theta",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_dipole_moment",
+      "@type": "Dimension",
+      "name": "electric dipole moment",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd72"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_dipole_moment"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": 1
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:magnetic_dipole_moment",
+      "@type": "Dimension",
+      "name": "magnetic dipole moment",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd73"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:magnetic_dipole_moment"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_field_gradient",
+      "@type": "Dimension",
+      "name": "electric field gradient",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd74"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_field_gradient"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": -3
+        },
+        {
+          "symbol": "I",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:electric_quadrupole_moment",
+      "@type": "Dimension",
+      "name": "electric quadrupole moment",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd75"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:electric_quadrupole_moment"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        },
+        {
+          "symbol": "T",
+          "power": 1
+        },
+        {
+          "symbol": "I",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:polarizability",
+      "@type": "Dimension",
+      "name": "polarizability",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd76"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:polarizability"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "T",
+          "power": 4
+        },
+        {
+          "symbol": "I",
+          "power": 2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:hyperpolarizability_1st",
+      "@type": "Dimension",
+      "name": "hyperpolarizability 1st",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd77"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:hyperpolarizability_1st"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -1
+        },
+        {
+          "symbol": "M",
+          "power": -2
+        },
+        {
+          "symbol": "T",
+          "power": 7
+        },
+        {
+          "symbol": "I",
+          "power": 3
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:hyperpolarizability_2nd",
+      "@type": "Dimension",
+      "name": "hyperpolarizability 2nd",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd78"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:hyperpolarizability_2nd"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        },
+        {
+          "symbol": "M",
+          "power": -3
+        },
+        {
+          "symbol": "T",
+          "power": 10
+        },
+        {
+          "symbol": "I",
+          "power": 4
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:molality",
+      "@type": "Dimension",
+      "name": "molality",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd79"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:molality"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "M",
+          "power": 1
+        },
+        {
+          "symbol": "N",
+          "power": 1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:area",
+      "@type": "Dimension",
+      "name": "area",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd8"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:area"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": 2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:ratio_quantity",
+      "@type": "Dimension",
+      "name": "ratio quantity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd80"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:ratio_quantity"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:level_of_field_quantity",
+      "@type": "Dimension",
+      "name": "level of field quantity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd83"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:level_of_field_quantity"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:field_power_level",
+      "@type": "Dimension",
+      "name": "field power level",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd84"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:field_power_level"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:mass_mole_fraction",
+      "@type": "Dimension",
+      "name": "mass mole fraction",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd85"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:mass_mole_fraction"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:plane_angle",
+      "@type": "Dimension",
+      "name": "plane angle",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd9"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:plane_angle"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "phi",
+          "power": 1
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:acidity_index",
+      "@type": "Dimension",
+      "name": "acidity index",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd94"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:acidity_index"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:storage_capacity",
+      "@type": "Dimension",
+      "name": "storage capacity",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd95"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:storage_capacity"
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:fluence",
+      "@type": "Dimension",
+      "name": "fluence",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd96"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:fluence"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:fluence_rate",
+      "@type": "Dimension",
+      "name": "fluence_rate",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd97"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:fluence_rate"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        },
+        {
+          "symbol": "T",
+          "power": -1
+        }
+      ]
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:phase",
+      "@type": "Dimension",
+      "name": "phase",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd98"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:phase"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "phi",
+          "power": 1
+        }
+      ],
+      "dimensionless": true
+    },
+    {
+      "@id": "https://unitsml.org/dimension/d:fuel_efficiency",
+      "@type": "Dimension",
+      "name": "fuel efficiency",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "NISTd99"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "d:fuel_efficiency"
+        }
+      ],
+      "dimensionalComposition": [
+        {
+          "symbol": "L",
+          "power": -2
+        }
+      ]
+    }
+  ]
+}

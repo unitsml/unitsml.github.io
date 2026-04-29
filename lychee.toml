@@ -1,0 +1,14 @@
+exclude = [
+  # Localhost / development
+  "http://localhost:*",
+  "http://127.0.0.1:*",
+
+  # External sites that may block automated requests
+  "https://www.ibm.com/*",
+  "https://www.grantadesign.com/*",
+  "https://www.babcockinternational.com/*",
+  "https://www.unf.edu/*",
+]
+
+max_retries = 3
+timeout = 20

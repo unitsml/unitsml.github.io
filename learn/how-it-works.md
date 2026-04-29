@@ -1,0 +1,584 @@
+---
+title: How UnitsML Works
+description: Technical architecture of UnitsML — the data model, UnitsDB, custom unit construction, conversion rules, and MathML integration
+---
+
+# How UnitsML Works
+
+UnitsML is a set of models for encoding scientific units of measure. It provides the **semantic meaning** of units — what a unit represents, how it relates to other units, what quantities it measures, and how to convert between them. This page explains how the pieces fit together.
+
+## The three-layer architecture
+
+UnitsML operates across three layers:
+
+<div class="layers-grid">
+  <div class="layer-card layer-model">
+    <span class="layer-num">1</span>
+    <h3>Data Model</h3>
+    <p>Five core element types — <strong>Unit</strong>, <strong>Quantity</strong>, <strong>Dimension</strong>, <strong>Prefix</strong>, <strong>CountedItem</strong> — each wrapped in a Set container. Defined by the UnitsML XML Schema.</p>
+  </div>
+  <div class="layer-card layer-db">
+    <span class="layer-num">2</span>
+    <h3>UnitsDB</h3>
+    <p>A pre-built database of 716 commonly used units, quantities, dimensions, prefixes, scales, and systems. Provides ready-to-use definitions with cross-references to BIPM, UCUM, and QUDT.</p>
+  </div>
+  <div class="layer-card layer-integration">
+    <span class="layer-num">3</span>
+    <h3>Integration</h3>
+    <p>Use UnitsML definitions in your own XML, MathML, JSON, or YAML documents. UnitsML provides semantics; MathML provides presentation.</p>
+  </div>
+</div>
+
+## Layer 1: The UnitsML data model
+
+UnitsML defines five core element types, each wrapped in a corresponding Set container. The containers are modular — use one or combine several.
+
+<DataModelDiagram />
+
+### Unit (`UnitSet` / `Unit`)
+
+The central element. A **Unit** defines a measurement unit with its name, symbols, system membership, dimensional reference, and optional conversion information.
+
+```xml
+<UnitSet>
+  <Unit xml:id="m" dimensionURL="#dim_L">
+    <UnitSystem>
+      <SystemName>SI</SystemName>
+      <SystemDescription>SI_base</SystemDescription>
+    </UnitSystem>
+    <UnitName>metre</UnitName>
+    <UnitSymbol typeface="ASCII">m</UnitSymbol>
+    <UnitSymbol typeface="HTML">m</UnitSymbol>
+  </Unit>
+</UnitSet>
+```
+
+Key attributes:
+
+| Attribute/child | Purpose |
+|----------------|---------|
+| `xml:id` | Unique identifier within the document (e.g., `NISTu1`, `m`) |
+| `dimensionURL` | Links to a `Dimension` definition |
+| `UnitName` | Human-readable name |
+| `UnitSymbol` | Symbol in a specific typeface (ASCII, Unicode, HTML, LaTeX, MathML) |
+| `UnitSystem` | System membership (SI, CGS, inch-pound, etc.) |
+| `RootUnits` | Decomposition into base units (for derived units) |
+| `Conversions` | Conversion factors to other units |
+
+### Quantity (`QuantitySet` / `Quantity`)
+
+A **Quantity** is a measurable property — length, mass, force, energy, etc. Quantities link abstract concepts to the specific units that can express them. Each quantity is typed as either `base` or `derived` and references a dimension.
+
+```xml
+<QuantitySet>
+  <Quantity xml:id="q_force" quantityType="derived">
+    <QuantityName>force</QuantityName>
+    <QuantitySymbol typeface="ASCII">F</QuantitySymbol>
+    <UnitReference unitURL="#N" unitName="newton"/>
+  </Quantity>
+</QuantitySet>
+```
+
+A single unit can measure multiple quantities. For example, the metre measures length, wavelength, distance, focal length, and many others. When using UnitsML, you can **tag** which quantity you intend, disambiguating the unit's role:
+
+```xml
+<Value unitURL="#m" quantityURL="#q_length">1.83</Value>
+<Value unitURL="#m" quantityURL="#q_wavelength">550</Value>
+```
+
+### Dimension (`DimensionSet` / `Dimension`)
+
+Dimensions express any unit or quantity in terms of the **seven SI base quantities**:
+
+| Base quantity | Symbol | SI base unit |
+|--------------|--------|-------------|
+| Length | L | metre |
+| Mass | M | kilogram |
+| Time | T | second |
+| Electric current | I | ampere |
+| Thermodynamic temperature | Θ | kelvin |
+| Amount of substance | N | mole |
+| Luminous intensity | J | candela |
+
+A dimension definition specifies which base quantities participate and at what power:
+
+```xml
+<Dimension xml:id="dim_LMT-2">
+  <Length symbol="L" powerNumerator="1"/>
+  <Mass symbol="M" powerNumerator="1"/>
+  <Time symbol="T" powerNumerator="-2"/>
+</Dimension>
+```
+
+This represents the dimension of force: **L·M·T⁻²**. Any unit with this dimension (newton, dyne, pound-force) can be converted between them, because they share the same dimensional structure.
+
+The `dimensionless` attribute marks entities that have no dimension (e.g., refractive index, strain, mach number).
+
+### Prefix (`PrefixSet` / `Prefix`)
+
+Prefixes define decimal and binary scaling factors. UnitsML supports all 20 SI decimal prefixes defined in the BIPM SI Brochure, plus 7 binary prefixes:
+
+```xml
+<PrefixSet>
+  <Prefix xml:id="p10_3">
+    <PrefixName>kilo</PrefixName>
+    <PrefixSymbol typeface="ASCII">k</PrefixSymbol>
+    <PrefixBase>10</PrefixBase>
+    <PrefixPower>3</PrefixPower>
+  </Prefix>
+</PrefixSet>
+```
+
+| Prefix | Symbol | Factor | | Prefix | Symbol | Factor |
+|--------|--------|--------|-|--------|--------|--------|
+| yotta | Y | 10²⁴ | | deci | d | 10⁻¹ |
+| zetta | Z | 10²¹ | | centi | c | 10⁻² |
+| exa | E | 10¹⁸ | | milli | m | 10⁻³ |
+| peta | P | 10¹⁵ | | micro | µ | 10⁻⁶ |
+| tera | T | 10¹² | | nano | n | 10⁻⁹ |
+| giga | G | 10⁹ | | pico | p | 10⁻¹² |
+| mega | M | 10⁶ | | femto | f | 10⁻¹⁵ |
+| kilo | k | 10³ | | atto | a | 10⁻¹⁸ |
+| hecto | h | 10² | | zepto | z | 10⁻²¹ |
+| deka | da | 10¹ | | yocto | y | 10⁻²⁴ |
+
+Binary prefixes (Ki, Mi, Gi, Ti, Pi, Ei, Zi, Yi) follow the same pattern with base 2.
+
+### CountedItem (`CountedItemSet` / `CountedItem`)
+
+Counted items represent things that are counted and combined with scientific units — distinct from physical quantities. They support expressions like "electrons per second" or "particles per cubic meter":
+
+```xml
+<CountedItemSet>
+  <CountedItem xml:id="electron">
+    <ItemName>electron</ItemName>
+    <ItemSymbol typeface="ASCII">e⁻</ItemSymbol>
+  </CountedItem>
+</CountedItemSet>
+```
+
+## Layer 2: UnitsDB — the pre-built database
+
+While the UnitsML data model tells you *how* to define a unit, **UnitsDB** provides a ready-made collection of commonly used definitions. Instead of defining every unit from scratch, you reference entries from UnitsDB.
+
+### What UnitsDB contains
+
+| Entity type | Count | Description |
+|------------|-------|-------------|
+| Units | 380+ | SI base, SI derived, non-SI units |
+| Quantities | 199 | Measurable properties |
+| Dimensions | 92 | SI base quantity dimensional representations |
+| Prefixes | 33 | SI decimal and binary prefixes (from BIPM SI Brochure) |
+| Scales | 5 | Measurement scale types |
+| Unit Systems | 7 | SI, non-SI acceptable, etc. |
+
+Browse all entries interactively at the [UnitsDB browser](/unitsdb/).
+
+### How to reference a UnitsDB entry
+
+In your UnitsML document, reference a UnitsDB unit by its identifier:
+
+```xml
+<Unit xml:id="m" dimensionURL="#dim_L">
+  <UnitName>metre</UnitName>
+  <UnitSymbol typeface="ASCII">m</UnitSymbol>
+</Unit>
+```
+
+In UnitsDB, the metre is identified by both a NIST ID (`NISTu1`) and an organization-neutral UnitsML ID (`u:meter`). The YAML entry looks like:
+
+```yaml
+identifiers:
+  - type: nist
+    id: NISTu1
+  - type: unitsml
+    id: u:meter
+names:
+  - value: metre
+    lang: en
+  - value: mètre
+    lang: fr
+symbols:
+  - ascii: m
+    unicode: m
+    html: m
+    latex: "\\ensuremath{\\mathrm{m}}"
+    mathml: "<mi mathvariant='normal'>m</mi>"
+```
+
+### External dataset linkage
+
+UnitsDB entries include **cross-references to major external datasets**, providing interoperability with other unit systems:
+
+| Authority | Type | Description | Coverage |
+|-----------|------|-------------|----------|
+| **BIPM SI Digital Framework** | Normative | Official SI definitions from the International Bureau of Weights and Measures | Units, quantities, dimensions, prefixes |
+| **UCUM** | Informative | Unified Code for Units of Measure — used in healthcare (HL7) and scientific computing | Units, prefixes |
+| **QUDT** | Informative | Quantities, Units, Dimensions and Types — comprehensive ontology for engineering and science | Units, quantities, dimensions, prefixes |
+
+For example, the metre entry links to all three:
+
+```yaml
+references:
+  - type: normative
+    authority: si-digital-framework
+    uri: http://si-digital-framework.org/SI/units/metre
+  - type: informative
+    authority: ucum
+    uri: ucum:base-unit:code:m
+  - type: informative
+    authority: qudt
+    uri: http://qudt.org/vocab/unit/M
+```
+
+These cross-references allow applications to bridge between UnitsML and other unit systems automatically.
+
+### Multilingual names
+
+UnitsDB 2.0 introduced multilingual support. Units and quantities carry names in multiple languages, sourced from the BIPM SI Digital Reference:
+
+```yaml
+names:
+  - value: length
+    lang: en
+  - value: longueur
+    lang: fr
+```
+
+## Building custom units
+
+Not every unit is in UnitsDB. UnitsML provides mechanisms to construct custom units from existing definitions.
+
+### Adding prefixes
+
+Apply an SI prefix to any base or derived unit:
+
+```xml
+<Unit xml:id="km" dimensionURL="#dim_L">
+  <UnitName>kilometer</UnitName>
+  <UnitSymbol typeface="ASCII">km</UnitSymbol>
+  <RootUnits>
+    <EnumeratedRootUnit unit="meter" prefix="k" powerNumerator="1"/>
+  </RootUnits>
+</Unit>
+```
+
+### Changing powers
+
+Express squared, cubed, or inverse units by setting the `powerNumerator`:
+
+```xml
+<!-- Square meter: m² -->
+<EnumeratedRootUnit unit="meter" powerNumerator="2"/>
+
+<!-- Per second: s⁻¹ -->
+<EnumeratedRootUnit unit="second" powerNumerator="-1"/>
+
+<!-- Square root of meter: m^(1/2) -->
+<EnumeratedRootUnit unit="meter" powerNumerator="1" powerDenominator="2"/>
+```
+
+### Composite units
+
+Most scientific units are composites — products of base units raised to powers. The `RootUnits` element decomposes any derived unit:
+
+| Composite unit | Decomposition | Dimension |
+|---------------|--------------|-----------|
+| newton (N) | m · kg · s⁻² | L·M·T⁻² |
+| pascal (Pa) | m⁻¹ · kg · s⁻² | L⁻¹·M·T⁻² |
+| joule (J) | m² · kg · s⁻² | L²·M·T⁻² |
+| volt (V) | m² · kg · s⁻³ · A⁻¹ | L²·M·T⁻³·I⁻¹ |
+
+```xml
+<Unit xml:id="N" dimensionURL="#dim_LMT-2">
+  <UnitName>newton</UnitName>
+  <UnitSymbol typeface="ASCII">N</UnitSymbol>
+  <RootUnits>
+    <EnumeratedRootUnit unit="meter" powerNumerator="1"/>
+    <EnumeratedRootUnit unit="gram" prefix="k" powerNumerator="1"/>
+    <EnumeratedRootUnit unit="second" powerNumerator="-2"/>
+  </RootUnits>
+</Unit>
+```
+
+For units not in the built-in enumeration, `ExternalRootUnit` allows referencing any unit by URI.
+
+### Custom units not in UnitsDB
+
+Define entirely custom units with their own names, symbols, and dimensions:
+
+```xml
+<Unit xml:id="custom_flux" dimensionURL="#dim_L-2T-1">
+  <UnitName>custom flux unit</UnitName>
+  <UnitSymbol typeface="ASCII">cfu</UnitSymbol>
+  <RootUnits>
+    <EnumeratedRootUnit unit="meter" powerNumerator="-2"/>
+    <EnumeratedRootUnit unit="second" powerNumerator="-1"/>
+  </RootUnits>
+</Unit>
+```
+
+### Tagging quantities
+
+A single unit can describe multiple quantities. For example, the second measures both time and period. Use the `quantityURL` attribute to tag which quantity you intend:
+
+```xml
+<Period unitURL="#s" quantityURL="#q_time">2.5</Period>
+<Frequency unitURL="#Hz" quantityURL="#q_frequency">0.4</Frequency>
+```
+
+This disambiguation is essential because some units share dimensions but represent different quantities — hertz and becquerel both decompose to s⁻¹, but one measures frequency while the other measures radioactive activity.
+
+## Conversion rules
+
+UnitsML provides three types of unit conversions:
+
+### Linear conversions
+
+Most unit conversions follow the linear equation: **y = d + ((b / c) × (x + a))**
+
+| Factor | Element | Description |
+|--------|---------|-------------|
+| a | `initialAddend` | Added before multiplication |
+| b | `multiplicand` | Multiplication factor |
+| c | `divisor` | Division factor |
+| d | `finalAddend` | Added after multiplication |
+
+Simple scaling (m → km):
+
+```xml
+<Float64ConversionFrom xml:id="conv_m_to_km"
+  initialUnit="#m"
+  multiplicand="0.001"
+  exact="true"/>
+```
+
+Temperature offset (°C → K):
+
+```xml
+<Float64ConversionFrom xml:id="conv_C_to_K"
+  initialUnit="#degC"
+  multiplicand="1"
+  finalAddend="273.15"
+  exact="true"/>
+```
+
+### Special conversions
+
+For non-linear conversions:
+
+```xml
+<SpecialConversionFrom xml:id="conv_pH"
+  initialUnit="#pH"
+  conversionURL="https://example.org/conversions/pH">
+  <ConversionDescription>
+    pH is the negative logarithm of hydrogen ion activity.
+  </ConversionDescription>
+</SpecialConversionFrom>
+```
+
+### WSDL conversions
+
+For conversions provided by remote services:
+
+```xml
+<WSDLConversionFrom xml:id="conv_remote"
+  initialUnit="#custom_unit"
+  wsdlURL="https://example.org/conversions/service.wsdl"/>
+```
+
+## Layer 3: Integration with XML and MathML
+
+UnitsML provides **semantic meaning** — what a unit is, what it measures, how it converts. But to **display** a unit symbol in a document, you need presentation markup. This is where **MathML** comes in.
+
+### How UnitsML and MathML work together
+
+UnitsML and MathML serve complementary roles:
+
+- **UnitsML** — defines the unit's identity, dimension, system, conversions (the "what")
+- **MathML** — renders the unit's symbol visually in a document (the "how")
+
+When you use UnitsML inside an XML document, the unit symbols can be expressed as MathML elements. The UnitsML schema's `UnitSymbol` element supports MathML typeface, and UnitsDB stores MathML representations for every symbol:
+
+```yaml
+symbols:
+  - mathml: "<mi mathvariant='normal'>m</mi>"    # metre
+  - mathml: "<mi mathvariant='normal'>kg</mi>"   # kilogram
+  - mathml: "<mi mathvariant='normal'>N</mi>"    # newton
+```
+
+### Practical example: PluXML + MathML
+
+In practice, when a document contains a quantity value, UnitsML identifies the unit and MathML renders it:
+
+```xml
+<Measurement>
+  <Value>9.81</Value>
+  <unitsml:Unit xml:id="m_s2" dimensionURL="#dim_LT-2">
+    <unitsml:UnitName>metre per second squared</unitsml:UnitName>
+    <unitsml:UnitSymbol typeface="MathML">
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mrow>
+          <mi mathvariant="normal">m</mi>
+          <mo>·</mo>
+          <msup>
+            <mi mathvariant="normal">s</mi>
+            <mn>-2</mn>
+          </msup>
+        </mrow>
+      </math>
+    </unitsml:UnitSymbol>
+  </unitsml:Unit>
+</Measurement>
+```
+
+### Programmatic generation with unitsml-ruby
+
+The [unitsml-ruby](/software/unitsml-ruby) library parses unit expressions (like `m*s^-2` or `kg*m^2/s^3/A`) and automatically generates:
+
+- **MathML** — rendering markup for the unit symbol
+- **LaTeX** — for scientific documents
+- **Unicode** / **HTML** — for plain text and web display
+- **UnitsML XML** — the semantic definition with dimension references
+
+```ruby
+# Parse a unit expression and generate MathML
+formula = Unitsml.parse("kg*m^2*s^-3*A^-1")
+mathml = formula.to_mathml
+# Produces MathML for the volt: kg·m²·s⁻³·A⁻¹
+```
+
+The library resolves each component against UnitsDB to look up the correct symbol in each representation format, applies prefix and power transformations, and produces properly structured output.
+
+### Six-format symbol coverage
+
+UnitsDB stores symbols in six representation formats, enabling integration with any display technology:
+
+| Format | Use case | Example (metre) |
+|--------|----------|-----------------|
+| `unicode` | Direct rendering in text | `m` |
+| `html` | Web display | `m` |
+| `latex` | Scientific documents | `\ensuremath{\mathrm{m}}` |
+| `mathml` | Mathematical markup | `<mi mathvariant='normal'>m</mi>` |
+| `ascii` | Plain-text contexts | `m` |
+| `id` | Machine-readable identifiers | `m` |
+
+## Putting it all together
+
+A complete UnitsML document combines the data model, UnitsDB references, and presentation:
+
+```xml
+<UnitsML xmlns="https://schema.unitsml.org/unitsml/1.0">
+  <UnitSet>
+    <Unit xml:id="m" dimensionURL="#dim_L">
+      <UnitName>metre</UnitName>
+      <UnitSymbol typeface="ASCII">m</UnitSymbol>
+    </Unit>
+    <Unit xml:id="N" dimensionURL="#dim_LMT-2">
+      <UnitName>newton</UnitName>
+      <UnitSymbol typeface="ASCII">N</UnitSymbol>
+      <RootUnits>
+        <EnumeratedRootUnit unit="meter" powerNumerator="1"/>
+        <EnumeratedRootUnit unit="gram" prefix="k" powerNumerator="1"/>
+        <EnumeratedRootUnit unit="second" powerNumerator="-2"/>
+      </RootUnits>
+      <Conversions>
+        <Float64ConversionFrom xml:id="conv_lbf_to_N"
+          initialUnit="#lbf"
+          multiplicand="4.4482216152605"
+          exact="true"/>
+      </Conversions>
+    </Unit>
+  </UnitSet>
+  <QuantitySet>
+    <Quantity xml:id="q_force" quantityType="derived">
+      <QuantityName>force</QuantityName>
+      <UnitReference unitURL="#N" unitName="newton"/>
+    </Quantity>
+  </QuantitySet>
+  <DimensionSet>
+    <Dimension xml:id="dim_L">
+      <Length symbol="L" powerNumerator="1"/>
+    </Dimension>
+    <Dimension xml:id="dim_LMT-2">
+      <Length symbol="L" powerNumerator="1"/>
+      <Mass symbol="M" powerNumerator="1"/>
+      <Time symbol="T" powerNumerator="-2"/>
+    </Dimension>
+  </DimensionSet>
+</UnitsML>
+```
+
+## Schema location
+
+The UnitsML 1.0 schema uses the following namespace:
+
+- **Namespace**: `https://schema.unitsml.org/unitsml/1.0`
+- **Schema file**: `https://schema.unitsml.org/unitsml/unitsml-v1.0.xsd`
+- **Interactive docs**: [schema.unitsml.org](https://schema.unitsml.org)
+
+## Next steps
+
+- [Incorporating UnitsML](/learn/incorporating-unitsml) — how to add UnitsML to your markup languages
+- [UnitsML Guide](/learn/guide) — comprehensive usage guide with examples
+- [UnitsDB](/unitsdb/) — browse the complete interactive database
+- [Get started](/get-started) — practical quick-start instructions
+- [Schemas](/schemas) — UnitsML XML Schemas and UnitsDB YAML Schemas
+
+<style scoped>
+.layers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.layer-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  position: relative;
+  transition: border-color 0.25s;
+}
+
+.layer-card:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+.layer-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.layer-model .layer-num { background: rgba(45,44,105,0.1); color: #2d2c69; }
+.layer-db .layer-num { background: rgba(20,184,166,0.1); color: #14b8a6; }
+.layer-integration .layer-num { background: rgba(87,160,254,0.1); color: #57a0fe; }
+
+.layer-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--vp-c-text-1);
+}
+
+.layer-card p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--vp-c-text-2);
+}
+
+@media (max-width: 768px) {
+  .layers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
