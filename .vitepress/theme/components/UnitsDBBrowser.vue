@@ -274,7 +274,8 @@ onUnmounted(() => {
       </div>
 
       <!-- ── Units ── -->
-      <table v-else-if="activeTab === 'units'" class="dtbl">
+      <div v-else-if="activeTab === 'units'" class="dtbl-wrap">
+      <table class="dtbl">
         <thead><tr><th class="c-sym">Symbol</th><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-dim">Dimension</th><th class="c-tag">Type</th><th class="c-qty">Quantity</th></tr></thead>
         <tbody>
           <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'units', item.unitsml_id)">
@@ -287,9 +288,11 @@ onUnmounted(() => {
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- ── Quantities ── -->
-      <table v-else-if="activeTab === 'quantities'" class="dtbl">
+      <div v-else-if="activeTab === 'quantities'" class="dtbl-wrap">
+      <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-tag">Type</th><th class="c-dim">Dimension</th><th class="c-cnt">Units</th></tr></thead>
         <tbody>
           <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'quantities', item.unitsml_id)">
@@ -301,9 +304,11 @@ onUnmounted(() => {
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- ── Dimensions ── -->
-      <table v-else-if="activeTab === 'dimensions'" class="dtbl">
+      <div v-else-if="activeTab === 'dimensions'" class="dtbl-wrap">
+      <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-dim">Expression</th><th class="c-cnt">Quantities</th><th class="c-tag">Dim-less</th></tr></thead>
         <tbody>
           <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'dimensions', item.unitsml_id)">
@@ -315,9 +320,11 @@ onUnmounted(() => {
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- ── Prefixes ── -->
-      <table v-else-if="activeTab === 'prefixes'" class="dtbl">
+      <div v-else-if="activeTab === 'prefixes'" class="dtbl-wrap">
+      <table class="dtbl">
         <thead><tr><th class="c-sym">Symbol</th><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-fact">Factor</th><th class="c-cnt">Value</th></tr></thead>
         <tbody>
           <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'prefixes', item.unitsml_id)">
@@ -329,9 +336,11 @@ onUnmounted(() => {
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- ── Scales ── -->
-      <table v-else-if="activeTab === 'scales'" class="dtbl">
+      <div v-else-if="activeTab === 'scales'" class="dtbl-wrap">
+      <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-props">Properties</th></tr></thead>
         <tbody>
           <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'scales', item.unitsml_id)">
@@ -341,9 +350,11 @@ onUnmounted(() => {
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- ── Systems ── -->
-      <table v-else-if="activeTab === 'unit_systems'" class="dtbl">
+      <div v-else-if="activeTab === 'unit_systems'" class="dtbl-wrap">
+      <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-sym">Short</th><th class="c-cnt">Units</th><th class="c-tag">Acceptable</th></tr></thead>
         <tbody>
           <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'unit_systems', item.unitsml_id)">
@@ -355,6 +366,7 @@ onUnmounted(() => {
           </tr>
         </tbody>
       </table>
+      </div>
 
     </div>
   </div>
@@ -363,24 +375,26 @@ onUnmounted(() => {
 <style scoped>
 .udb { font-size: 0.875rem; }
 
+/* ── Layout (mobile-first) ── */
+
 .udb-content {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 1.25rem 1.5rem 2rem;
+  padding: 0.75rem 0.75rem 2rem;
 }
 
 .udb-header {
   background: var(--vp-c-bg-soft);
   border-bottom: 1px solid var(--vp-c-divider);
-  padding: 1.25rem 1.5rem;
+  padding: 0.75rem;
 }
 .udb-header-inner {
   max-width: 1440px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; flex-wrap: wrap;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 0.75rem; flex-wrap: wrap;
 }
-.udb-title { font-size: 1.5rem; font-weight: 700; margin: 0; letter-spacing: -0.02em; }
-.udb-subtitle { font-size: 0.875rem; color: var(--vp-c-text-3); margin: 0.25rem 0 0; }
+.udb-title { font-size: 1.25rem; font-weight: 700; margin: 0; letter-spacing: -0.02em; }
+.udb-subtitle { font-size: 0.8125rem; color: var(--vp-c-text-3); margin: 0.25rem 0 0; }
 .udb-action-btn {
   display: inline-flex; align-items: center; gap: 0.4rem;
   padding: 0.4rem 0.875rem; border-radius: 8px; font-size: 0.8125rem; font-weight: 500;
@@ -389,34 +403,39 @@ onUnmounted(() => {
 }
 .udb-action-btn:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 
-/* Stats bar */
+/* ── Stats bar ── */
+
 .stats-bar {
-  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
-  padding: 0.5rem 0.875rem; background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider); border-radius: 10px; margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem 0.75rem; background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider); border-radius: 10px; margin-bottom: 0.75rem;
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
 }
-.stat-group { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.stat-group { display: flex; gap: 0.25rem; flex-shrink: 0; }
 .stat-pill {
   display: flex; align-items: baseline; gap: 0.3rem;
   padding: 0.2rem 0.625rem; border-radius: 20px; cursor: pointer;
   border: 1px solid transparent; background: none; font-family: inherit;
   font-size: 0.75rem; color: var(--vp-c-text-3); transition: all 0.2s;
+  white-space: nowrap;
 }
 .stat-pill:hover { background: var(--vp-c-bg); border-color: var(--vp-c-divider); color: var(--vp-c-text-2); }
 .stat-pill.active { background: var(--vp-c-brand-1); color: #fff; border-color: var(--vp-c-brand-1); }
 .sp-val { font-weight: 700; font-size: 0.875rem; }
 .sp-lbl { font-size: 0.6875rem; }
-.stat-divider { width: 1px; height: 1.5rem; background: var(--vp-c-divider); flex-shrink: 0; }
-.stat-dl-group { display: flex; gap: 0.3rem; margin-left: auto; flex-wrap: wrap; }
+.stat-divider { display: none; width: 1px; height: 1.5rem; background: var(--vp-c-divider); flex-shrink: 0; }
+.stat-dl-group { display: flex; gap: 0.3rem; flex-shrink: 0; }
 .dl-btn {
   display: inline-flex; align-items: center; gap: 0.3rem;
   padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.6875rem; font-weight: 500;
   cursor: pointer; transition: all 0.2s; border: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg); color: var(--vp-c-text-2); font-family: inherit; text-decoration: none;
+  white-space: nowrap;
 }
 .dl-btn:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 
-/* Sub-filters */
+/* ── Sub-filters ── */
+
 .sub-filters { display: flex; gap: 0.25rem; margin-bottom: 0.625rem; flex-wrap: wrap; }
 .sub-filter-btn {
   display: flex; align-items: center; gap: 0.3rem;
@@ -429,24 +448,33 @@ onUnmounted(() => {
 .sub-filter-btn.active { background: rgba(45,44,105,0.08); border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 .sf-count { font-weight: 600; }
 
-/* Search */
-.search-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
-.search-box { flex: 1; position: relative; max-width: 400px; }
+/* ── Search ── */
+
+.search-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+.search-box { flex: 1; position: relative; min-width: 0; }
 .si { position: absolute; left: 0.625rem; top: 50%; transform: translateY(-50%); color: var(--vp-c-text-3); pointer-events: none; }
 .si-input {
   width: 100%; padding: 0.5rem 2rem 0.5rem 2rem; border-radius: 8px;
   border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg);
   font-size: 0.8125rem; font-family: inherit; color: var(--vp-c-text-1); transition: border-color 0.2s;
+  box-sizing: border-box;
 }
 .si-input:focus { outline: none; border-color: var(--vp-c-brand-1); }
 .si-clear { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--vp-c-text-3); cursor: pointer; font-size: 1rem; }
-.res-n { font-size: 0.75rem; color: var(--vp-c-text-3); white-space: nowrap; }
+.res-n { font-size: 0.75rem; color: var(--vp-c-text-3); white-space: nowrap; flex-shrink: 0; }
 
-/* ─── Data table ─── */
+/* ── Table wrapper (scrollable on mobile) ── */
+
+.dtbl-wrap {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--vp-c-divider); border-radius: 8px;
+}
+
+/* ── Data table ── */
+
 .dtbl {
   width: 100%; border-collapse: collapse;
-  border: 1px solid var(--vp-c-divider); border-radius: 8px; overflow: hidden;
-  font-size: 0.8125rem;
+  font-size: 0.8125rem; min-width: 600px;
 }
 .dtbl thead { background: var(--vp-c-bg-soft); }
 .dtbl th {
@@ -465,11 +493,10 @@ onUnmounted(() => {
 /* Column widths */
 .c-sym { width: 70px; }
 .c-sym code { font-size: 0.8125rem; color: var(--vp-c-brand-1); background: rgba(45,44,105,0.05); padding: 0.05rem 0.4rem; border-radius: 3px; }
-.c-name { min-width: 140px; }
+.c-name { min-width: 140px; white-space: normal !important; }
 .c-name a { color: var(--vp-c-text-1); text-decoration: none; font-weight: 500; }
 .c-name a:hover { color: var(--vp-c-brand-1); }
 .c-alt { display: block; font-size: 0.6875rem; color: var(--vp-c-text-3); margin-top: 0.1rem; white-space: normal; }
-.c-name { white-space: normal !important; }
 .c-uid { min-width: 120px; }
 .c-uid code { font-size: 0.75rem; color: var(--vp-c-text-3); background: none; padding: 0; }
 .c-dim { width: 100px; }
@@ -489,7 +516,8 @@ onUnmounted(() => {
 .badge-derived { background: rgba(87,160,254,0.08); border-color: rgba(87,160,254,0.25); color: #57a0fe; }
 .more { font-size: 0.6875rem; color: var(--vp-c-text-3); margin-left: 0.2rem; }
 
-/* State messages */
+/* ── State messages ── */
+
 .state-msg { padding: 3rem 1rem; text-align: center; color: var(--vp-c-text-3); }
 .state-msg.err { color: var(--vp-c-danger-1); }
 .empty-state { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
@@ -500,22 +528,22 @@ onUnmounted(() => {
 }
 .clear-search-btn:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 
-/* Skeleton */
+/* ── Skeleton ── */
+
 .skeleton-wrapper { padding: 1rem 0; }
 .skeleton-row { display: flex; gap: 0.75rem; padding: 0.5rem 0; }
 .skeleton-cell { height: 16px; background: var(--vp-c-bg-soft); border-radius: 4px; }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .udb-content { padding: 1rem 1rem 2rem; }
-  .udb-header { padding: 1rem; }
-  .udb-header-inner { flex-direction: column; align-items: flex-start; }
-  .stats-bar { gap: 0.5rem; }
-  .stat-divider { display: none; }
-  .stat-dl-group { margin-left: 0; width: 100%; }
-  .dtbl { font-size: 0.75rem; }
-  .dtbl th, .dtbl td { padding: 0.35rem 0.5rem; }
-  .c-uid { display: none; }
-  .search-box { max-width: none; }
+/* ── Desktop (≥ 768px) ── */
+
+@media (min-width: 768px) {
+  .udb-content { padding: 1.25rem 1.5rem 2rem; }
+  .udb-header { padding: 1.25rem 1.5rem; }
+  .udb-header-inner { align-items: center; }
+  .udb-title { font-size: 1.5rem; }
+  .stats-bar { overflow-x: visible; }
+  .stat-divider { display: block; }
+  .stat-dl-group { margin-left: auto; }
+  .search-box { max-width: 400px; }
 }
 </style>
