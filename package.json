@@ -1,0 +1,20 @@
+{
+  "name": "unitsml.org",
+  "version": "1.0.0",
+  "description": "UnitsML - Authoritative mechanism for encoding scientific units of measure",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview",
+    "generate:unitsdb": "tsx scripts/generate-unitsdb.ts"
+  },
+  "devDependencies": {
+    "@asciidoctor/core": "^3.0.4",
+    "js-yaml": "^4.1.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.7.3",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.13"
+  }
+}
