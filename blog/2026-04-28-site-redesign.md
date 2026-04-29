@@ -55,4 +55,4 @@ UnitsML is developed under [CalConnect TC UNITS](https://www.calconnect.org). If
 
 - Browse the database at [unitsml.org/unitsdb](/unitsdb/)
 - Explore the code on [GitHub](https://github.com/unitsml)
-- Join the discussion in [GitHub Discussions](https://github.com/unitsml/unitsml.org/discussions)
+- Star and watch the [GitHub repository](https://github.com/unitsml/unitsml.github.io)
