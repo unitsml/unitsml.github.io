@@ -558,10 +558,12 @@ async function copyLink() {
 </template>
 
 <style scoped>
+/* ── Mobile-first defaults ── */
+
 .ep {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 1.25rem 2rem 3rem;
+  padding: 1rem 1rem 3rem;
   font-size: 0.9375rem;
   min-height: 70vh;
 }
@@ -569,7 +571,9 @@ async function copyLink() {
 /* Breadcrumb */
 .ep-bc {
   display: flex; align-items: center; gap: 0.4rem;
-  font-size: 0.8125rem; margin-bottom: 1.25rem; color: var(--vp-c-text-3);
+  font-size: 0.8125rem; margin-bottom: 1rem; color: var(--vp-c-text-3);
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
 }
 .ep-bc a { color: var(--vp-c-text-3); text-decoration: none; }
 .ep-bc a:hover { color: var(--vp-c-brand-1); }
@@ -590,10 +594,10 @@ async function copyLink() {
 }
 .ep-btn-primary:hover { background: var(--vp-c-brand-2); }
 
-/* Compact header */
+/* Header: stack vertically on mobile */
 .ep-header {
-  display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
-  margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--vp-c-divider);
+  display: flex; flex-direction: column; gap: 0.75rem;
+  margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--vp-c-divider);
 }
 .ep-header-left { flex: 1; min-width: 0; }
 .ep-header-row1 { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
@@ -603,10 +607,10 @@ async function copyLink() {
   background: var(--vp-c-brand-1); color: #fff;
 }
 .ep-name {
-  font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em;
+  font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em;
   line-height: 1.2; margin: 0; color: var(--vp-c-text-1);
 }
-.ep-sym-lg { font-size: 1.75rem; font-weight: 300; color: var(--vp-c-text-3); font-family: inherit; }
+.ep-sym-lg { font-size: 1.5rem; font-weight: 300; color: var(--vp-c-text-3); font-family: inherit; }
 .ep-i18n { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.35rem; }
 .ep-i18n-chip {
   font-size: 0.75rem; padding: 0.1rem 0.5rem; border-radius: 4px;
@@ -619,12 +623,12 @@ async function copyLink() {
   border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg);
   color: var(--vp-c-text-2); font-size: 0.75rem; font-weight: 500;
   cursor: pointer; transition: all 0.2s; font-family: inherit;
-  flex-shrink: 0;
+  flex-shrink: 0; align-self: flex-start;
 }
 .ep-copy-btn:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 
-/* Two-column body */
-.ep-body { display: grid; grid-template-columns: 1fr 380px; gap: 2rem; align-items: start; }
+/* Body: single column on mobile */
+.ep-body { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
 
 /* Sections */
 .ep-sec { margin-bottom: 1.25rem; }
@@ -654,7 +658,7 @@ async function copyLink() {
 /* Symbol display */
 .ep-sym-display { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
 .ep-sym-rendered {
-  font-size: 1.75rem; font-weight: 300; padding: 0.5rem 1rem;
+  font-size: 1.5rem; font-weight: 300; padding: 0.4rem 0.75rem;
   background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
   border-radius: 6px; line-height: 1;
 }
@@ -713,8 +717,8 @@ async function copyLink() {
 /* Description */
 .ep-desc { color: var(--vp-c-text-2); line-height: 1.6; margin: 0; font-size: 0.875rem; }
 
-/* Properties grid */
-.ep-prop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--vp-c-divider); border-radius: 6px; overflow: hidden; }
+/* Properties grid: single column on mobile */
+.ep-prop-grid { display: grid; grid-template-columns: 1fr; gap: 2px; background: var(--vp-c-divider); border-radius: 6px; overflow: hidden; }
 .ep-prop-item {
   padding: 0.4rem 0.6rem; background: var(--vp-c-bg);
   display: flex; flex-direction: column; gap: 0.1rem;
@@ -791,13 +795,24 @@ async function copyLink() {
 .ep-json-view { margin-top: 0.5rem; border: 1px solid var(--vp-c-divider); border-radius: 6px; overflow: hidden; }
 .ep-json-view pre { margin: 0; padding: 0.75rem; font-size: 0.6875rem; line-height: 1.5; overflow-x: auto; background: var(--vp-c-bg-soft); }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .ep { padding: 1rem 1rem 3rem; }
-  .ep-header { flex-direction: column; }
-  .ep-name { font-size: 1.25rem; }
-  .ep-sym-lg { font-size: 1.5rem; }
-  .ep-body { grid-template-columns: 1fr; }
-  .ep-sym-rendered { font-size: 1.5rem; padding: 0.4rem 0.75rem; }
+/* ── Desktop overrides ── */
+
+@media (min-width: 640px) {
+  .ep-prop-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .ep { padding: 1.25rem 2rem 3rem; }
+
+  .ep-bc { margin-bottom: 1.25rem; overflow-x: visible; white-space: normal; }
+
+  .ep-header { flex-direction: row; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+
+  .ep-name { font-size: 1.5rem; }
+  .ep-sym-lg { font-size: 1.75rem; }
+
+  .ep-body { grid-template-columns: 1fr 380px; gap: 2rem; }
+
+  .ep-sym-rendered { font-size: 1.75rem; padding: 0.5rem 1rem; }
 }
 </style>
