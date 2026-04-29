@@ -86,7 +86,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: `<a href="/unitsdb/">UnitsDB</a> · <a href="/schemas">Schemas</a> · <a href="/learn/what-is-unitsml">Learn</a> · <a href="https://github.com/unitsml">GitHub</a>`,
+      message: `<a href="/unitsdb/">UnitsDB</a> · <a href="/schemas.html">Schemas</a> · <a href="/learn/what-is-unitsml.html">Learn</a> · <a href="https://github.com/unitsml">GitHub</a>`,
       copyright: 'Copyright © 2026 UnitsML Group'
     },
 
@@ -159,7 +159,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/unitsml/unitsml.org/edit/main/:path',
+      pattern: 'https://github.com/unitsml/unitsml.github.io/edit/main/:path',
       text: 'Edit this page on GitHub'
     }
   }

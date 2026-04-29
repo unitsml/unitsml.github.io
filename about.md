@@ -23,7 +23,7 @@ UnitsML consists of interconnected components that together form a complete syst
   <div class="ecosystem-item">
     <h4>UnitsML XML Schemas</h4>
     <p>Authoritative XML schemas for encoding scientific units of measure — SI base units, derived units, and non-SI units. Designed to be incorporated into other markup languages.</p>
-    <a href="/schemas">Learn more &rarr;</a>
+    <a href="/schemas.html">Learn more &rarr;</a>
   </div>
   <div class="ecosystem-item">
     <h4>UnitsDB</h4>

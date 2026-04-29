@@ -195,8 +195,8 @@ const tickerUnits = [
         Explore UnitsDB
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="/schemas" class="btn btn-teal">View Schemas</a>
-      <a href="/learn/what-is-unitsml" class="btn btn-outline">Learn about UnitsML</a>
+      <a href="/schemas.html" class="btn btn-teal">View Schemas</a>
+      <a href="/learn/what-is-unitsml.html" class="btn btn-outline">Learn about UnitsML</a>
     </div>
   </div>
 
