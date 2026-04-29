@@ -1,0 +1,138 @@
+{
+  "@context": "https://unitsml.org/unitsdb/context.jsonld",
+  "@graph": [
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/unit-system/us:si-base",
+      "@type": "UnitSystem",
+      "name": "SI base units",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "SI_base"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "us:si-base"
+        }
+      ],
+      "short": "si-base"
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/unit-system/us:si-compatible",
+      "@type": "UnitSystem",
+      "name": "Units compatible with SI",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "SI_compatible"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "us:si-compatible"
+        }
+      ],
+      "short": "si-compatible"
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/unit-system/us:si-derived-nonspecial",
+      "@type": "UnitSystem",
+      "name": "SI-derived units non-special",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "SI_derived_non-special"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "us:si-derived-nonspecial"
+        }
+      ],
+      "short": "si-derived-nonspecial"
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/unit-system/us:si-derived-special",
+      "@type": "UnitSystem",
+      "name": "SI-derived units special",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "SI_derived_special"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "us:si-derived-special"
+        }
+      ],
+      "short": "si-derived-special"
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/unit-system/us:nonsi-acceptable",
+      "@type": "UnitSystem",
+      "name": "non-SI but acceptable",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "non-SI_acceptable"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "us:nonsi-acceptable"
+        }
+      ],
+      "short": "nonsi-acceptable"
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/unit-system/us:nonsi-nist-acceptable",
+      "@type": "UnitSystem",
+      "name": "non-SI but acceptable by NIST SP 811",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "non-SI_nist_acceptable"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "us:nonsi-nist-acceptable"
+        }
+      ],
+      "short": "nonsi-nist-acceptable"
+    },
+    {
+      "@context": "https://unitsml.org/unitsdb/context.jsonld",
+      "@id": "https://unitsml.org/unit-system/us:nonsi-unacceptable",
+      "@type": "UnitSystem",
+      "name": "non-SI and not acceptable",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "nist",
+          "value": "non-SI_not_acceptable"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "unitsml",
+          "value": "us:nonsi-unacceptable"
+        }
+      ],
+      "short": "nonsi-unacceptable"
+    }
+  ]
+}

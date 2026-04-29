@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "source": "https://github.com/unitsml/unitsdb",
+    "version": "2.0.0",
+    "schema_site": "https://schema.unitsml.org",
+    "generated": "2026-04-29"
+  },
+  "stats": {
+    "units": 380,
+    "quantities": 199,
+    "dimensions": 92,
+    "prefixes": 33,
+    "scales": 5,
+    "unit_systems": 7,
+    "total": 716,
+    "units_root": 255,
+    "units_composite": 123,
+    "quantities_base": 8,
+    "quantities_derived": 191,
+    "prefixes_decimal": 25,
+    "prefixes_binary": 8
+  }
+}
