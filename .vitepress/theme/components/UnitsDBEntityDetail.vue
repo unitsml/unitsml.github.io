@@ -765,21 +765,18 @@ async function copyLink() {
 }
 .ep-auth-badge {
   display: inline-flex; align-items: center; justify-content: center;
-  width: auto; min-width: 22px; height: 22px; border-radius: 5px;
-  padding: 0 6px;
+  width: 24px; height: 24px; border-radius: 5px;
+  padding: 3px;
   font-size: 0.5625rem; font-weight: 700; flex-shrink: 0;
-  background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
+  background: #fff; border: 1px solid var(--vp-c-divider);
   color: var(--vp-c-text-2);
 }
 .ep-auth-logo {
-  height: 14px; width: auto; max-width: 60px; object-fit: contain;
+  width: 100%; height: 100%; object-fit: contain;
 }
-.ep-auth-si-digital-framework { background: rgba(20,184,166,0.1); border-color: rgba(20,184,166,0.3); padding: 0 4px; }
-.ep-auth-si-digital-framework .ep-auth-logo { height: 16px; max-width: 52px; }
-.ep-auth-ucum { background: rgba(87,160,254,0.1); border-color: rgba(87,160,254,0.3); padding: 2px; }
-.ep-auth-ucum .ep-auth-logo { height: 16px; max-width: 16px; }
-.ep-auth-qudt { background: rgba(139,92,246,0.1); border-color: rgba(139,92,246,0.3); padding: 0 4px; }
-.ep-auth-qudt .ep-auth-logo { height: 14px; max-width: 44px; }
+.ep-auth-si-digital-framework { border-color: rgba(20,184,166,0.3); }
+.ep-auth-ucum { border-color: rgba(87,160,254,0.3); }
+.ep-auth-qudt { border-color: rgba(139,92,246,0.3); }
 .ep-auth-nist { background: rgba(45,44,105,0.1); border-color: rgba(45,44,105,0.3); color: #2d2c69; }
 .ep-auth-label { font-size: 0.75rem; font-weight: 500; color: var(--vp-c-text-1); }
 
