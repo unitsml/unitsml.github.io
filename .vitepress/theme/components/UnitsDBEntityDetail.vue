@@ -34,11 +34,10 @@ const AUTHORITY_LABEL: Record<string, string> = {
   nist: 'NIST',
 }
 
-const AUTHORITY_ICON: Record<string, string> = {
-  'si-digital-framework': 'ⓢ',
-  ucum: 'ⓤ',
-  qudt: 'ⓠ',
-  nist: 'Ⓝ',
+const AUTHORITY_LOGO: Record<string, string> = {
+  'si-digital-framework': '/logo-bipm.svg',
+  ucum: '/logo-ucum.svg',
+  qudt: '/logo-qudt.svg',
 }
 
 const DISPLAY_SYMBOLS = ['unicode']
@@ -521,7 +520,10 @@ async function copyLink() {
                 :href="ref.uri.startsWith('http') ? ref.uri : undefined"
                 target="_blank" rel="noopener"
                 class="ep-ref-row ep-extref">
-                <span class="ep-auth-badge" :class="'ep-auth-' + ref.authority">{{ AUTHORITY_ICON[ref.authority] || '◆' }}</span>
+                <span class="ep-auth-badge" :class="'ep-auth-' + ref.authority">
+                  <img v-if="AUTHORITY_LOGO[ref.authority]" :src="AUTHORITY_LOGO[ref.authority]" :alt="AUTHORITY_LABEL[ref.authority] || ref.authority" class="ep-auth-logo" />
+                  <template v-else>{{ ref.authority === 'nist' ? 'Ⓝ' : '◆' }}</template>
+                </span>
                 <span class="ep-extref-body">
                   <span class="ep-auth-label">{{ AUTHORITY_LABEL[ref.authority] || ref.authority }}</span>
                   <code class="ep-extref-uri">{{ ref.uri }}</code>
@@ -763,14 +765,21 @@ async function copyLink() {
 }
 .ep-auth-badge {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 22px; height: 22px; border-radius: 5px;
+  width: auto; min-width: 22px; height: 22px; border-radius: 5px;
+  padding: 0 6px;
   font-size: 0.5625rem; font-weight: 700; flex-shrink: 0;
   background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider);
   color: var(--vp-c-text-2);
 }
-.ep-auth-si-digital-framework { background: rgba(20,184,166,0.1); border-color: rgba(20,184,166,0.3); color: #14b8a6; }
-.ep-auth-ucum { background: rgba(87,160,254,0.1); border-color: rgba(87,160,254,0.3); color: #57a0fe; }
-.ep-auth-qudt { background: rgba(139,92,246,0.1); border-color: rgba(139,92,246,0.3); color: #8b5cf6; }
+.ep-auth-logo {
+  height: 14px; width: auto; max-width: 60px; object-fit: contain;
+}
+.ep-auth-si-digital-framework { background: rgba(20,184,166,0.1); border-color: rgba(20,184,166,0.3); padding: 0 4px; }
+.ep-auth-si-digital-framework .ep-auth-logo { height: 16px; max-width: 52px; }
+.ep-auth-ucum { background: rgba(87,160,254,0.1); border-color: rgba(87,160,254,0.3); padding: 2px; }
+.ep-auth-ucum .ep-auth-logo { height: 16px; max-width: 16px; }
+.ep-auth-qudt { background: rgba(139,92,246,0.1); border-color: rgba(139,92,246,0.3); padding: 0 4px; }
+.ep-auth-qudt .ep-auth-logo { height: 14px; max-width: 44px; }
 .ep-auth-nist { background: rgba(45,44,105,0.1); border-color: rgba(45,44,105,0.3); color: #2d2c69; }
 .ep-auth-label { font-size: 0.75rem; font-weight: 500; color: var(--vp-c-text-1); }
 
