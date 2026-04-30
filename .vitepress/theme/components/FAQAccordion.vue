@@ -8,14 +8,14 @@ interface FAQItem {
 
 interface FAQGroup {
   title: string
-  icon: string
+  iconKey: string
   items: FAQItem[]
 }
 
 const groups: FAQGroup[] = [
   {
     title: 'General',
-    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5"/></svg>`,
+    iconKey: 'question',
     items: [
       {
         question: 'What is UnitsML?',
@@ -37,7 +37,7 @@ const groups: FAQGroup[] = [
   },
   {
     title: 'Integration & Usage',
-    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>`,
+    iconKey: 'link',
     items: [
       {
         question: 'How is UnitsML used with other standards?',
@@ -55,7 +55,7 @@ const groups: FAQGroup[] = [
   },
   {
     title: 'UnitsDB',
-    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`,
+    iconKey: 'database',
     items: [
       {
         question: 'What is UnitsDB?',
@@ -88,7 +88,11 @@ function toggle(groupIdx: number, itemIdx: number) {
   <div class="faq-sections">
     <div v-for="(group, gi) in groups" :key="group.title" class="faq-group">
       <h3 class="faq-group-title">
-        <span class="faq-group-icon" v-html="group.icon"></span>
+        <span class="faq-group-icon">
+          <svg v-if="group.iconKey === 'question'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r="0.5"/></svg>
+          <svg v-else-if="group.iconKey === 'link'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          <svg v-else-if="group.iconKey === 'database'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </span>
         {{ group.title }}
       </h3>
       <div class="faq-items">
@@ -98,13 +102,19 @@ function toggle(groupIdx: number, itemIdx: number) {
           class="faq-item"
           :class="{ open: openItems.has(`${gi}-${ii}`) }"
         >
-          <button class="faq-question" @click="toggle(gi, ii)">
+          <button
+            class="faq-question"
+            :id="`faq-q-${gi}-${ii}`"
+            :aria-expanded="openItems.has(`${gi}-${ii}`)"
+            :aria-controls="`faq-a-${gi}-${ii}`"
+            @click="toggle(gi, ii)"
+          >
             <span>{{ item.question }}</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M6 9l6 6 6-6"/>
             </svg>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" :id="`faq-a-${gi}-${ii}`" :role="'region'" :aria-labelledby="`faq-q-${gi}-${ii}`">
             <p>{{ item.answer }}</p>
           </div>
         </div>

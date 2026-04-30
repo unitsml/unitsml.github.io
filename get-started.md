@@ -117,13 +117,6 @@ See the [unitsml-ruby page](/software/unitsml-ruby) for full API documentation.
 - Understand [what UnitsML is](/learn/what-is-unitsml) and the problems it solves
 - Explore [UnitsDB](/unitsdb/) — the complete units database
 
-## Next steps
-
-- Read the [UnitsML Guide](/learn/guide) for in-depth usage patterns
-- Learn [how to incorporate UnitsML](/learn/incorporating-unitsml) into other markup languages
-- Understand [what UnitsML is](/learn/what-is-unitsml) and the problems it solves
-- Explore [UnitsDB](/unitsdb/) — the complete units database
-
 <style scoped>
 /* Paths grid */
 .paths-grid {

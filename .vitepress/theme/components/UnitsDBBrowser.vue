@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { useRouter } from 'vitepress'
+
+const router = useRouter()
 
 interface Identifier { type: string; id: string }
 interface QtyRef { id: string; name: string; type: string }
@@ -39,6 +42,8 @@ const loadError  = ref('')
 const activeTab  = ref<EType>('units')
 const activeUnitFilter = ref('all')
 const q          = ref('')
+const pageSize   = 100
+const page       = ref(1)
 const typeCache  = new Map<EType, any[]>()
 const typeCacheRaw = ref<Record<EType, any[] | null>>({
   units: null, quantities: null, dimensions: null,
@@ -57,7 +62,7 @@ function firstSym(item: any): string {
 }
 function rowClick(e: MouseEvent, type: EType, uid: string) {
   if ((e.target as HTMLElement).closest('a')) return
-  window.location.href = entityLink(type, uid)
+  router.go(entityLink(type, uid))
 }
 function altNames(item: any): string {
   if (!item.names?.length) return ''
@@ -167,10 +172,17 @@ const prefixedCount = computed(() => {
   return (units as UnitEntry[]).filter(u => u.root_units?.some(ru => ru.prefix)).length
 })
 
+const totalPages = computed(() => Math.max(1, Math.ceil(filtered.value.length / pageSize)))
+const paged = computed(() => {
+  const start = (page.value - 1) * pageSize
+  return filtered.value.slice(start, start + pageSize)
+})
+
 async function switchTab(key: EType) {
   q.value = ''
+  page.value = 1
   const newPath = `/unitsdb/${URL_TYPE[key]}`
-  history.pushState(null, '', newPath)
+  router.go(newPath)
   if (!typeCache.has(key)) tabLoading.value = true
   activeTab.value = key; activeUnitFilter.value = 'all'
   if (!typeCache.has(key)) { await loadType(key); db.value = buildDb() }
@@ -191,6 +203,7 @@ function onKeydown(e: KeyboardEvent) {
   if (e.key === 'Escape' && q.value) { q.value = ''; searchInput.value?.blur() }
 }
 onMounted(() => window.addEventListener('keydown', onKeydown))
+watch(q, () => { page.value = 1 })
 onUnmounted(() => {
   window.removeEventListener('keydown', onKeydown)
   window.removeEventListener('popstate', onPopState)
@@ -279,7 +292,7 @@ onUnmounted(() => {
       <table class="dtbl">
         <thead><tr><th class="c-sym">Symbol</th><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-dim">Dimension</th><th class="c-tag">Type</th><th class="c-qty">Quantity</th></tr></thead>
         <tbody>
-          <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'units', item.unitsml_id)">
+          <tr v-for="item in paged" :key="item.id" @click="rowClick($event, 'units', item.unitsml_id)">
             <td class="c-sym"><code>{{ firstSym(item) }}</code></td>
             <td class="c-name"><a :href="entityLink('units', item.unitsml_id)">{{ item.name }}</a><span v-if="altNames(item)" class="c-alt">{{ altNames(item) }}</span></td>
             <td class="c-uid"><code>{{ item.unitsml_id }}</code></td>
@@ -296,7 +309,7 @@ onUnmounted(() => {
       <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-tag">Type</th><th class="c-dim">Dimension</th><th class="c-cnt">Units</th></tr></thead>
         <tbody>
-          <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'quantities', item.unitsml_id)">
+          <tr v-for="item in paged" :key="item.id" @click="rowClick($event, 'quantities', item.unitsml_id)">
             <td class="c-name"><a :href="entityLink('quantities', item.unitsml_id)">{{ item.name }}</a><span v-if="altNames(item)" class="c-alt">{{ altNames(item) }}</span></td>
             <td class="c-uid"><code>{{ item.unitsml_id }}</code></td>
             <td class="c-tag"><span class="badge" :class="item.type === 'base' ? 'badge-base' : 'badge-derived'">{{ item.type }}</span></td>
@@ -312,7 +325,7 @@ onUnmounted(() => {
       <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-dim">Expression</th><th class="c-cnt">Quantities</th><th class="c-tag">Dim-less</th></tr></thead>
         <tbody>
-          <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'dimensions', item.unitsml_id)">
+          <tr v-for="item in paged" :key="item.id" @click="rowClick($event, 'dimensions', item.unitsml_id)">
             <td class="c-name"><a :href="entityLink('dimensions', item.unitsml_id)">{{ item.name }}</a><span v-if="altNames(item)" class="c-alt">{{ altNames(item) }}</span></td>
             <td class="c-uid"><code>{{ item.unitsml_id }}</code></td>
             <td class="c-dim"><code>{{ item.expression }}</code></td>
@@ -328,7 +341,7 @@ onUnmounted(() => {
       <table class="dtbl">
         <thead><tr><th class="c-sym">Symbol</th><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-fact">Factor</th><th class="c-cnt">Value</th></tr></thead>
         <tbody>
-          <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'prefixes', item.unitsml_id)">
+          <tr v-for="item in paged" :key="item.id" @click="rowClick($event, 'prefixes', item.unitsml_id)">
             <td class="c-sym"><code>{{ item.symbol }}</code></td>
             <td class="c-name"><a :href="entityLink('prefixes', item.unitsml_id)">{{ item.name }}</a><span v-if="altNames(item)" class="c-alt">{{ altNames(item) }}</span></td>
             <td class="c-uid"><code>{{ item.unitsml_id }}</code></td>
@@ -344,7 +357,7 @@ onUnmounted(() => {
       <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-props">Properties</th></tr></thead>
         <tbody>
-          <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'scales', item.unitsml_id)">
+          <tr v-for="item in paged" :key="item.id" @click="rowClick($event, 'scales', item.unitsml_id)">
             <td class="c-name"><a :href="entityLink('scales', item.unitsml_id)">{{ item.name }}</a><span v-if="altNames(item)" class="c-alt">{{ altNames(item) }}</span></td>
             <td class="c-uid"><code>{{ item.unitsml_id }}</code></td>
             <td class="c-props">{{ Object.entries(item.properties || {}).filter(([,v]) => v).map(([k]) => k).join(', ') }}</td>
@@ -358,7 +371,7 @@ onUnmounted(() => {
       <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-sym">Short</th><th class="c-cnt">Units</th><th class="c-tag">Acceptable</th></tr></thead>
         <tbody>
-          <tr v-for="item in filtered" :key="item.id" @click="rowClick($event, 'unit_systems', item.unitsml_id)">
+          <tr v-for="item in paged" :key="item.id" @click="rowClick($event, 'unit_systems', item.unitsml_id)">
             <td class="c-name"><a :href="entityLink('unit_systems', item.unitsml_id)">{{ item.name }}</a><span v-if="altNames(item)" class="c-alt">{{ altNames(item) }}</span></td>
             <td class="c-uid"><code>{{ item.unitsml_id }}</code></td>
             <td class="c-sym"><code>{{ item.short }}</code></td>
@@ -367,6 +380,13 @@ onUnmounted(() => {
           </tr>
         </tbody>
       </table>
+      </div>
+
+      <!-- Pagination -->
+      <div v-if="totalPages > 1" class="pager">
+        <button class="pager-btn" :disabled="page <= 1" @click="page--">&larr; Prev</button>
+        <span class="pager-info">Page {{ page }} of {{ totalPages }}</span>
+        <button class="pager-btn" :disabled="page >= totalPages" @click="page++">Next &rarr;</button>
       </div>
 
     </div>
@@ -540,6 +560,22 @@ onUnmounted(() => {
 .skeleton-wrapper { padding: 1rem 0; }
 .skeleton-row { display: flex; gap: 0.75rem; padding: 0.5rem 0; }
 .skeleton-cell { height: 16px; background: var(--vp-c-bg-soft); border-radius: 4px; }
+
+/* ── Pagination ── */
+
+.pager {
+  display: flex; align-items: center; justify-content: center; gap: 1rem;
+  margin-top: 1rem; padding-top: 1rem;
+  border-top: 1px solid var(--vp-c-divider);
+}
+.pager-btn {
+  padding: 0.35rem 0.875rem; border-radius: 6px; font-size: 0.8125rem; font-weight: 500;
+  cursor: pointer; border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg);
+  color: var(--vp-c-text-2); font-family: inherit; transition: all 0.15s;
+}
+.pager-btn:hover:not(:disabled) { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
+.pager-btn:disabled { opacity: 0.4; cursor: default; }
+.pager-info { font-size: 0.8125rem; color: var(--vp-c-text-3); }
 
 /* ── Desktop (≥ 768px) ── */
 

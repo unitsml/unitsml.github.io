@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vitepress'
+
+const router = useRouter()
 
 interface DiagramNode {
   id: string
@@ -50,7 +53,7 @@ function navigate(node: DiagramNode) {
     if (node.link.startsWith('http')) {
       window.open(node.link, '_blank', 'noopener')
     } else {
-      window.location.href = node.link
+      router.go(node.link)
     }
   }
 }
