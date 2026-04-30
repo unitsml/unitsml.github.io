@@ -246,6 +246,24 @@ UnitsML was originally hosted at `unitsml.nist.gov`. An OASIS Technical Committe
   color: #f59e0b;
 }
 
+:global(.dark) .callout-card.callout-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+:global(.dark) .callout-card.callout-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+:global(.dark) .callout-card.callout-danger .callout-icon {
+  color: #f87171;
+}
+
+:global(.dark) .callout-card.callout-warning .callout-icon {
+  color: #fbbf24;
+}
+
 .callout-icon {
   margin-bottom: 0.75rem;
 }
