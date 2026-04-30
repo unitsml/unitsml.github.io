@@ -545,6 +545,11 @@ async function copyLink() {
         </div>
       </div>
 
+        <!-- Mobile floating back -->
+        <a v-if="entity" :href="`/unitsdb/${URL_TYPE[entityType] || entityType}`" class="ep-back-float">
+          ← {{ TYPE_PLURAL[entityType] }}
+        </a>
+
         <!-- Raw JSON toggle -->
         <div class="ep-json-area">
           <button class="ep-json-toggle" @click="showJson = !showJson">
@@ -778,6 +783,8 @@ async function copyLink() {
 .ep-auth-ucum { border-color: rgba(87,160,254,0.3); }
 .ep-auth-qudt { border-color: rgba(139,92,246,0.3); }
 .ep-auth-nist { background: rgba(45,44,105,0.1); border-color: rgba(45,44,105,0.3); color: #2d2c69; }
+.dark .ep-auth-badge { background: var(--vp-c-bg-soft); }
+.dark .ep-auth-nist { color: var(--vp-c-brand-1); background: rgba(110,109,186,0.15); }
 .ep-auth-label { font-size: 0.75rem; font-weight: 500; color: var(--vp-c-text-1); }
 
 /* Names */
@@ -800,6 +807,23 @@ async function copyLink() {
 .ep-json-toggle:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 .ep-json-view { margin-top: 0.5rem; border: 1px solid var(--vp-c-divider); border-radius: 6px; overflow: hidden; }
 .ep-json-view pre { margin: 0; padding: 0.75rem; font-size: 0.6875rem; line-height: 1.5; overflow-x: auto; background: var(--vp-c-bg-soft); }
+
+/* Floating back button (mobile only) */
+.ep-back-float {
+  display: none;
+  position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+  padding: 0.5rem 1.25rem; border-radius: 999px;
+  background: var(--vp-c-brand-1); color: white;
+  font-size: 0.8125rem; font-weight: 600; text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 50;
+  align-items: center; gap: 0.3rem;
+  transition: background 0.2s;
+}
+.ep-back-float:hover { background: var(--vp-c-brand-2); color: white; }
+
+@media (max-width: 768px) {
+  .ep-back-float { display: inline-flex; }
+}
 
 /* ── Desktop overrides ── */
 

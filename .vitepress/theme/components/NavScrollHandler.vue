@@ -76,9 +76,21 @@ function init() {
   handleScroll()
 }
 
+let scrollRevealObserver: IntersectionObserver | null = null
+
 onMounted(() => {
   init()
   window.addEventListener('scroll', handleScroll, { passive: true })
+
+  scrollRevealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+        scrollRevealObserver?.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.reveal').forEach(el => scrollRevealObserver!.observe(el))
 })
 
 onUnmounted(() => {

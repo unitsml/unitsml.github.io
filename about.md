@@ -13,6 +13,16 @@
 UnitsML is under active development and its documentation may change frequently.
 :::
 
+<nav class="about-toc">
+  <a href="#the-unitsml-ecosystem">Ecosystem</a>
+  <a href="#vision">Vision</a>
+  <a href="#governance">Governance</a>
+  <a href="#history">History</a>
+  <a href="#people">People</a>
+  <a href="#participating-organizations">Organizations</a>
+  <a href="#frequently-asked-questions">FAQ</a>
+</nav>
+
 ## The UnitsML Ecosystem
 
 UnitsML consists of interconnected components that together form a complete system for encoding, storing, and accessing scientific units:
@@ -137,6 +147,20 @@ UnitsML has been shaped by contributors across government, academia, and industr
 .about-lead {
   margin-bottom: 2rem;
 }
+
+.about-toc {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin-bottom: 2rem; padding: 0.75rem 0;
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.about-toc a {
+  font-size: 0.8125rem; padding: 0.25rem 0.75rem;
+  border-radius: 999px; background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2); text-decoration: none;
+  border: 1px solid var(--vp-c-divider);
+  transition: all 0.2s ease;
+}
+.about-toc a:hover { border-color: var(--vp-c-brand-1); color: var(--vp-c-brand-1); }
 
 .lead-text {
   font-size: 1.125rem;

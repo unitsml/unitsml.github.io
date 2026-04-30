@@ -1,53 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
-import { projects } from '../../data/projects'
-
-// ── Animated counter ──
-const statsVisible = ref(false)
-const statsRef = ref<HTMLElement | null>(null)
-
-const stats = [
-  { value: 25, suffix: '+', label: 'Years of development', icon: 'calendar' },
-  { value: 10, suffix: '+', label: 'Organizations involved', icon: 'org' },
-  { value: 7, suffix: '', label: 'SI base quantities covered', icon: 'measure' },
-  { value: 380, suffix: '+', label: 'Units in the database', icon: 'units' },
-]
-
-const displayValues = ref(stats.map(() => 0))
-
-function animateCounters() {
-  stats.forEach((stat, i) => {
-    const target = stat.value
-    const duration = 1600
-    const start = performance.now()
-    const step = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3) // ease-out cubic
-      displayValues.value[i] = Math.round(eased * target)
-      if (progress < 1) requestAnimationFrame(step)
-    }
-    requestAnimationFrame(step)
-  })
-}
-
-let statsObserver: IntersectionObserver | null = null
-
-onMounted(() => {
-  statsObserver = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting && !statsVisible.value) {
-        statsVisible.value = true
-        nextTick(animateCounters)
-      }
-    },
-    { threshold: 0.3 }
-  )
-  if (statsRef.value) statsObserver.observe(statsRef.value)
-})
-
-onUnmounted(() => {
-  statsObserver?.disconnect()
-})
 
 // ── Steps ──
 const steps = [
@@ -92,6 +44,15 @@ const steps = [
 ]
 
 const activeStep = ref(0)
+const stepCopied = ref(false)
+
+function copyStepCode() {
+  const el = document.createElement('div')
+  el.innerHTML = steps[activeStep.value].code
+  navigator.clipboard.writeText(el.textContent || '')
+  stepCopied.value = true
+  setTimeout(() => stepCopied.value = false, 2000)
+}
 
 // ── Preview units for CTA ──
 const previewUnits = [
@@ -103,44 +64,19 @@ const previewUnits = [
   { sym: 'W', name: 'watt', dim: 'L²·M·T⁻³' },
 ]
 
-// ── Floating shapes for hero ──
-const shapes = [
-  { type: 'circle', size: 80, x: '8%', y: '12%', duration: '6s', delay: '0s', opacity: 0.12 },
-  { type: 'square', size: 50, x: '82%', y: '18%', duration: '8s', delay: '1s', opacity: 0.08 },
-  { type: 'circle', size: 30, x: '90%', y: '65%', duration: '7s', delay: '2s', opacity: 0.10 },
-  { type: 'diamond', size: 45, x: '5%', y: '70%', duration: '9s', delay: '0.5s', opacity: 0.07 },
-  { type: 'circle', size: 20, x: '70%', y: '8%', duration: '5s', delay: '1.5s', opacity: 0.09 },
-  { type: 'square', size: 35, x: '25%', y: '80%', duration: '7.5s', delay: '3s', opacity: 0.06 },
+// ── SI dimensional symbols floating in hero ──
+const dimSymbols = [
+  { char: 'L', x: '6%', y: '15%', size: 48, duration: '10s', delay: '0s', opacity: 0.05 },
+  { char: 'M', x: '85%', y: '12%', size: 44, duration: '12s', delay: '1.5s', opacity: 0.04 },
+  { char: 'T', x: '92%', y: '60%', size: 40, duration: '9s', delay: '3s', opacity: 0.05 },
+  { char: 'I', x: '4%', y: '65%', size: 52, duration: '11s', delay: '0.5s', opacity: 0.04 },
+  { char: 'Θ', x: '72%', y: '8%', size: 36, duration: '8s', delay: '2s', opacity: 0.045 },
+  { char: 'N', x: '28%', y: '78%', size: 42, duration: '13s', delay: '4s', opacity: 0.04 },
+  { char: 'J', x: '55%', y: '82%', size: 38, duration: '10.5s', delay: '1s', opacity: 0.045 },
 ]
 
-// ── Scrolling unit ticker for hero ──
-const tickerUnits = [
-  { sym: 'm', name: 'metre' },
-  { sym: 'kg', name: 'kilogram' },
-  { sym: 's', name: 'second' },
-  { sym: 'A', name: 'ampere' },
-  { sym: 'K', name: 'kelvin' },
-  { sym: 'mol', name: 'mole' },
-  { sym: 'cd', name: 'candela' },
-  { sym: 'N', name: 'newton' },
-  { sym: 'J', name: 'joule' },
-  { sym: 'W', name: 'watt' },
-  { sym: 'Pa', name: 'pascal' },
-  { sym: 'Hz', name: 'hertz' },
-  { sym: 'V', name: 'volt' },
-  { sym: 'Ω', name: 'ohm' },
-  { sym: 'C', name: 'coulomb' },
-  { sym: 'F', name: 'farad' },
-  { sym: 'H', name: 'henry' },
-  { sym: 'T', name: 'tesla' },
-  { sym: 'Wb', name: 'weber' },
-  { sym: 'lm', name: 'lumen' },
-  { sym: 'lx', name: 'lux' },
-  { sym: 'Bq', name: 'becquerel' },
-  { sym: 'Gy', name: 'gray' },
-  { sym: 'Sv', name: 'sievert' },
-  { sym: 'kat', name: 'katal' },
-]
+// ── Static unit pills ──
+const unitPills = ['m', 'kg', 's', 'A', 'K', 'mol', 'cd', 'N', 'J', 'W', 'Pa', 'Hz', 'V', 'Ω']
 </script>
 
 <template>
@@ -152,35 +88,25 @@ const tickerUnits = [
     <div class="hero-glow"></div>
     <div class="hero-glow-2"></div>
 
-    <!-- Floating geometric shapes -->
-    <div class="hero-shapes">
-      <div
-        v-for="(shape, i) in shapes"
-        :key="i"
-        class="hero-shape"
-        :class="shape.type"
+    <!-- Floating SI dimensional symbols -->
+    <div class="hero-dims" aria-hidden="true">
+      <span
+        v-for="d in dimSymbols"
+        :key="d.char"
+        class="hero-dim"
         :style="{
-          width: shape.size + 'px',
-          height: shape.size + 'px',
-          left: shape.x,
-          top: shape.y,
-          animationDuration: shape.duration,
-          animationDelay: shape.delay,
-          opacity: shape.opacity,
+          left: d.x,
+          top: d.y,
+          fontSize: d.size + 'px',
+          animationDuration: d.duration,
+          animationDelay: d.delay,
+          opacity: d.opacity,
         }"
-      ></div>
+      >{{ d.char }}</span>
     </div>
 
     <img src="/symbol.svg" alt="UnitsML" class="home-hero-logo" />
 
-    <!-- Scrolling unit ticker -->
-    <div class="hero-ticker">
-      <div class="ticker-track">
-        <span v-for="(u, i) in [...tickerUnits, ...tickerUnits]" :key="i" class="ticker-item">
-          <code>{{ u.sym }}</code> {{ u.name }}
-        </span>
-      </div>
-    </div>
     <h1>
       Unambiguous models for
       <span class="accent">scientific units of measure</span>
@@ -191,32 +117,16 @@ const tickerUnits = [
       improving interoperability across information systems and scientific disciplines.
     </p>
     <div class="home-hero-actions">
-      <a href="/unitsdb/" class="btn btn-brand">
-        Explore UnitsDB
+      <a href="/learn/what-is-unitsml.html" class="btn btn-brand">
+        Learn about UnitsML
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="/schemas.html" class="btn btn-teal">View Schemas</a>
-      <a href="/learn/what-is-unitsml.html" class="btn btn-outline">Learn about UnitsML</a>
+      <a href="/unitsdb/" class="btn btn-teal">Explore UnitsDB</a>
     </div>
-  </div>
 
-  <!-- ═══════════════════════════════════════════════════════
-       STATS
-       ═══════════════════════════════════════════════════════ -->
-  <div class="section stats-section" ref="statsRef">
-    <div class="stats-grid">
-      <div v-for="(stat, i) in stats" :key="stat.label" class="stat-card" :class="{ visible: statsVisible }">
-        <div class="stat-icon">
-          <svg v-if="stat.icon === 'calendar'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <svg v-if="stat.icon === 'org'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          <svg v-if="stat.icon === 'measure'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20M12 2v20"/><circle cx="12" cy="12" r="3"/></svg>
-          <svg v-if="stat.icon === 'units'" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-        </div>
-        <div class="stat-number">
-          <span class="stat-value">{{ displayValues[i] }}</span><span class="stat-suffix">{{ stat.suffix }}</span>
-        </div>
-        <div class="stat-label">{{ stat.label }}</div>
-      </div>
+    <!-- Static unit pills -->
+    <div class="hero-pills" aria-hidden="true">
+      <code v-for="u in unitPills" :key="u" class="hero-pill">{{ u }}</code>
     </div>
   </div>
 
@@ -295,110 +205,56 @@ const tickerUnits = [
         </button>
       </div>
       <div class="steps-code-panel">
-        <div class="step-code">
-          <div class="code-header">
-            <span class="code-lang">{{ steps[activeStep].lang || 'XML' }}</span>
-            <div class="code-dots">
-              <span></span><span></span><span></span>
+        <Transition name="step-fade" mode="out-in">
+          <div class="step-code" :key="activeStep">
+            <div class="code-header">
+              <span class="code-lang">{{ steps[activeStep].lang || 'XML' }}</span>
+              <div class="code-actions">
+                <button class="code-copy-btn" @click="copyStepCode" :title="stepCopied ? 'Copied!' : 'Copy code'">
+                  <svg v-if="!stepCopied" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+                  <svg v-else width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                </button>
+                <div class="code-dots">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
             </div>
+            <pre><code><span v-html="steps[activeStep].code"></span></code></pre>
           </div>
-          <pre><code><span v-html="steps[activeStep].code"></span></code></pre>
-        </div>
+        </Transition>
       </div>
     </div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════
-       SOFTWARE
+       CTA STRIP
        ═══════════════════════════════════════════════════════ -->
   <div class="section">
-    <div class="section-header">
-      <h2>Software</h2>
-      <p>Core tools and libraries for working with UnitsML.</p>
-      <div class="section-divider"></div>
-    </div>
-    <div class="projects-grid">
-      <div v-for="project in projects" :key="project.name" class="project-card featured">
-        <div class="card-icon">{{ project.icon }}</div>
-        <h3>
-          {{ project.name }}
-          <span v-if="project.version" class="version">{{ project.version }}</span>
-        </h3>
-        <p class="description">{{ project.description }}</p>
-        <div class="links">
-          <a :href="project.github" class="primary" target="_blank" rel="noopener">GitHub</a>
-          <a v-if="project.docs" :href="project.docs" class="secondary" target="_blank" rel="noopener">Docs</a>
-          <a v-if="project.browse" :href="project.browse" class="teal-link" target="_blank" rel="noopener">Browse</a>
+    <div class="cta-strip">
+      <a href="/schemas.html" class="cta-strip-card">
+        <div class="cta-strip-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════
-       WHY UNITSML
-       ═══════════════════════════════════════════════════════ -->
-  <div class="section">
-    <div class="section-header">
-      <h2>Why UnitsML?</h2>
-      <p>A standard designed for the scientific and engineering community.</p>
-      <div class="section-divider"></div>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <h4>Schemas</h4>
+        <p>UnitsML XML Schemas (XSD) and UnitsDB YAML schemas for encoding units of measure.</p>
+        <span class="cta-strip-link">Browse schemas →</span>
+      </a>
+      <a href="/software/" class="cta-strip-card">
+        <div class="cta-strip-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
-        <h4>Unambiguous Encoding</h4>
-        <p>Eliminate ambiguity in scientific data exchange with standardized representations of units, quantities, and dimensions — expressible in XML, JSON, YAML, and more.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+        <h4>Software</h4>
+        <p>Ruby gems and libraries for programmatic access to UnitsDB and UnitsML data.</p>
+        <span class="cta-strip-link">View software →</span>
+      </a>
+      <a href="/learn/what-is-unitsml.html" class="cta-strip-card">
+        <div class="cta-strip-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
         </div>
-        <h4>Composable</h4>
-        <p>Designed to be incorporated into other markup languages — not standalone, but a building block for interoperable systems.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <h4>SI &amp; Non-SI Units</h4>
-        <p>Covers SI base units, derived units, and common non-SI units — meters, joules, angstroms, and beyond.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        </div>
-        <h4>Standards-Based</h4>
-        <p>Developed under CalConnect TC UNITS with roots at NIST, following rigorous open standards processes since 1998.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════
-       SCHEMA BROWSER CTA
-       ═══════════════════════════════════════════════════════ -->
-  <div class="section">
-    <div class="schema-card">
-      <div class="schema-grid-bg"></div>
-      <div class="schema-content">
-        <div class="schema-badge">Live</div>
-        <h3>Browse XML Schemas</h3>
-        <p>
-          Interactive documentation for all UnitsML schema versions —
-          from the current 1.0 release back to the original 0.9 draft.
-        </p>
-        <div class="schema-url">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.4"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-          <code>https://schema.unitsml.org</code>
-        </div>
-        <div style="margin-top: 1.5rem; position: relative; z-index: 1;">
-          <a href="https://schema.unitsml.org" target="_blank" rel="noopener" class="btn btn-teal">
-            Open schema browser
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
-        </div>
-      </div>
+        <h4>Learn</h4>
+        <p>Understand what UnitsML is, how it works, and how to incorporate it into your projects.</p>
+        <span class="cta-strip-link">Start learning →</span>
+      </a>
     </div>
   </div>
 </template>
@@ -410,8 +266,8 @@ const tickerUnits = [
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(45,44,105,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45,44,105,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(45,44,105,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45,44,105,0.06) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black, transparent);
 }
@@ -437,134 +293,67 @@ const tickerUnits = [
   pointer-events: none;
 }
 
-/* ── Unit ticker ── */
-.hero-ticker {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-  mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-}
-.ticker-track {
-  display: flex;
-  gap: 1.5rem;
-  animation: ticker-scroll 30s linear infinite;
-  width: max-content;
-}
-.ticker-item {
-  flex-shrink: 0;
-  font-size: 0.8125rem;
-  color: var(--vp-c-text-3);
-  white-space: nowrap;
-  opacity: 0.6;
-}
-.ticker-item code {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--vp-c-text-2);
-  background: var(--vp-c-default-soft);
-  padding: 0.1em 0.35em;
-  border-radius: 3px;
-  margin-right: 0.25rem;
-}
-@keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.hero-shapes {
+/* ── SI dimensional symbols ── */
+.hero-dims {
   position: absolute;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
 }
 
-.hero-shape {
+.hero-dim {
   position: absolute;
-  border: 2px solid var(--unitsml-navy);
-  animation: float 6s ease-in-out infinite;
-}
-
-.hero-shape.circle {
-  border-radius: 50%;
-}
-
-.hero-shape.square {
-  border-radius: 4px;
-  transform: rotate(45deg);
-}
-
-.hero-shape.diamond {
-  border-radius: 4px;
-  transform: rotate(45deg);
-}
-
-/* ── Stats section ── */
-.stats-section {
-  padding: 2rem 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-
-.stat-card {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 16px;
-  transition: all 0.4s ease;
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.stat-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.stat-card:nth-child(2) { transition-delay: 80ms; }
-.stat-card:nth-child(3) { transition-delay: 160ms; }
-.stat-card:nth-child(4) { transition-delay: 240ms; }
-
-.stat-card:hover {
-  border-color: var(--vp-c-brand-1);
-  box-shadow: 0 4px 20px rgba(45, 44, 105, 0.08);
-}
-
-.stat-icon {
-  color: var(--vp-c-brand-1);
-  margin-bottom: 0.75rem;
-  display: flex;
-  justify-content: center;
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 300;
   line-height: 1;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--unitsml-navy), var(--unitsml-teal-dark));
+  color: var(--unitsml-navy);
+  animation: float-dim 8s ease-in-out infinite;
+  user-select: none;
+}
+
+@keyframes float-dim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ── Static unit pills ── */
+.hero-pills {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.hero-pill {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: var(--vp-c-default-soft);
+  color: var(--vp-c-text-3);
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.hero-pill:hover {
+  opacity: 0.8;
+}
+
+/* ── Hero accent gradient animation ── */
+.home-hero h1 .accent {
+  background: linear-gradient(135deg, var(--unitsml-navy) 0%, var(--unitsml-teal-dark) 50%, var(--unitsml-blue) 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-variant-numeric: tabular-nums;
 }
 
-.stat-suffix {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.stat-label {
-  font-size: 0.8125rem;
-  color: var(--vp-c-text-2);
-  font-weight: 500;
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* ── UnitsDB CTA ── */
@@ -748,6 +537,12 @@ const tickerUnits = [
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: step-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes step-pop {
+  0% { transform: scale(0.9); }
+  100% { transform: scale(1); }
 }
 
 .step-tab-text {
@@ -780,6 +575,12 @@ const tickerUnits = [
   min-height: 260px;
 }
 
+/* Step fade transition */
+.step-fade-enter-active,
+.step-fade-leave-active { transition: opacity 0.2s ease; }
+.step-fade-enter-from,
+.step-fade-leave-to { opacity: 0; }
+
 .code-header {
   display: flex;
   align-items: center;
@@ -794,6 +595,25 @@ const tickerUnits = [
   color: var(--unitsml-teal);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.code-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.code-copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  color: rgba(255,255,255,0.3);
+  transition: color 0.15s;
+}
+
+.code-copy-btn:hover {
+  color: rgba(255,255,255,0.7);
 }
 
 .code-dots {
@@ -829,52 +649,71 @@ const tickerUnits = [
 .step-code :deep(.xml-val) { color: #98c379; }
 .step-code :deep(.xml-comment) { color: #5c6370; font-style: italic; }
 
-/* ── Schema card ── */
-.schema-card {
-  position: relative;
-  overflow: hidden;
+/* ── CTA Strip ── */
+.cta-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
 }
 
-.schema-grid-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 32px 32px;
-  pointer-events: none;
+.cta-strip-card {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.schema-content {
-  position: relative;
-  z-index: 1;
+.cta-strip-card:hover {
+  border-color: var(--unitsml-navy);
+  box-shadow: 0 8px 30px rgba(45, 44, 105, 0.10);
+  transform: translateY(-2px);
 }
 
-.schema-badge {
-  display: inline-block;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.25rem 0.75rem;
-  border-radius: 4px;
-  background: rgba(48, 223, 192, 0.15);
-  color: var(--unitsml-teal-light);
-  margin-bottom: 1rem;
-}
-
-.schema-url {
+.cta-strip-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, rgba(45, 44, 105, 0.08), rgba(87, 160, 254, 0.08));
+  color: var(--unitsml-navy);
+}
+
+.cta-strip-card h4 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 0.5rem;
+}
+
+.cta-strip-card p {
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.cta-strip-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  transition: color 0.2s;
+}
+
+.cta-strip-card:hover .cta-strip-link {
+  color: var(--unitsml-teal-dark);
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .steps-layout {
     grid-template-columns: 1fr;
   }
@@ -883,11 +722,15 @@ const tickerUnits = [
     position: static;
     overflow: hidden;
   }
-}
 
-@media (max-width: 480px) {
-  .stats-grid {
+  .cta-strip {
     grid-template-columns: 1fr;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dim { animation: none !important; }
+  .home-hero h1 .accent { animation: none !important; }
+  .step-tab.active .step-tab-num { animation: none !important; }
 }
 </style>
