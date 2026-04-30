@@ -86,7 +86,7 @@ export default defineConfig({
     ],
 
     footer: {
-      message: `<a href="/unitsdb/">UnitsDB</a> · <a href="/schemas.html">Schemas</a> · <a href="/learn/what-is-unitsml.html">Learn</a> · <a href="https://github.com/unitsml">GitHub</a>`,
+      message: `<a href="/unitsdb/">UnitsDB</a> · <a href="/schemas.html">Schemas</a> · <a href="/learn/what-is-unitsml.html">Learn</a> · <a href="/get-started.html">Get Started</a> · <a href="/software/">Software</a> · <a href="https://github.com/unitsml">GitHub</a>`,
       copyright: 'Copyright © 2026 UnitsML Group'
     },
 
@@ -131,6 +131,7 @@ export default defineConfig({
             { text: 'Overview', link: '/schemas' },
             { text: 'UnitsML XML Schemas', link: '/schemas#unitsml-xml-schemas' },
             { text: 'UnitsDB YAML Schemas', link: '/schemas#unitsdb-yaml-schemas' },
+            { text: 'Schema Browser', link: '/schemas#schema-browser' },
           ]
         }
       ],

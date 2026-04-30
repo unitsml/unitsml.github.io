@@ -31,13 +31,20 @@ const authors = computed(() => {
   if (a.length === 2) return `${a[0]} & ${a[1]}`
   return a.slice(0, -1).join(', ') + ' & ' + a[a.length - 1]
 })
+
+const authorInitials = computed(() => {
+  const a = frontmatter.value.authors
+  if (!a || !Array.isArray(a) || a.length === 0) return ''
+  return a.map((name: string) => name.split(' ').map((n: string) => n[0]).join('')).join(' ')
+})
 </script>
 
 <template>
   <div class="blog-byline" v-if="authors || formattedDate">
     <div class="byline-content">
       <div class="author-info" v-if="authors">
-        <svg class="author-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <span class="author-avatar" v-if="authorInitials">{{ authorInitials }}</span>
+        <svg v-else class="author-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
           <circle cx="12" cy="7" r="4"/>
         </svg>
@@ -92,6 +99,13 @@ const authors = computed(() => {
 .author-icon {
   color: var(--vp-c-brand-1);
   flex-shrink: 0;
+}
+
+.author-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--vp-c-brand-soft); color: var(--vp-c-brand-1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6875rem; font-weight: 700; flex-shrink: 0;
 }
 
 .date-icon {

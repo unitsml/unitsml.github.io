@@ -88,10 +88,17 @@
 }
 
 .home-hero h1 .accent {
-  background: linear-gradient(135deg, var(--unitsml-navy) 0%, var(--unitsml-teal-dark) 100%);
+  background: linear-gradient(135deg, var(--unitsml-navy) 0%, var(--unitsml-teal-dark) 50%, var(--unitsml-blue) 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .home-hero .tagline {
@@ -178,7 +185,7 @@
    ========================================================================== */
 
 .section {
-  margin: 5rem 0;
+  margin: 6rem 0;
 }
 
 .section-header {
@@ -508,16 +515,6 @@
    Animations & Motion
    ========================================================================== */
 
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(3deg); }
-}
-
-@keyframes float-delayed {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(-2deg); }
-}
-
 @keyframes pulse-glow {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.8; }
@@ -730,4 +727,63 @@ body {
 
 .unitsdb-full .vp-doc > div > h1 {
   display: none;
+}
+
+/* ==========================================================================
+   Scroll Reveal
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Focus Indicators
+   ========================================================================== */
+
+.btn:focus-visible,
+.step-tab:focus-visible,
+.tab-btn:focus-visible,
+.cta-strip-card:focus-visible {
+  outline: 2px solid var(--vp-c-brand-1);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero h1 .accent,
+  .hero-dim,
+  .step-tab.active .step-tab-num,
+  .stat-card,
+  .feature-card,
+  .project-card,
+  .section[data-revealed],
+  .ticker-track {
+    animation: none !important;
+  }
+
+  .btn,
+  .step-tab,
+  .cta-strip-card,
+  .project-card,
+  .feature-card {
+    transition: none !important;
+  }
+
+  .stat-card,
+  .section[data-revealed],
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

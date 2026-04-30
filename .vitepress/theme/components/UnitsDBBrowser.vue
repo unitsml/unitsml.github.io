@@ -187,6 +187,7 @@ async function dlDataset() {
 
 function onKeydown(e: KeyboardEvent) {
   if (e.key === '/' && document.activeElement?.tagName !== 'INPUT') { e.preventDefault(); searchInput.value?.focus() }
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); searchInput.value?.focus() }
   if (e.key === 'Escape' && q.value) { q.value = ''; searchInput.value?.blur() }
 }
 onMounted(() => window.addEventListener('keydown', onKeydown))
@@ -213,8 +214,8 @@ onUnmounted(() => {
 
     <div class="udb-content">
       <div v-if="!loading" class="stats-bar">
-        <div class="stat-group">
-          <button v-for="tab in TABS" :key="tab.key" class="stat-pill" :class="{ active: activeTab === tab.key }" @click="switchTab(tab.key)">
+        <div class="stat-group" role="tablist" aria-label="Entity types">
+          <button v-for="tab in TABS" :key="tab.key" class="stat-pill" :class="{ active: activeTab === tab.key }" :data-type="tab.key" role="tab" :aria-selected="activeTab === tab.key" @click="switchTab(tab.key)">
             <span class="sp-val">{{ cnt(tab.key) }}</span>
             <span class="sp-lbl">{{ tab.label }}</span>
           </button>
@@ -246,7 +247,7 @@ onUnmounted(() => {
       <div class="search-row">
         <div class="search-box">
           <svg class="si" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input ref="searchInput" v-model="q" type="text" class="si-input" placeholder="Search by name, symbol, ID… ( / )" />
+          <input ref="searchInput" v-model="q" type="text" class="si-input" placeholder="Search by name, symbol, ID… (⌘K)" aria-label="Search units and quantities" />
           <button v-if="q" class="si-clear" @click="q = ''">&times;</button>
         </div>
         <span class="res-n">{{ filtered.length }} result{{ filtered.length !== 1 ? 's' : '' }}</span>
@@ -274,7 +275,7 @@ onUnmounted(() => {
       </div>
 
       <!-- ── Units ── -->
-      <div v-else-if="activeTab === 'units'" class="dtbl-wrap">
+      <div v-else-if="activeTab === 'units'" class="dtbl-wrap" role="tabpanel" aria-label="Units listing">
       <table class="dtbl">
         <thead><tr><th class="c-sym">Symbol</th><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-dim">Dimension</th><th class="c-tag">Type</th><th class="c-qty">Quantity</th></tr></thead>
         <tbody>
@@ -291,7 +292,7 @@ onUnmounted(() => {
       </div>
 
       <!-- ── Quantities ── -->
-      <div v-else-if="activeTab === 'quantities'" class="dtbl-wrap">
+      <div v-else-if="activeTab === 'quantities'" class="dtbl-wrap" role="tabpanel" aria-label="Quantities listing">
       <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-tag">Type</th><th class="c-dim">Dimension</th><th class="c-cnt">Units</th></tr></thead>
         <tbody>
@@ -307,7 +308,7 @@ onUnmounted(() => {
       </div>
 
       <!-- ── Dimensions ── -->
-      <div v-else-if="activeTab === 'dimensions'" class="dtbl-wrap">
+      <div v-else-if="activeTab === 'dimensions'" class="dtbl-wrap" role="tabpanel" aria-label="Dimensions listing">
       <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-dim">Expression</th><th class="c-cnt">Quantities</th><th class="c-tag">Dim-less</th></tr></thead>
         <tbody>
@@ -323,7 +324,7 @@ onUnmounted(() => {
       </div>
 
       <!-- ── Prefixes ── -->
-      <div v-else-if="activeTab === 'prefixes'" class="dtbl-wrap">
+      <div v-else-if="activeTab === 'prefixes'" class="dtbl-wrap" role="tabpanel" aria-label="Prefixes listing">
       <table class="dtbl">
         <thead><tr><th class="c-sym">Symbol</th><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-fact">Factor</th><th class="c-cnt">Value</th></tr></thead>
         <tbody>
@@ -339,7 +340,7 @@ onUnmounted(() => {
       </div>
 
       <!-- ── Scales ── -->
-      <div v-else-if="activeTab === 'scales'" class="dtbl-wrap">
+      <div v-else-if="activeTab === 'scales'" class="dtbl-wrap" role="tabpanel" aria-label="Scales listing">
       <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-props">Properties</th></tr></thead>
         <tbody>
@@ -353,7 +354,7 @@ onUnmounted(() => {
       </div>
 
       <!-- ── Systems ── -->
-      <div v-else-if="activeTab === 'unit_systems'" class="dtbl-wrap">
+      <div v-else-if="activeTab === 'unit_systems'" class="dtbl-wrap" role="tabpanel" aria-label="Systems listing">
       <table class="dtbl">
         <thead><tr><th class="c-name">Name</th><th class="c-uid">UnitsML ID</th><th class="c-sym">Short</th><th class="c-cnt">Units</th><th class="c-tag">Acceptable</th></tr></thead>
         <tbody>
@@ -421,6 +422,12 @@ onUnmounted(() => {
 }
 .stat-pill:hover { background: var(--vp-c-bg); border-color: var(--vp-c-divider); color: var(--vp-c-text-2); }
 .stat-pill.active { background: var(--vp-c-brand-1); color: #fff; border-color: var(--vp-c-brand-1); }
+.stat-pill[data-type="units"].active { background: #14b8a6; border-color: #14b8a6; }
+.stat-pill[data-type="quantities"].active { background: #57a0fe; border-color: #57a0fe; }
+.stat-pill[data-type="dimensions"].active { background: #2d2c69; border-color: #2d2c69; }
+.stat-pill[data-type="prefixes"].active { background: #8b5cf6; border-color: #8b5cf6; }
+.stat-pill[data-type="scales"].active { background: #f59e0b; border-color: #f59e0b; color: #1f1e4a; }
+.stat-pill[data-type="unit_systems"].active { background: #6b7280; border-color: #6b7280; }
 .sp-val { font-weight: 700; font-size: 0.875rem; }
 .sp-lbl { font-size: 0.6875rem; }
 .stat-divider { display: none; width: 1px; height: 1.5rem; background: var(--vp-c-divider); flex-shrink: 0; }

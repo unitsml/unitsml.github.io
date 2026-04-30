@@ -77,11 +77,14 @@ function formatAuthors(authors: string[]): string {
             <span class="post-authors">
               By {{ formatAuthors(post.authors) }}
             </span>
-            <span class="read-more">
-              Read article
-              <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
+            <span class="post-meta">
+              <span class="reading-time">{{ post.readingTime }} min read</span>
+              <span class="read-more">
+                Read article
+                <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
             </span>
           </div>
         </div>
@@ -229,6 +232,15 @@ function formatAuthors(authors: string[]): string {
 
 .post-authors {
   font-size: 0.875rem;
+  color: var(--vp-c-text-3);
+}
+
+.post-meta {
+  display: flex; align-items: center; gap: 0.75rem;
+}
+
+.reading-time {
+  font-size: 0.75rem;
   color: var(--vp-c-text-3);
 }
 
