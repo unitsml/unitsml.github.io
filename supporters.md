@@ -103,7 +103,7 @@ UnitsML is developed through open collaboration. If your organization uses or be
 - **Develop tooling** — build libraries and integrations for your community
 - **Provide feedback** — report issues and suggest improvements
 
-Get in touch through the [CalConnect TC UNITS page](https://www.calconnect.org/committees/tc-units) or the [UnitsML GitHub organization](https://github.com/unitsml).
+Get in touch through the [CalConnect TC UNITS page](https://www.calconnect.org/about/technical-committees/tc-units/) or the [UnitsML GitHub organization](https://github.com/unitsml).
 
 <style scoped>
 .supporters-intro {
