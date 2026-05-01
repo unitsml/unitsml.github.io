@@ -208,6 +208,16 @@ UnitsML was originally hosted at `unitsml.nist.gov`. An OASIS Technical Committe
 
 ## Next steps
 
+<div class="video-callout">
+  <div class="video-callout-icon">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+  </div>
+  <div class="video-callout-body">
+    <strong>Watch the introduction</strong> — a video overview from <a href="https://www.scidatacon.org" target="_blank" rel="noopener">SciDataCon 2022</a> covers UnitsML's history, architecture, and future direction:
+    <a href="https://www.youtube.com/watch?v=oJJIVVwoB34" target="_blank" rel="noopener">UnitsML Introduction on YouTube &rarr;</a>
+  </div>
+</div>
+
 - [Who is UnitsML for?](/learn/who-is-it-for) — understand the target audiences and use cases
 - [How UnitsML works](/learn/how-it-works) — dive into the technical architecture
 - [Incorporating UnitsML](/learn/incorporating-unitsml) — learn how to add UnitsML to your XML formats
@@ -286,5 +296,30 @@ UnitsML was originally hosted at `unitsml.nist.gov`. An OASIS Technical Committe
   .callout-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.video-callout {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--vp-c-text-2);
+}
+
+.video-callout-icon {
+  color: var(--vp-c-brand-1);
+  flex-shrink: 0;
+  display: flex;
+  padding-top: 0.125rem;
+}
+
+.video-callout strong {
+  color: var(--vp-c-text-1);
 }
 </style>
