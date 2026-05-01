@@ -77,6 +77,7 @@ export default defineConfig({
         ]
       },
       { text: 'Software', link: '/software/' },
+      { text: 'Resources', link: '/resources' },
       { text: 'Blog', link: '/blog/' },
       { text: 'About', link: '/about' }
     ],
@@ -111,6 +112,7 @@ export default defineConfig({
           items: [
             { text: 'Get Started', link: '/get-started' },
             { text: 'Schemas', link: '/schemas' },
+            { text: 'Reference Materials', link: '/resources' },
           ]
         }
       ],
