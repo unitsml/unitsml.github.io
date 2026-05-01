@@ -20,6 +20,7 @@ UnitsML is under active development and its documentation may change frequently.
   <a href="#history">History</a>
   <a href="#people">People</a>
   <a href="#participating-organizations">Organizations</a>
+  <a href="/supporters">Supporters</a>
   <a href="#frequently-asked-questions">FAQ</a>
 </nav>
 
@@ -97,6 +98,10 @@ UnitsML has been shaped by contributors across government, academia, and industr
 <PeopleGrid />
 
 ## Participating Organizations
+
+<div class="see-all-supporters">
+  <a href="/supporters">See all supporters with details &rarr;</a>
+</div>
 
 <div class="orgs-grid">
   <a href="https://www.nist.gov" class="org-card" target="_blank" rel="noopener">
@@ -273,7 +278,22 @@ UnitsML has been shaped by contributors across government, academia, and industr
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 1rem 0 2rem;
+}
+
+.see-all-supporters {
+  margin-bottom: 1rem;
+}
+
+.see-all-supporters a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+
+.see-all-supporters a:hover {
+  text-decoration: underline;
 }
 
 .org-card {

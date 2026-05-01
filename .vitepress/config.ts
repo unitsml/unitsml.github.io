@@ -150,6 +150,18 @@ export default defineConfig({
           text: 'About',
           items: [
             { text: 'About UnitsML', link: '/about' },
+            { text: 'Supporters', link: '/supporters' },
+            { text: 'Privacy Policy', link: '/privacy' },
+            { text: 'Terms of Service', link: '/tos' },
+          ]
+        }
+      ],
+      '/supporters': [
+        {
+          text: 'About',
+          items: [
+            { text: 'About UnitsML', link: '/about' },
+            { text: 'Supporters', link: '/supporters' },
             { text: 'Privacy Policy', link: '/privacy' },
             { text: 'Terms of Service', link: '/tos' },
           ]
