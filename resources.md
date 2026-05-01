@@ -13,12 +13,39 @@ description: Reference materials, presentations, publications, and archived docu
 </div>
 
 <nav class="resources-toc">
+  <a href="#scidatacon-2022">SciDataCon 2022</a>
   <a href="#presentations-talks">Presentations</a>
   <a href="#publications">Publications</a>
   <a href="#guidelines-rules">Guidelines &amp; Rules</a>
   <a href="#schema-documentation">Schema Docs</a>
   <a href="#sample-documents">Samples</a>
 </nav>
+
+## SciDataCon 2022 — Units Summit
+
+At the **SciDataCon 2022** "Units Summit" session, a comprehensive introduction to UnitsML was presented, covering the project's history, architecture, and future direction under CalConnect TC UNITS.
+
+<div class="video-embed">
+  <div class="video-wrapper">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/oJJIVVwoB34"
+      title="UnitsML Introduction — SciDataCon 2022"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+
+The presentation covered:
+
+- **The problem of ambiguous units** — why existing approaches (code lists, symbols, names) fail for reliable scientific data exchange
+- **UnitsML's approach** — structured models for encoding units, quantities, and dimensions
+- **UnitsDB** — the comprehensive database of scientific units, from SI base units to non-SI units
+- **Standards governance** — the transition from NIST through OASIS to CalConnect TC UNITS
+- **Future directions** — international alignment with ISO, IEC, and BIPM towards a "Digital SI"
 
 ## Presentations & Talks
 
@@ -377,6 +404,31 @@ The UnitsML XML Schema has evolved through multiple versions. Below are archived
 
 .schema-links a:hover {
   text-decoration: underline;
+}
+
+/* Video embed */
+.video-embed {
+  margin: 1.5rem 0 2rem;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  padding-bottom: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 @media (max-width: 640px) {
