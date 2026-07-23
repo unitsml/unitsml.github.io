@@ -1,0 +1,388 @@
+---
+import Nav from '@components/Nav.astro';
+import Footer from '@components/Footer.astro';
+import '../styles/tailwind.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  sidebarTitle?: string;
+  sidebarItems?: Array<{ text: string; link: string }>;
+}
+
+const { title, description, sidebarTitle = 'On this page', sidebarItems = [] } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  {description && <meta name="description" content={description} />}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#2d2c69" />
+</head>
+<body>
+  <Nav />
+  <div class="content-layout">
+    <aside class="content-sidebar">
+      <div class="sidebar-group">
+        <span class="sidebar-title">{sidebarTitle}</span>
+        <nav class="sidebar-nav">
+          {sidebarItems.map(item => (
+            <a href={item.link} class="sidebar-link">{item.text}</a>
+          ))}
+        </nav>
+      </div>
+    </aside>
+    <main class="content-main">
+      <slot />
+    </main>
+    <aside class="content-toc">
+      <div class="toc-group">
+        <div class="toc-header">
+          <span class="toc-eyebrow">Contents</span>
+          <span class="toc-progress" id="toc-progress">0%</span>
+        </div>
+        <div class="toc-rule"></div>
+        <nav class="toc-nav" id="toc-nav" aria-label="Table of contents">
+          <!-- TOC links injected by client-side script -->
+        </nav>
+        <div class="toc-foot">
+          <a href="#top" class="toc-top-link">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            Back to top
+          </a>
+        </div>
+      </div>
+      <div class="toc-rail" aria-hidden="true">
+        <div class="toc-rail-fill" id="toc-rail-fill"></div>
+      </div>
+    </aside>
+  </div>
+  <span id="top" aria-hidden="true" style="position:absolute;"></span>
+  <Footer />
+</body>
+</html>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocNav = document.getElementById('toc-nav');
+    if (!tocNav) return;
+    const headings = document.querySelectorAll('.content-main h2, .content-main h3');
+    const items = [];
+    headings.forEach(h => {
+      const id = h.id || h.textContent.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+      h.id = id;
+      const a = document.createElement('a');
+      a.href = '#' + id;
+      a.textContent = h.textContent;
+      a.className = 'toc-link' + (h.tagName === 'H3' ? ' toc-sub' : '');
+      a.dataset.target = id;
+      tocNav.appendChild(a);
+      items.push({ link: a, heading: h, id });
+    });
+    if (items.length === 0) {
+      document.querySelector('.toc-group')?.style.setProperty('display', 'none');
+    }
+
+    // Scroll-spy: highlight the heading currently in view
+    const activeIds = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          activeIds.add(entry.target.id);
+        } else {
+          activeIds.delete(entry.target.id);
+        }
+      });
+      // Pick the topmost active heading
+      let active = null;
+      for (const it of items) {
+        if (activeIds.has(it.id)) {
+          active = it;
+          break;
+        }
+      }
+      // Fallback: pick the last heading scrolled past
+      if (!active) {
+        const scrollY = window.scrollY + 140;
+        for (const it of items) {
+          if (it.heading.offsetTop <= scrollY) active = it;
+        }
+      }
+      items.forEach(it => {
+        it.link.classList.toggle('is-active', it === active);
+      });
+    }, { rootMargin: '-80px 0px -70% 0px', threshold: [0, 1] });
+
+    items.forEach(it => observer.observe(it.heading));
+
+    // Reading progress
+    const progressEl = document.getElementById('toc-progress');
+    const railFill = document.getElementById('toc-rail-fill');
+    function updateProgress() {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const pct = max > 0 ? Math.min(100, Math.round((window.scrollY / max) * 100)) : 0;
+      if (progressEl) progressEl.textContent = pct + '%';
+      if (railFill) railFill.style.height = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+    updateProgress();
+  });
+</script>
+
+<style>
+  .content-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 240px;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    min-height: calc(100vh - 64px);
+    position: relative;
+  }
+
+  .content-sidebar {
+    padding: 2.5rem 0;
+    border-right: 1px solid var(--vp-c-divider);
+  }
+
+  .sidebar-group {
+    position: sticky;
+    top: 88px;
+  }
+
+  .sidebar-title {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--vp-c-text-3);
+    margin-bottom: 0.875rem;
+    padding-left: 0.5rem;
+  }
+
+  .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .sidebar-link {
+    font-size: 0.875rem;
+    color: var(--vp-c-text-2);
+    text-decoration: none;
+    padding: 0.375rem 0.625rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+    line-height: 1.4;
+  }
+
+  .sidebar-link:hover {
+    color: var(--vp-c-brand-1);
+    background: var(--vp-c-bg-soft);
+  }
+
+  .content-main {
+    padding: 2.5rem 0;
+    min-width: 0;
+  }
+
+  /* ── TOC: refined reading aid ── */
+  .content-toc {
+    padding: 2.5rem 0 2.5rem 1.5rem;
+    border-left: 1px solid var(--vp-c-divider);
+    position: relative;
+  }
+
+  .toc-group {
+    position: sticky;
+    top: 88px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toc-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .toc-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--vp-c-text-3);
+    position: relative;
+    padding-left: 0.875rem;
+  }
+  .toc-eyebrow::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    background: linear-gradient(135deg, var(--unitsml-teal), var(--unitsml-blue));
+  }
+
+  .toc-progress {
+    font-family: 'JetBrains Mono', 'SF Mono', ui-monospace, monospace;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--vp-c-brand-1);
+    background: var(--vp-c-bg-soft);
+    padding: 0.125rem 0.4375rem;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--vp-c-divider);
+    min-width: 36px;
+    text-align: center;
+  }
+
+  .toc-rule {
+    height: 1px;
+    margin: 0.75rem 0 1rem 0.75rem;
+    background: linear-gradient(90deg, var(--vp-c-divider) 0%, transparent 100%);
+  }
+
+  .toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    position: relative;
+    padding-left: 0.75rem;
+  }
+
+  /* vertical track the active indicator hangs off */
+  .toc-nav::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 1px;
+    background: var(--vp-c-divider);
+  }
+
+  .toc-link {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--vp-c-text-3);
+    text-decoration: none;
+    padding: 0.3125rem 0.5rem 0.3125rem 0.75rem;
+    border-radius: 4px;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+    position: relative;
+    display: block;
+  }
+
+  .toc-link::before {
+    content: '';
+    position: absolute;
+    left: -0.75rem;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 2px;
+    height: 60%;
+    background: linear-gradient(180deg, var(--unitsml-teal) 0%, var(--unitsml-blue) 100%);
+    border-radius: 2px;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .toc-link:hover {
+    color: var(--vp-c-text-1);
+  }
+
+  .toc-link.is-active {
+    color: var(--vp-c-brand-1);
+    font-weight: 600;
+    transform: translateX(2px);
+  }
+
+  .toc-link.is-active::before {
+    transform: translateY(-50%) scaleY(1);
+  }
+
+  .toc-sub {
+    font-size: 0.75rem;
+    padding-left: 1.5rem;
+  }
+
+  .toc-foot {
+    margin-top: 1.25rem;
+    padding-left: 0.75rem;
+  }
+
+  .toc-top-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.75rem;
+    color: var(--vp-c-text-3);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .toc-top-link:hover {
+    color: var(--vp-c-brand-1);
+  }
+
+  /* ── Reading progress rail (left edge of TOC column) ── */
+  .toc-rail {
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: transparent;
+    pointer-events: none;
+  }
+  .toc-rail-fill {
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(180deg, var(--unitsml-teal) 0%, var(--unitsml-blue) 60%, var(--unitsml-navy) 100%);
+    transition: height 0.1s linear;
+    border-radius: 0 2px 2px 0;
+  }
+
+  @media (max-width: 1100px) {
+    .content-layout {
+      grid-template-columns: 200px 1fr 220px;
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .content-layout {
+      grid-template-columns: 200px 1fr;
+    }
+    .content-toc {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content-layout {
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+    }
+    .content-sidebar {
+      display: none;
+    }
+  }
+</style>

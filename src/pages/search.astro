@@ -1,0 +1,28 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+
+const sidebarItems = [
+  { text: 'Search', link: '/search' },
+];
+---
+
+<ContentLayout title="Search" sidebarTitle="Search" sidebarItems={sidebarItems}>
+  <div class="search-page">
+    <h1>Search</h1>
+    <div id="search"></div>
+  </div>
+</ContentLayout>
+
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    new PagefindUI({ element: "#search", showSubResults: true });
+  });
+</script>
+
+<style>
+  .search-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+</style>

@@ -5,6 +5,7 @@ node_modules/
 dist/
 .vitepress/dist/
 .vitepress/cache/
+.astro/
 
 # Ruby / Jekyll (legacy)
 _site/
@@ -32,3 +33,6 @@ artifacts/
 
 # Claude Code memory (local only)
 .claude/
+
+# Local AI assistant session exports (not for source control)
+kimi-export-session_*.md

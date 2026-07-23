@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '@layouts/ContentLayout.astro';
+
+export async function getStaticPaths() {
+  const software = await getCollection('software');
+  return software.map(page => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+const sidebarItems = [
+  { text: 'Overview', link: '/software' },
+  { text: 'unitsdb-ruby', link: '/software/unitsdb-ruby' },
+  { text: 'unitsml-ruby', link: '/software/unitsml-ruby' },
+];
+---
+
+<ContentLayout title={page.data.title} description={page.data.description} sidebarTitle="Software" sidebarItems={sidebarItems}>
+  <article class="content-page">
+    <Content />
+  </article>
+</ContentLayout>
+
+<style>
+  .content-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+</style>

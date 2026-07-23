@@ -1,0 +1,76 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+const stats = JSON.parse(readFileSync(resolve('src/data/unitsdb/stats.json'), 'utf-8'));
+const types = [
+  { key: 'units', label: 'Units', count: stats.units || 380 },
+  { key: 'quantities', label: 'Quantities', count: stats.quantities || 199 },
+  { key: 'dimensions', label: 'Dimensions', count: stats.dimensions || 92 },
+  { key: 'prefixes', label: 'Prefixes', count: stats.prefixes || 33 },
+  { key: 'scales', label: 'Scales', count: stats.scales || 5 },
+  { key: 'systems', label: 'Unit Systems', count: stats.unit_systems || 7 },
+];
+
+const sidebarItems = [
+  { text: 'UnitsDB', link: '/unitsdb' },
+  { text: 'Schemas', link: '/schemas' },
+];
+---
+
+<ContentLayout title="UnitsDB" description="Browse the complete database of scientific units" sidebarTitle="UnitsDB" sidebarItems={sidebarItems}>
+  <div class="unitsdb-index">
+    <h1>UnitsDB</h1>
+    <p class="unitsdb-lead">The comprehensive database of scientific units of measure, quantities, dimensions, and prefixes.</p>
+    <div class="unitsdb-grid">
+      {types.map(t => (
+        <a href={`/unitsdb/${t.key}/`} class="unitsdb-card">
+          <h3>{t.label}</h3>
+          <span class="unitsdb-count">{t.count}+</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</ContentLayout>
+
+<style>
+  .unitsdb-index {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .unitsdb-lead {
+    color: var(--vp-c-text-2);
+    margin-bottom: 2rem;
+  }
+  .unitsdb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .unitsdb-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: var(--vp-c-bg-soft);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s ease;
+  }
+  .unitsdb-card:hover {
+    border-color: var(--vp-c-brand-1);
+    box-shadow: 0 4px 16px rgba(45, 44, 105, 0.06);
+  }
+  .unitsdb-card h3 {
+    margin: 0;
+    color: var(--vp-c-text-1);
+  }
+  .unitsdb-count {
+    font-size: 0.875rem;
+    color: var(--vp-c-text-3);
+  }
+</style>

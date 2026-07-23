@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '@layouts/ContentLayout.astro';
+import EcosystemDiagram from '@components/islands/EcosystemDiagram.vue';
+import TimelineSection from '@components/islands/TimelineSection.vue';
+import PeopleGrid from '@components/islands/PeopleGrid.vue';
+import FAQAccordion from '@components/islands/FAQAccordion.vue';
+
+const pages = await getCollection('pages');
+const page = pages.find(p => p.id === 'about');
+if (!page) throw new Error('About page not found');
+const { Content } = await render(page);
+
+const sidebarItems = [
+  { text: 'About UnitsML', link: '/about' },
+  { text: 'History', link: '/history' },
+  { text: 'Supporters', link: '/supporters' },
+  { text: 'Privacy Policy', link: '/privacy' },
+  { text: 'Terms of Service', link: '/tos' },
+];
+---
+
+<ContentLayout title={page.data.title} description={page.data.description} sidebarTitle="About" sidebarItems={sidebarItems}>
+  <article class="content-page">
+    <Content components={{ EcosystemDiagram, TimelineSection, PeopleGrid, FAQAccordion }} />
+  </article>
+</ContentLayout>
+
+<style>
+  .content-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+</style>

@@ -1,0 +1,196 @@
+---
+title: About UnitsML
+---
+
+# About UnitsML
+
+<div class="about-lead">
+  <p class="lead-text">
+    UnitsML is a set of models for <strong>unambiguously encoding and identifying scientific units
+    of measure and quantities</strong>, usable in XML and other markup languages. Developed under
+    <a href="https://www.calconnect.org">CalConnect TC UNITS</a>, it enables reliable scientific
+    data exchange across systems and disciplines.
+  </p>
+</div>
+
+<div class="historical-quote">
+  <blockquote>
+    "UnitsML will enable markup of scientific units to allow unambiguous storage, exchange, and processing of numeric data."
+  </blockquote>
+  <cite>— OASIS UnitsML flyer, May 2006</cite>
+</div>
+
+::: info
+UnitsML is under active development and its documentation may change frequently.
+:::
+
+<nav class="about-toc">
+  <a href="#the-unitsml-ecosystem">Ecosystem</a>
+  <a href="#vision">Vision</a>
+  <a href="#governance">Governance</a>
+  <a href="#history">History</a>
+  <a href="#people">People</a>
+  <a href="#participating-organizations">Organizations</a>
+  <a href="/supporters">Supporters</a>
+  <a href="#frequently-asked-questions">FAQ</a>
+</nav>
+
+## The UnitsML Ecosystem
+
+UnitsML consists of interconnected components that together form a complete system for encoding, storing, and accessing scientific units:
+
+<EcosystemDiagram />
+
+<div class="ecosystem-details">
+  <div class="ecosystem-item">
+    <h4>UnitsML XML Schemas</h4>
+    <p>Authoritative XML schemas for encoding scientific units of measure — SI base units, derived units, and non-SI units. Designed to be incorporated into other markup languages.</p>
+    <a href="/schemas.html">Learn more &rarr;</a>
+  </div>
+  <div class="ecosystem-item">
+    <h4>UnitsDB</h4>
+    <p>A comprehensive database of scientific units with detailed dimensionality information, unique identifiers, symbols, language-specific names, and conversion factors.</p>
+    <a href="/unitsdb/">Learn more &rarr;</a>
+  </div>
+  <div class="ecosystem-item">
+    <h4>unitsml-ruby</h4>
+    <p>A Ruby gem providing programmatic access to UnitsDB, enabling developers to integrate units data into their applications.</p>
+    <a href="/software/unitsml-ruby">Learn more &rarr;</a>
+  </div>
+</div>
+
+## Vision
+
+- A set of models for incorporating UnitsML into any markup language or data format
+- Extensive repository of schemas and information on units, quantities, and prefixes
+- Designed for unit information processing — validation, conversion, and manipulation
+
+## Governance
+
+UnitsML is developed through an open standards process:
+
+<div class="governance-grid">
+  <div class="gov-card">
+    <div class="gov-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <h4>CalConnect TC UNITS</h4>
+    <p>The current home of UnitsML standardization, created in 2022.</p>
+    <span class="gov-era">2022–present</span>
+  </div>
+  <div class="gov-card">
+    <div class="gov-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
+    </div>
+    <h4>OASIS TC UnitsML</h4>
+    <p>Original standards body. TC formed in 2006, completed its mandate in 2016.</p>
+    <span class="gov-era">2006–2016</span>
+  </div>
+  <div class="gov-card">
+    <div class="gov-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
+    </div>
+    <h4>NIST</h4>
+    <p>Originator and long-term sponsor of UnitsML, through the Physics and MEL laboratories.</p>
+    <span class="gov-era">1998–present</span>
+  </div>
+</div>
+
+## History
+
+UnitsML since 2003 — 23 strong years and counting. A continuous journey of standards development from LBNL to NIST, OASIS, and now CalConnect. For the full interactive timeline, see the [History](/history) page.
+
+<TimelineSection />
+
+## People
+
+UnitsML has been shaped by contributors across government, academia, and industry:
+
+<PeopleGrid />
+
+## Participating Organizations
+
+<div class="see-all-supporters">
+  <a href="/supporters">See all supporters with details &rarr;</a>
+</div>
+
+<div class="orgs-grid">
+  <a href="https://www.nist.gov" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <img src="/logos/nist-logo.svg" alt="NIST" width="24" height="24" />
+    </div>
+    <span class="org-name">NIST</span>
+    <span class="org-desc">National Institute of Standards and Technology</span>
+  </a>
+  <a href="https://www.calconnect.org" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <img src="/logos/calconnect-logo.svg" alt="CalConnect" width="24" height="24" />
+    </div>
+    <span class="org-name">CalConnect</span>
+    <span class="org-desc">Calendaring and Scheduling Consortium</span>
+  </a>
+  <a href="https://www.lbl.gov" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <span class="org-name">LBNL</span>
+    <span class="org-desc">Lawrence Berkeley National Laboratory</span>
+  </a>
+  <a href="https://www.ribose.com" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
+    </div>
+    <span class="org-name">Ribose</span>
+    <span class="org-desc">Open standards and security</span>
+  </a>
+  <a href="https://www.ibm.com" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    </div>
+    <span class="org-name">IBM</span>
+    <span class="org-desc">OASIS TC participant</span>
+  </a>
+  <a href="http://www.xml-cml.org" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+    </div>
+    <span class="org-name">CML</span>
+    <span class="org-desc">Chemical Markup Language</span>
+  </a>
+  <a href="https://www.oasis-open.org" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <img src="/logos/oasis-logo.svg" alt="OASIS" width="24" height="24" />
+    </div>
+    <span class="org-name">OASIS</span>
+    <span class="org-desc">Organization for the Advancement of Structured Information Standards</span>
+  </a>
+  <a href="https://www.bipm.org" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <img src="/logos/bipm-logo.svg" alt="BIPM" width="24" height="24" />
+    </div>
+    <span class="org-name">BIPM</span>
+    <span class="org-desc">International Bureau of Weights and Measures</span>
+  </a>
+
+  <a href="https://3docx.org" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <img src="/logos/ocx-logo.svg" alt="OCX Consortium" width="24" height="24" style="object-fit: contain;" />
+    </div>
+    <span class="org-name">OCX</span>
+    <span class="org-desc">Open Class 3D Exchange Consortium</span>
+  </a>
+
+  <a href="https://www.iec.ch" class="org-card" target="_blank" rel="noopener">
+    <div class="org-logo">
+      <img src="/logos/iec-logo.svg" alt="IEC" width="24" height="24" style="object-fit: contain;" />
+    </div>
+    <span class="org-name">IEC</span>
+    <span class="org-desc">International Electrotechnical Commission</span>
+  </a>
+</div>
+
+
+
+## Frequently Asked Questions
+
+<FAQAccordion />

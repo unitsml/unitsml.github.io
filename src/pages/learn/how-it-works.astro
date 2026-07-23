@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '@layouts/ContentLayout.astro';
+import DataModelDiagram from '@components/islands/DataModelDiagram.vue';
+
+const pages = await getCollection('learn');
+const page = pages.find(p => p.slug === 'how-it-works') || pages.find(p => p.id === 'how-it-works');
+if (!page) throw new Error('How-it-works page not found');
+const { Content } = await render(page);
+
+const sidebarItems = [
+  { text: 'What is UnitsML', link: '/learn/what-is-unitsml' },
+  { text: 'Who is it for', link: '/learn/who-is-it-for' },
+  { text: 'How it works', link: '/learn/how-it-works' },
+  { text: 'Incorporating UnitsML', link: '/learn/incorporating-unitsml' },
+  { text: 'Guide', link: '/learn/guide' },
+];
+---
+
+<ContentLayout title={page.data.title} description={page.data.description} sidebarTitle="Learn" sidebarItems={sidebarItems}>
+  <article class="content-page">
+    <Content components={{ DataModelDiagram }} />
+  </article>
+</ContentLayout>
+
+<style>
+  .content-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+</style>
