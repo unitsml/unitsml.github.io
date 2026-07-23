@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '@layouts/ContentLayout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  // Exclude pages that have custom Astro pages
+  const exclude = ['about', 'history'];
+  return pages
+    .filter(p => !exclude.includes(p.id))
+    .map(page => ({
+      params: { slug: page.id },
+      props: { page },
+    }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+const sidebarItems = [
+  { text: 'About UnitsML', link: '/about' },
+  { text: 'History', link: '/history' },
+  { text: 'Supporters', link: '/supporters' },
+  { text: 'Privacy Policy', link: '/privacy' },
+  { text: 'Terms of Service', link: '/tos' },
+];
+---
+
+<ContentLayout title={page.data.title} description={page.data.description} sidebarTitle="About" sidebarItems={sidebarItems}>
+  <article class="content-page">
+    <Content />
+  </article>
+</ContentLayout>
+
+<style>
+  .content-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+</style>

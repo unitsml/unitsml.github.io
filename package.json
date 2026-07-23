@@ -1,20 +1,24 @@
 {
-  "name": "unitsml.org",
-  "version": "1.0.0",
-  "description": "UnitsML - Authoritative mechanism for encoding scientific units of measure",
+  "name": "unitsml-org-astro",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview",
-    "generate:unitsdb": "tsx scripts/generate-unitsdb.ts"
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^7.0.3",
+    "@astrojs/vue": "^7.0.1",
+    "astro": "^7.1.1",
+    "typescript": "^5.6.0",
+    "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@asciidoctor/core": "^3.0.4",
-    "js-yaml": "^4.1.1",
-    "tsx": "^4.21.0",
-    "typescript": "^5.7.3",
-    "vitepress": "^1.6.4",
-    "vue": "^3.5.13"
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.0.0",
+    "pagefind": "^1.5.2",
+    "tailwindcss": "^4.3.3"
   }
 }

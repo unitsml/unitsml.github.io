@@ -1,0 +1,51 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+export async function getStaticPaths() {
+  const types = ['units', 'quantities', 'dimensions', 'prefixes', 'scales', 'systems'];
+  const fileMap: Record<string, string> = {
+    units: 'units',
+    quantities: 'quantities',
+    dimensions: 'dimensions',
+    prefixes: 'prefixes',
+    scales: 'scales',
+    systems: 'unit_systems',
+  };
+  const paths = [];
+  for (const type of types) {
+    const data = JSON.parse(readFileSync(resolve(`src/data/unitsdb/${fileMap[type]}.json`), 'utf-8'));
+    for (const item of data) {
+      const id = item.unitsml_id?.replace(/[^a-zA-Z0-9._-]/g, '_') || item.id;
+      paths.push({
+        params: { type, id },
+        props: { item, type },
+      });
+    }
+  }
+  return paths;
+}
+
+const { item, type } = Astro.props;
+
+const sidebarItems = [
+  { text: 'UnitsDB', link: '/unitsdb' },
+  { text: 'Schemas', link: '/schemas' },
+];
+---
+
+<ContentLayout title={`${item.name} — ${type}`} sidebarTitle="UnitsDB" sidebarItems={sidebarItems}>
+  <div class="entity-detail">
+    <h1>{item.name}</h1>
+    <pre>{JSON.stringify(item, null, 2)}</pre>
+  </div>
+</ContentLayout>
+
+<style>
+  .entity-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+</style>

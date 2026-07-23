@@ -53,6 +53,7 @@ npm run preview
 - `about.md` — Rich about page with ecosystem diagram, governance, timeline, people grid, organizations
 - `faq.md` — FAQ with accordion component
 - `privacy.md`, `tos.md` — standalone pages
+- `brand.md` — Brand & press assets page (logos in `public/brand/`, brand colors, usage guidelines)
 - `software/index.md` — Software listing with ecosystem diagram and project cards
 - `software/schemas.md`, `software/unitsdb.md`, `software/unitsml-ruby.md` — individual software pages
 - `specs/guidelines.md` — specifications page

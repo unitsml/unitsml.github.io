@@ -1,0 +1,1697 @@
+[
+  {
+    "id": "NISTp10_-1",
+    "unitsml_id": "p:deci",
+    "name": "deci",
+    "symbol": "d",
+    "symbols": {
+      "unicode": "d",
+      "ascii": "d",
+      "html": "d",
+      "latex": "d",
+      "id": "deci",
+      "mathml": "<mi>d</mi>"
+    },
+    "factor": "10^-1",
+    "base": 10,
+    "power": -1,
+    "value": 0.1,
+    "units": [
+      {
+        "id": "NISTu155",
+        "name": "decibel",
+        "symbol": "dB"
+      }
+    ],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-1"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:deci"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/deci"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:d"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Deci"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-12",
+    "unitsml_id": "p:pico",
+    "name": "pico",
+    "symbol": "p",
+    "symbols": {
+      "unicode": "p",
+      "ascii": "p",
+      "html": "p",
+      "latex": "p",
+      "id": "pico",
+      "mathml": "<mi>p</mi>"
+    },
+    "factor": "10^-12",
+    "base": 10,
+    "power": -12,
+    "value": 1e-12,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-12"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:pico"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/pico"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:p"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Pico"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-15",
+    "unitsml_id": "p:femto",
+    "name": "femto",
+    "symbol": "f",
+    "symbols": {
+      "unicode": "f",
+      "ascii": "f",
+      "html": "f",
+      "latex": "f",
+      "id": "femto",
+      "mathml": "<mi>f</mi>"
+    },
+    "factor": "10^-15",
+    "base": 10,
+    "power": -15,
+    "value": 1e-15,
+    "units": [
+      {
+        "id": "NISTu26",
+        "name": "fermi",
+        "symbol": "fermi"
+      }
+    ],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-15"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:femto"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/femto"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:f"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Femto"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-18",
+    "unitsml_id": "p:atto",
+    "name": "atto",
+    "symbol": "a",
+    "symbols": {
+      "unicode": "a",
+      "ascii": "a",
+      "html": "a",
+      "latex": "a",
+      "id": "atto",
+      "mathml": "<mi>a</mi>"
+    },
+    "factor": "10^-18",
+    "base": 10,
+    "power": -18,
+    "value": 1e-18,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-18"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:atto"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/atto"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:a"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Atto"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-2",
+    "unitsml_id": "p:centi",
+    "name": "centi",
+    "symbol": "c",
+    "symbols": {
+      "unicode": "c",
+      "ascii": "c",
+      "html": "c",
+      "latex": "c",
+      "id": "centi",
+      "mathml": "<mi>c</mi>"
+    },
+    "factor": "10^-2",
+    "base": 10,
+    "power": -2,
+    "value": 0.01,
+    "units": [
+      {
+        "id": "NISTu121",
+        "name": "centistokes",
+        "symbol": "cSt"
+      },
+      {
+        "id": "NISTu92",
+        "name": "dyne per square centimeter",
+        "symbol": "dyn·cm⁻²"
+      },
+      {
+        "id": "NISTu93",
+        "name": "gram-force per square centimeter",
+        "symbol": "gf·cm⁻²"
+      },
+      {
+        "id": "NISTu94",
+        "name": "kilogram-force per square centimeter",
+        "symbol": "kgf·cm⁻²"
+      },
+      {
+        "id": "NISTu97",
+        "name": "centipoise",
+        "symbol": "cP"
+      }
+    ],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-2"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:centi"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/centi"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:c"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Centi"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-21",
+    "unitsml_id": "p:zepto",
+    "name": "zepto",
+    "symbol": "z",
+    "symbols": {
+      "unicode": "z",
+      "ascii": "z",
+      "html": "z",
+      "latex": "z",
+      "id": "zepto",
+      "mathml": "<mi>z</mi>"
+    },
+    "factor": "10^-21",
+    "base": 10,
+    "power": -21,
+    "value": 1e-21,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-21"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:zepto"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/zepto"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:z"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Zepto"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-24",
+    "unitsml_id": "p:yocto",
+    "name": "yocto",
+    "symbol": "y",
+    "symbols": {
+      "unicode": "y",
+      "ascii": "y",
+      "html": "y",
+      "latex": "y",
+      "id": "yocto",
+      "mathml": "<mi>y</mi>"
+    },
+    "factor": "10^-24",
+    "base": 10,
+    "power": -24,
+    "value": 1e-24,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-24"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:yocto"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/yocto"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:y"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Yocto"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-27",
+    "unitsml_id": "p:ronto",
+    "name": "ronto",
+    "symbol": "r",
+    "symbols": {
+      "unicode": "r",
+      "ascii": "r",
+      "html": "r",
+      "latex": "r",
+      "id": "ronto",
+      "mathml": "<mi>r</mi>"
+    },
+    "factor": "10^-27",
+    "base": 10,
+    "power": -27,
+    "value": 1e-27,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-27"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:ronto"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/ronto"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Ronto"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-3",
+    "unitsml_id": "p:milli",
+    "name": "milli",
+    "symbol": "m",
+    "symbols": {
+      "unicode": "m",
+      "ascii": "m",
+      "html": "m",
+      "latex": "m",
+      "id": "milli",
+      "mathml": "<mi>m</mi>"
+    },
+    "factor": "10^-3",
+    "base": 10,
+    "power": -3,
+    "value": 0.001,
+    "units": [
+      {
+        "id": "NISTu123",
+        "name": "mil (length)",
+        "symbol": "thou"
+      },
+      {
+        "id": "NISTu362",
+        "name": "millibar",
+        "symbol": "mbar"
+      },
+      {
+        "id": "NISTu365",
+        "name": "milliliter",
+        "symbol": "ml"
+      },
+      {
+        "id": "NISTu96",
+        "name": "kilogram-force per square millimeter",
+        "symbol": "kgf·mm⁻²"
+      }
+    ],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-3"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:milli"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/milli"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:m"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Milli"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-30",
+    "unitsml_id": "p:quecto",
+    "name": "quecto",
+    "symbol": "q",
+    "symbols": {
+      "unicode": "q",
+      "ascii": "q",
+      "html": "q",
+      "latex": "q",
+      "id": "quecto",
+      "mathml": "<mi>q</mi>"
+    },
+    "factor": "10^-30",
+    "base": 10,
+    "power": -30,
+    "value": 1e-30,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-30"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:quecto"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/quecto"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Quecto"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-6",
+    "unitsml_id": "p:micro",
+    "name": "micro",
+    "symbol": "μ",
+    "symbols": {
+      "unicode": "μ",
+      "ascii": "u",
+      "html": "&micro;",
+      "latex": "$mu$",
+      "id": "micro",
+      "mathml": "<mi>&micro;</mi>"
+    },
+    "factor": "10^-6",
+    "base": 10,
+    "power": -6,
+    "value": 0.000001,
+    "units": [
+      {
+        "id": "NISTu122",
+        "name": "micron",
+        "symbol": "μ"
+      },
+      {
+        "id": "NISTu361",
+        "name": "microinch",
+        "symbol": "μin"
+      }
+    ],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-6"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:micro"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/micro"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:u"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Micro"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_-9",
+    "unitsml_id": "p:nano",
+    "name": "nano",
+    "symbol": "n",
+    "symbols": {
+      "unicode": "n",
+      "ascii": "n",
+      "html": "n",
+      "latex": "n",
+      "id": "nano",
+      "mathml": "<mi>n</mi>"
+    },
+    "factor": "10^-9",
+    "base": 10,
+    "power": -9,
+    "value": 1e-9,
+    "units": [
+      {
+        "id": "NISTu116",
+        "name": "gamma",
+        "symbol": "γ"
+      }
+    ],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_-9"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:nano"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/nano"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:n"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Nano"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_0",
+    "unitsml_id": "p:none",
+    "name": "none",
+    "symbol": "1",
+    "symbols": {
+      "unicode": "1",
+      "ascii": "1",
+      "html": "1",
+      "latex": "1",
+      "id": "unity",
+      "mathml": "<mn>1</mn>"
+    },
+    "factor": "10^0",
+    "base": 10,
+    "power": 0,
+    "value": 1,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_0"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:none"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/none"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_1",
+    "unitsml_id": "p:deka",
+    "name": "deka",
+    "symbol": "da",
+    "symbols": {
+      "unicode": "da",
+      "ascii": "da",
+      "html": "da",
+      "latex": "da",
+      "id": "deka",
+      "mathml": "<mi>da</mi>"
+    },
+    "factor": "10^1",
+    "base": 10,
+    "power": 1,
+    "value": 10,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_1"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:deka"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/deca"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:da"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Deca"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_12",
+    "unitsml_id": "p:tera",
+    "name": "tera",
+    "symbol": "T",
+    "symbols": {
+      "unicode": "T",
+      "ascii": "T",
+      "html": "T",
+      "latex": "T",
+      "id": "tera",
+      "mathml": "<mi>T</mi>"
+    },
+    "factor": "10^12",
+    "base": 10,
+    "power": 12,
+    "value": 1000000000000,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_12"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:tera"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/tera"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:T"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Tera"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_15",
+    "unitsml_id": "p:peta",
+    "name": "peta",
+    "symbol": "P",
+    "symbols": {
+      "unicode": "P",
+      "ascii": "P",
+      "html": "P",
+      "latex": "P",
+      "id": "peta",
+      "mathml": "<mi>P</mi>"
+    },
+    "factor": "10^15",
+    "base": 10,
+    "power": 15,
+    "value": 1000000000000000,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_15"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:peta"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/peta"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:P"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Peta"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_18",
+    "unitsml_id": "p:exa",
+    "name": "exa",
+    "symbol": "E",
+    "symbols": {
+      "unicode": "E",
+      "ascii": "E",
+      "html": "E",
+      "latex": "E",
+      "id": "exa",
+      "mathml": "<mi>E</mi>"
+    },
+    "factor": "10^18",
+    "base": 10,
+    "power": 18,
+    "value": 1000000000000000000,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_18"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:exa"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/exa"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:E"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Exa"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_2",
+    "unitsml_id": "p:hecto",
+    "name": "hecto",
+    "symbol": "h",
+    "symbols": {
+      "unicode": "h",
+      "ascii": "h",
+      "html": "h",
+      "latex": "h",
+      "id": "hecto",
+      "mathml": "<mi>h</mi>"
+    },
+    "factor": "10^2",
+    "base": 10,
+    "power": 2,
+    "value": 100,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_2"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:hecto"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/hecto"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:h"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Hecto"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_21",
+    "unitsml_id": "p:zetta",
+    "name": "zetta",
+    "symbol": "Z",
+    "symbols": {
+      "unicode": "Z",
+      "ascii": "Z",
+      "html": "Z",
+      "latex": "Z",
+      "id": "zetta",
+      "mathml": "<mi>Z</mi>"
+    },
+    "factor": "10^21",
+    "base": 10,
+    "power": 21,
+    "value": 1e+21,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_21"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:zetta"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/zetta"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:Z"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Zetta"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_24",
+    "unitsml_id": "p:yotta",
+    "name": "yotta",
+    "symbol": "Y",
+    "symbols": {
+      "unicode": "Y",
+      "ascii": "Y",
+      "html": "Y",
+      "latex": "Y",
+      "id": "yotta",
+      "mathml": "<mi>Y</mi>"
+    },
+    "factor": "10^24",
+    "base": 10,
+    "power": 24,
+    "value": 1e+24,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_24"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:yotta"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/yotta"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:Y"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Yotta"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_27",
+    "unitsml_id": "p:ronna",
+    "name": "ronna",
+    "symbol": "R",
+    "symbols": {
+      "unicode": "R",
+      "ascii": "R",
+      "html": "R",
+      "latex": "R",
+      "id": "ronna",
+      "mathml": "<mi>R</mi>"
+    },
+    "factor": "10^27",
+    "base": 10,
+    "power": 27,
+    "value": 1e+27,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_27"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:ronna"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/ronna"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Ronna"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_3",
+    "unitsml_id": "p:kilo",
+    "name": "kilo",
+    "symbol": "k",
+    "symbols": {
+      "unicode": "k",
+      "ascii": "k",
+      "html": "k",
+      "latex": "k",
+      "id": "kilo",
+      "mathml": "<mi>k</mi>"
+    },
+    "factor": "10^3",
+    "base": 10,
+    "power": 3,
+    "value": 1000,
+    "units": [
+      {
+        "id": "NISTu11",
+        "name": "newton",
+        "symbol": "N"
+      },
+      {
+        "id": "NISTu11.u1e2/1.u27p10'3e-2/1",
+        "name": "newton meter squared per kilogram squared",
+        "symbol": "N·m²/kg²"
+      },
+      {
+        "id": "NISTu12",
+        "name": "pascal",
+        "symbol": "Pa"
+      },
+      {
+        "id": "NISTu125",
+        "name": "kilogram-force second squared per meter",
+        "symbol": "kgf·s²m⁻¹"
+      },
+      {
+        "id": "NISTu126",
+        "name": "kilogram-force meter",
+        "symbol": "kgf·m"
+      },
+      {
+        "id": "NISTu13",
+        "name": "joule",
+        "symbol": "J"
+      },
+      {
+        "id": "NISTu13.u27p10'3e-1/1",
+        "name": "joule per kilogram",
+        "symbol": "J/kg"
+      },
+      {
+        "id": "NISTu13.u27p10'3e-1/1.u5e-1/1",
+        "name": "joule per kilogram kelvin",
+        "symbol": "J/(kg·K)"
+      },
+      {
+        "id": "NISTu14",
+        "name": "watt",
+        "symbol": "W"
+      },
+      {
+        "id": "NISTu15.u27p10'3e-1/1",
+        "name": "coulomb per kilogram",
+        "symbol": "C/kg"
+      },
+      {
+        "id": "NISTu16",
+        "name": "volt",
+        "symbol": "V"
+      },
+      {
+        "id": "NISTu160",
+        "name": "kilometer per hour",
+        "symbol": "km/h"
+      },
+      {
+        "id": "NISTu17",
+        "name": "farad",
+        "symbol": "F"
+      },
+      {
+        "id": "NISTu18",
+        "name": "ohm",
+        "symbol": "Ω"
+      },
+      {
+        "id": "NISTu188",
+        "name": "kilogram per liter",
+        "symbol": "kg/l"
+      },
+      {
+        "id": "NISTu19",
+        "name": "siemens",
+        "symbol": "S"
+      },
+      {
+        "id": "NISTu196",
+        "name": "gram-force",
+        "symbol": "gf"
+      },
+      {
+        "id": "NISTu1e3/1.u27p10'3",
+        "name": "cubic meter per kilogram",
+        "symbol": "m³·kg"
+      },
+      {
+        "id": "NISTu2",
+        "name": "kilogram",
+        "symbol": "kg"
+      },
+      {
+        "id": "NISTu20",
+        "name": "weber",
+        "symbol": "Wb"
+      },
+      {
+        "id": "NISTu21",
+        "name": "tesla",
+        "symbol": "T"
+      },
+      {
+        "id": "NISTu217",
+        "name": "kilogram-force meter per second",
+        "symbol": "kgf·m/s"
+      },
+      {
+        "id": "NISTu22",
+        "name": "henry",
+        "symbol": "H"
+      },
+      {
+        "id": "NISTu27p10'3.u1.u3e-1/1",
+        "name": "kilogram meter per second",
+        "symbol": "N·m/s"
+      },
+      {
+        "id": "NISTu27p10'3.u1e-1/1",
+        "name": "kilogram per meter",
+        "symbol": "kg/m"
+      },
+      {
+        "id": "NISTu27p10'3.u1e-2/1",
+        "name": "kilogram per square meter",
+        "symbol": "kg/m²"
+      },
+      {
+        "id": "NISTu27p10'3.u1e-3/1",
+        "name": "kilogram per cubic meter",
+        "symbol": "kg·m⁻³"
+      },
+      {
+        "id": "NISTu27p10'3.u1e2/1",
+        "name": "kilogram meter squared",
+        "symbol": "kg·m²"
+      },
+      {
+        "id": "NISTu27p10'3.u1e2/1.u3e-1/1",
+        "name": "kilogram meter squared per second",
+        "symbol": "kg·m²/s"
+      },
+      {
+        "id": "NISTu27p10'3.u3e-1/1",
+        "name": "kilogram per second",
+        "symbol": "kg/s"
+      },
+      {
+        "id": "NISTu380",
+        "name": "kilometer per liter",
+        "symbol": "km/L"
+      },
+      {
+        "id": "NISTu6.u27p10'3e-1/1",
+        "name": "mole per kilogram",
+        "symbol": "mol/kg"
+      },
+      {
+        "id": "NISTu65",
+        "name": "kilowatt hour",
+        "symbol": "kW·h"
+      },
+      {
+        "id": "NISTu72",
+        "name": "kilogram-force",
+        "symbol": "kgf"
+      },
+      {
+        "id": "NISTu75",
+        "name": "kilocalorie_th per second",
+        "symbol": "kcal_th/s"
+      },
+      {
+        "id": "NISTu94",
+        "name": "kilogram-force per square centimeter",
+        "symbol": "kgf·cm⁻²"
+      },
+      {
+        "id": "NISTu95",
+        "name": "kilogram-force per square meter",
+        "symbol": "kgf·m⁻²"
+      },
+      {
+        "id": "NISTu96",
+        "name": "kilogram-force per square millimeter",
+        "symbol": "kgf·mm⁻²"
+      }
+    ],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_3"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:kilo"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/kilo"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:k"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Kilo"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_30",
+    "unitsml_id": "p:quetta",
+    "name": "quetta",
+    "symbol": "Q",
+    "symbols": {
+      "unicode": "Q",
+      "ascii": "Q",
+      "html": "Q",
+      "latex": "Q",
+      "id": "quetta",
+      "mathml": "<mi>Q</mi>"
+    },
+    "factor": "10^30",
+    "base": 10,
+    "power": 30,
+    "value": 1e+30,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_30"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:quetta"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/quetta"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Quetta"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_6",
+    "unitsml_id": "p:mega",
+    "name": "mega",
+    "symbol": "M",
+    "symbols": {
+      "unicode": "M",
+      "ascii": "M",
+      "html": "M",
+      "latex": "M",
+      "id": "mega",
+      "mathml": "<mi>M</mi>"
+    },
+    "factor": "10^6",
+    "base": 10,
+    "power": 6,
+    "value": 1000000,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_6"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:mega"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/mega"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:M"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Mega"
+      }
+    ]
+  },
+  {
+    "id": "NISTp10_9",
+    "unitsml_id": "p:giga",
+    "name": "giga",
+    "symbol": "G",
+    "symbols": {
+      "unicode": "G",
+      "ascii": "G",
+      "html": "G",
+      "latex": "G",
+      "id": "giga",
+      "mathml": "<mi>G</mi>"
+    },
+    "factor": "10^9",
+    "base": 10,
+    "power": 9,
+    "value": 1000000000,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp10_9"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:giga"
+      }
+    ],
+    "references": [
+      {
+        "type": "normative",
+        "authority": "si-digital-framework",
+        "uri": "http://si-digital-framework.org/SI/prefixes/giga"
+      },
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:G"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/unit/Giga"
+      }
+    ]
+  },
+  {
+    "id": "NISTp2_10",
+    "unitsml_id": "p:kibi",
+    "name": "kibi",
+    "symbol": "Ki",
+    "symbols": {
+      "unicode": "Ki",
+      "ascii": "Ki",
+      "html": "Ki",
+      "latex": "Ki",
+      "id": "kibi",
+      "mathml": "<mi>Ki</mi>"
+    },
+    "factor": "2^10",
+    "base": 2,
+    "power": 10,
+    "value": 1024,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp2_10"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:kibi"
+      }
+    ],
+    "references": [
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:Ki"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/prefix/Kibi"
+      }
+    ]
+  },
+  {
+    "id": "NISTp2_20",
+    "unitsml_id": "p:mebi",
+    "name": "mebi",
+    "symbol": "Mi",
+    "symbols": {
+      "unicode": "Mi",
+      "ascii": "Mi",
+      "html": "Mi",
+      "latex": "Mi",
+      "id": "mebi",
+      "mathml": "<mi>Mi</mi>"
+    },
+    "factor": "2^20",
+    "base": 2,
+    "power": 20,
+    "value": 1048576,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp2_20"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:mebi"
+      }
+    ],
+    "references": [
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:Mi"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/prefix/Mebi"
+      }
+    ]
+  },
+  {
+    "id": "NISTp2_30",
+    "unitsml_id": "p:gibi",
+    "name": "gibi",
+    "symbol": "Gi",
+    "symbols": {
+      "unicode": "Gi",
+      "ascii": "Gi",
+      "html": "Gi",
+      "latex": "Gi",
+      "id": "gibi",
+      "mathml": "<mi>Gi</mi>"
+    },
+    "factor": "2^30",
+    "base": 2,
+    "power": 30,
+    "value": 1073741824,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp2_30"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:gibi"
+      }
+    ],
+    "references": [
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:Gi"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/prefix/Gibi"
+      }
+    ]
+  },
+  {
+    "id": "NISTp2_40",
+    "unitsml_id": "p:tebi",
+    "name": "tebi",
+    "symbol": "Ti",
+    "symbols": {
+      "unicode": "Ti",
+      "ascii": "Ti",
+      "html": "Ti",
+      "latex": "Ti",
+      "id": "tebi",
+      "mathml": "<mi>Ti</mi>"
+    },
+    "factor": "2^40",
+    "base": 2,
+    "power": 40,
+    "value": 1099511627776,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp2_40"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:tebi"
+      }
+    ],
+    "references": [
+      {
+        "type": "informative",
+        "authority": "ucum",
+        "uri": "ucum:prefix:code:Ti"
+      },
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/prefix/Tebi"
+      }
+    ]
+  },
+  {
+    "id": "NISTp2_50",
+    "unitsml_id": "p:pebi",
+    "name": "pebi",
+    "symbol": "Pi",
+    "symbols": {
+      "unicode": "Pi",
+      "ascii": "Pi",
+      "html": "Pi",
+      "latex": "Pi",
+      "id": "pebi",
+      "mathml": "<mi>Pi</mi>"
+    },
+    "factor": "2^50",
+    "base": 2,
+    "power": 50,
+    "value": 1125899906842624,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp2_50"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:pebi"
+      }
+    ],
+    "references": [
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/prefix/Pebi"
+      }
+    ]
+  },
+  {
+    "id": "NISTp2_60",
+    "unitsml_id": "p:exbi",
+    "name": "exbi",
+    "symbol": "Ei",
+    "symbols": {
+      "unicode": "Ei",
+      "ascii": "Ei",
+      "html": "Ei",
+      "latex": "Ei",
+      "id": "exbi",
+      "mathml": "<mi>Ei</mi>"
+    },
+    "factor": "2^60",
+    "base": 2,
+    "power": 60,
+    "value": 1152921504606847000,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp2_60"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:exbi"
+      }
+    ],
+    "references": [
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/prefix/Exbi"
+      }
+    ]
+  },
+  {
+    "id": "NISTp2_70",
+    "unitsml_id": "p:zebi",
+    "name": "zebi",
+    "symbol": "Zi",
+    "symbols": {
+      "unicode": "Zi",
+      "ascii": "Zi",
+      "html": "Zi",
+      "latex": "Zi",
+      "id": "zebi",
+      "mathml": "<mi>Zi</mi>"
+    },
+    "factor": "2^70",
+    "base": 2,
+    "power": 70,
+    "value": 1.1805916207174113e+21,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp2_70"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:zebi"
+      }
+    ],
+    "references": [
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/prefix/Zebi"
+      }
+    ]
+  },
+  {
+    "id": "NISTp2_80",
+    "unitsml_id": "p:yobi",
+    "name": "yobi",
+    "symbol": "Yi",
+    "symbols": {
+      "unicode": "Yi",
+      "ascii": "Yi",
+      "html": "Yi",
+      "latex": "Yi",
+      "id": "yobi",
+      "mathml": "<mi>Yi</mi>"
+    },
+    "factor": "2^80",
+    "base": 2,
+    "power": 80,
+    "value": 1.2089258196146292e+24,
+    "units": [],
+    "identifiers": [
+      {
+        "type": "nist",
+        "id": "NISTp2_80"
+      },
+      {
+        "type": "unitsml",
+        "id": "p:yobi"
+      }
+    ],
+    "references": [
+      {
+        "type": "informative",
+        "authority": "qudt",
+        "uri": "http://qudt.org/vocab/prefix/Yobi"
+      }
+    ]
+  }
+]

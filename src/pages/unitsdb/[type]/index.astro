@@ -1,0 +1,91 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+export async function getStaticPaths() {
+  return ['units', 'quantities', 'dimensions', 'prefixes', 'scales', 'systems'].map(type => ({
+    params: { type },
+  }));
+}
+
+const { type } = Astro.params;
+const fileMap: Record<string, string> = {
+  units: 'units',
+  quantities: 'quantities',
+  dimensions: 'dimensions',
+  prefixes: 'prefixes',
+  scales: 'scales',
+  systems: 'unit_systems',
+};
+const data = JSON.parse(readFileSync(resolve(`src/data/unitsdb/${fileMap[type]}.json`), 'utf-8'));
+
+const typeLabels: Record<string, string> = {
+  units: 'Units',
+  quantities: 'Quantities',
+  dimensions: 'Dimensions',
+  prefixes: 'Prefixes',
+  scales: 'Scales',
+  systems: 'Unit Systems',
+};
+
+const label = typeLabels[type] || type;
+
+const sidebarItems = [
+  { text: 'UnitsDB', link: '/unitsdb' },
+  { text: 'Schemas', link: '/schemas' },
+];
+---
+
+<ContentLayout title={`${label} — UnitsDB`} sidebarTitle="UnitsDB" sidebarItems={sidebarItems}>
+  <div class="unitsdb-type">
+    <h1>{label}</h1>
+    <p class="unitsdb-count">{data.length} entries</p>
+    <div class="unitsdb-list">
+      {data.map((item: any) => {
+        const slug = item.unitsml_id?.replace(/[^a-zA-Z0-9._-]/g, '_') || item.id;
+        return (
+          <a href={`/unitsdb/${type}/${slug}/`} class="unitsdb-item">
+            <strong>{item.name}</strong>
+            {item.symbols?.[0]?.unicode && <code>{item.symbols[0].unicode}</code>}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</ContentLayout>
+
+<style>
+  .unitsdb-type {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .unitsdb-count {
+    color: var(--vp-c-text-3);
+    margin-bottom: 2rem;
+  }
+  .unitsdb-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .unitsdb-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: var(--vp-c-bg-soft);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .unitsdb-item:hover {
+    border-color: var(--vp-c-brand-1);
+  }
+  .unitsdb-item code {
+    font-size: 0.875rem;
+    color: var(--vp-c-text-3);
+  }
+</style>

@@ -1,0 +1,132 @@
+[
+  {
+    "id": "continuous_ratio",
+    "unitsml_id": "continuous_ratio",
+    "name": "continuous ratio scale",
+    "properties": {
+      "continuous": true,
+      "ordered": true,
+      "logarithmic": false,
+      "interval": true,
+      "ratio": true
+    },
+    "description": [
+      "A measurement scale with continuous values and a true zero point, allowing for ratio comparisons"
+    ],
+    "unit_count": 367,
+    "identifiers": [
+      {
+        "type": "unitsml",
+        "id": "continuous_ratio"
+      },
+      {
+        "type": "unitsml",
+        "id": "s:continuous_ratio"
+      }
+    ]
+  },
+  {
+    "id": "continuous_interval",
+    "unitsml_id": "continuous_interval",
+    "name": "continuous interval scale",
+    "properties": {
+      "continuous": true,
+      "ordered": true,
+      "logarithmic": false,
+      "interval": true,
+      "ratio": false
+    },
+    "description": [
+      "A measurement scale with continuous values but an arbitrary zero point, allowing for interval but not ratio comparisons"
+    ],
+    "unit_count": 3,
+    "identifiers": [
+      {
+        "type": "unitsml",
+        "id": "continuous_interval"
+      },
+      {
+        "type": "unitsml",
+        "id": "s:continuous_interval"
+      }
+    ]
+  },
+  {
+    "id": "logarithmic_ratio",
+    "unitsml_id": "logarithmic_ratio",
+    "name": "logarithmic ratio scale",
+    "properties": {
+      "continuous": true,
+      "ordered": true,
+      "logarithmic": true,
+      "interval": true,
+      "ratio": true
+    },
+    "description": [
+      "A scale where equal ratios appear as equal intervals, with a zero point representing a reference value"
+    ],
+    "unit_count": 3,
+    "identifiers": [
+      {
+        "type": "unitsml",
+        "id": "logarithmic_ratio"
+      },
+      {
+        "type": "unitsml",
+        "id": "s:logarithmic_ratio"
+      }
+    ]
+  },
+  {
+    "id": "logarithmic_field",
+    "unitsml_id": "logarithmic_field",
+    "name": "logarithmic field scale",
+    "properties": {
+      "continuous": true,
+      "ordered": true,
+      "logarithmic": true,
+      "interval": true,
+      "ratio": false
+    },
+    "description": [
+      "A logarithmic scale used for field quantities that uses natural logarithms"
+    ],
+    "unit_count": 2,
+    "identifiers": [
+      {
+        "type": "unitsml",
+        "id": "logarithmic_field"
+      },
+      {
+        "type": "unitsml",
+        "id": "s:logarithmic_field"
+      }
+    ]
+  },
+  {
+    "id": "discrete",
+    "unitsml_id": "discrete",
+    "name": "discrete scale",
+    "properties": {
+      "continuous": false,
+      "ordered": true,
+      "logarithmic": false,
+      "interval": true,
+      "ratio": true
+    },
+    "description": [
+      "A scale consisting of discrete, countable values"
+    ],
+    "unit_count": 5,
+    "identifiers": [
+      {
+        "type": "unitsml",
+        "id": "discrete"
+      },
+      {
+        "type": "unitsml",
+        "id": "s:discrete"
+      }
+    ]
+  }
+]

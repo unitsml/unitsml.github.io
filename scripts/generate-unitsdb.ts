@@ -173,12 +173,11 @@ function main() {
   const scaleMap: Record<string, ScaleInfo> = {}
   for (const s of scalesData.scales) {
     const sid: string = s.identifiers[0].id
-    const refs = s.references
-    const desc = refs?.informative ?? (Array.isArray(refs) ? refs : [])
+    const desc = (s.description ?? []).map((d: any) => d.value ?? '')
     scaleMap[sid] = {
       name: firstName(s.names),
       properties: s.properties ?? {},
-      description: Array.isArray(desc) ? desc : [],
+      description: desc,
     }
   }
 
@@ -271,7 +270,8 @@ function main() {
     }
 
     // Root units (with prefix resolution!)
-    const rootUnitsRaw = u.root_units
+    // Handles both root_units and si_derived_bases
+    const rootUnitsRaw = u.root_units ?? u.si_derived_bases
     let rootUnits: any[] | null = null
     if (rootUnitsRaw && rootUnitsRaw.length) {
       rootUnits = rootUnitsRaw.map((ru: any) => {

@@ -1,0 +1,73 @@
+---
+import { getCollection } from 'astro:content';
+import ContentLayout from '@layouts/ContentLayout.astro';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts
+  .filter(p => p.id !== 'index')
+  .sort((a, b) => (b.data.date?.getTime() || 0) - (a.data.date?.getTime() || 0));
+
+const sidebarItems = [
+  { text: 'Blog', link: '/blog' },
+];
+---
+
+<ContentLayout title="Blog" description="UnitsML blog" sidebarTitle="Blog" sidebarItems={sidebarItems}>
+  <div class="blog-index">
+    <h1>Blog</h1>
+    <p class="blog-lead">News and updates from the UnitsML project.</p>
+    <div class="blog-posts">
+      {sortedPosts.map(post => (
+        <a href={`/blog/${post.id}/`} class="blog-post-card">
+          <h3>{post.data.title}</h3>
+          {post.data.description && <p>{post.data.description}</p>}
+          {post.data.date && <time>{post.data.date.toISOString().split('T')[0]}</time>}
+        </a>
+      ))}
+    </div>
+  </div>
+</ContentLayout>
+
+<style>
+  .blog-index {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .blog-lead {
+    color: var(--vp-c-text-2);
+    margin-bottom: 2rem;
+  }
+  .blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .blog-post-card {
+    display: block;
+    padding: 1.5rem;
+    background: var(--vp-c-bg-soft);
+    border: 1px solid var(--vp-c-divider);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s ease;
+  }
+  .blog-post-card:hover {
+    border-color: var(--vp-c-brand-1);
+    box-shadow: 0 4px 16px rgba(45, 44, 105, 0.06);
+  }
+  .blog-post-card h3 {
+    margin: 0 0 0.5rem;
+    color: var(--vp-c-text-1);
+  }
+  .blog-post-card p {
+    margin: 0 0 0.5rem;
+    color: var(--vp-c-text-2);
+    font-size: 0.875rem;
+  }
+  .blog-post-card time {
+    font-size: 0.75rem;
+    color: var(--vp-c-text-3);
+  }
+</style>

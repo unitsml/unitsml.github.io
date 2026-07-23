@@ -1,0 +1,62 @@
+---
+import ContentLayout from '@layouts/ContentLayout.astro';
+import EcosystemDiagram from '@components/islands/EcosystemDiagram.vue';
+import { projects } from '@data/projects';
+
+const sidebarItems = [
+  { text: 'Overview', link: '/software' },
+  { text: 'unitsdb-ruby', link: '/software/unitsdb-ruby' },
+  { text: 'unitsml-ruby', link: '/software/unitsml-ruby' },
+];
+---
+
+<ContentLayout title="Software" description="Software libraries for working with UnitsML" sidebarTitle="Software" sidebarItems={sidebarItems}>
+  <article class="content-page">
+    <h1>Software</h1>
+    <p class="lead">Libraries and tools for working with UnitsML and UnitsDB programmatically.</p>
+
+    <h2>How the pieces fit together</h2>
+    <EcosystemDiagram client:load />
+
+    <h2>Libraries</h2>
+    <div class="projects-grid" style="margin-top: 2rem;">
+      {projects.map((project: any) => (
+        <div class="project-card featured">
+          <div class="card-icon">{project.icon}</div>
+          <h3>
+            {project.name}
+            {project.version && <span class="version">{project.version}</span>}
+          </h3>
+          <p class="description">{project.description}</p>
+          <div class="links">
+            <a href={project.github} class="primary" target="_blank" rel="noopener">GitHub</a>
+            {project.docs && <a href={project.docs} class="secondary" target="_blank" rel="noopener">Docs</a>}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h2>Related resources</h2>
+    <ul>
+      <li><a href="/unitsdb/">UnitsDB</a> — browse the complete database with 716 entities</li>
+      <li><a href="/schemas">Schemas</a> — UnitsML XML Schemas and UnitsDB YAML Schemas</li>
+      <li><a href="/software/unitsdb-ruby">unitsdb-ruby</a> — Ruby library for accessing UnitsDB data</li>
+      <li><a href="/software/unitsml-ruby">unitsml-ruby</a> — Ruby library for working with UnitsML expressions</li>
+      <li><a href="https://github.com/unitsml/unitsdb-js">@unitsml/unitsdb</a> — JavaScript library for accessing UnitsDB data</li>
+      <li><a href="https://github.com/unitsml/unitsml-js">@unitsml/unitsml</a> — JavaScript library for working with UnitsML expressions</li>
+    </ul>
+  </article>
+</ContentLayout>
+
+<style>
+  .content-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .lead {
+    font-size: 1.125rem;
+    color: var(--vp-c-text-2);
+    margin-bottom: 2rem;
+  }
+</style>

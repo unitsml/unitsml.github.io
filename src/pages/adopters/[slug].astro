@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '@layouts/ContentLayout.astro';
+
+export async function getStaticPaths() {
+  const adopters = await getCollection('adopters');
+  return adopters.map(page => ({
+    params: { slug: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+
+const sidebarItems = [
+  { text: 'Who uses UnitsML', link: '/who-uses-unitsml' },
+  { text: 'OCX Consortium', link: '/adopters/ocx' },
+  { text: 'IEC CDD', link: '/adopters/iec-cdd' },
+];
+---
+
+<ContentLayout title={page.data.title} description={page.data.description} sidebarTitle="Adopt" sidebarItems={sidebarItems}>
+  <article class="content-page">
+    <Content />
+  </article>
+</ContentLayout>
+
+<style>
+  .content-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+</style>

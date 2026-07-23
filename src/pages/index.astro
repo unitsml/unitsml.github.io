@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HomePage from '@components/islands/HomePage.vue';
+import WappiMascot from '@components/islands/WappiMascot.vue';
+---
+
+<BaseLayout title="UnitsML — Unambiguous models for scientific units of measure">
+  <HomePage client:load />
+  <WappiMascot client:idle />
+</BaseLayout>
