@@ -8,6 +8,7 @@ exclude = [
   "https://www.grantadesign.com/*",
   "https://www.babcockinternational.com/*",
   "https://www.unf.edu/*",
+  "https://www.iec.ch/*",
 ]
 
 max_retries = 3
